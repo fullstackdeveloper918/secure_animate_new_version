@@ -1,188 +1,221 @@
-"use client"
-// import ClapatSlider from '@/components/sliderProject/sliderProject';
-import React, { useEffect } from 'react';
-import Justfor from "../../../public/images/just-for.png"
-import Link from 'next/link';
-import Image from 'next/image';
-const page = () => {
+"use client";
+import React, { useEffect, useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { FaFacebookF } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+import ProjectSlider from "@/components/projectSlider/projectSlider";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import TechableProject from "@/components/projectSlider/TechableProject";
+import AppleTech from "@/components/projectSlider/AppleTech";
+gsap.registerPlugin(ScrollTrigger);
+const Page = () => {
+  const heroRef = useRef(null);
+  const mainContentRef = useRef(null);
+  const sectionRef = useRef(null);
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     const tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: sectionRef.current,
+  //         start: "top center",
+  //         end: "+=180", // Increase for more scroll length
+  //         scrub: true,
+  //         pin: true,
+  //         markers: false,
+  //       },
+  //     });
+  //     const stepsEls = gsap.utils.toArray(".step");
+  //     stepsEls.forEach((step, i) => {
+  //       tl.fromTo(
+  //         step,
+  //         { opacity: 0, y: 100 },
+  //         {
+  //           opacity: 1,
+  //           y: 0,
+  //           duration: 0.8,
+  //           ease: "power2.out",
+  //         },
+  //         i * 0.5 // stagger each step in scroll timeline
+  //       );
+  //     });
+  //   }, sectionRef);
+  //   return () => ctx.revert();
+  // }, []);
   useEffect(() => {
-    // Example DOM manipulation (ensure elements exist before accessing them)
-    const preloaderWrap = document.querySelector('.preloader-wrap');
-    if (preloaderWrap) {
-      preloaderWrap.classList.add('loaded'); // Add a class to indicate loaded state
-    }
+    // Hero Section Animations
+    gsap.set("#hero-background-layer", {
+      y: "-100%",
+      scale: 0.8,
+      width: "60%",
+      transformOrigin: "center top",
+      opacity: 0,
+    });
+    const heroTl = gsap.timeline({ delay: 0.2 });
+    heroTl
+      .to("#hero-background-layer", {
+        y: "0%",
+        scale: 1,
+        width: "100%",
+        opacity: 1,
+        duration: 1.8,
+        ease: "power3.out",
+      })
+      .fromTo(
+        ".hero-title span",
+        {
+          y: 120,
+          opacity: 0,
+          skewY: 5,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          skewY: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          stagger: 0.3,
+        },
+        "-=1.2"
+      )
+      .fromTo(
+        ".hero-subtitle span",
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+        },
+        "-=0.8"
+      )
+      .fromTo(
+        ".hero-footer-left, .hero-footer-right",
+        {
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power2.out",
+          stagger: 0.2,
+        },
+        "-=0.5"
+      );
+    // Parallax for hero image
+    gsap.to("#hero-bg-image", {
+      yPercent: 20,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+    // Parallax for all images in main content
+    gsap.utils.toArray(".parallax-image").forEach((image) => {
+      gsap.fromTo(
+        image,
+        {
+          y: -60,
+        },
+        {
+          y: 60,
+          ease: "none",
+          scrollTrigger: {
+            trigger: image,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+    });
+    gsap.utils.toArray(".pinned-item").forEach((item, index) => {
+      gsap.fromTo(
+        item,
+        {
+          y: 100,
+          opacity: 0,
+          scale: 0.9,
+          // transformOrigin: "center top",
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 80%",
+            end: "top 20%",
+            scrub: 0.5,
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+    // Content section animations
+    gsap.utils.toArray(".content-row").forEach((section) => {
+      gsap.fromTo(
+        section,
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 85%",
+            end: "top 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+    // Smooth scroll for entire page
+    ScrollTrigger.create({
+      trigger: mainContentRef.current,
+      start: "top top",
+      end: "bottom bottom",
+      onUpdate: (self) => {
+        gsap.to(mainContentRef.current, {
+          y: -self.progress * 50,
+          ease: "power2.out",
+          overwrite: "auto",
+        });
+      },
+    });
+    // Refresh ScrollTrigger after setup
+    ScrollTrigger.refresh();
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
-
   return (
     <>
-         <main>
-        <div className="preloader-wrap" data-centerLine="Loading">
-          <div id="text-container">
-            <div className="word">Brewing some cool things</div>
-            <div className="word">Hang tight, magic is happening</div>
-            <div className="word">Loading your adventure</div>
-          </div>
-
-         
-        </div>
-
+      <main>
         <div className="cd-index cd-main-content">
           <div
             id="clapat-page-content"
             className="dark-content"
-            data-bgcolor="#ebebeb"
+            data-bgcolor="#EBEBEB"
           >
-            <header
-              className="clapat-header classic-menu invert-header"
-              data-menucolor="#0c0c0c"
-            >
-              <div className="header-gradient"></div>
-
-              <div id="header-container">
-                <div id="clapat-logo" className="hide-ball">
-                  <Link
-                    className="ajax-link"
-                    data-type="page-transition"
-                    href="index.html"
-                  >
-                    <Image
-                      className="black-logo"
-                      src="/images/logo.png"
-                      alt="ClaPat Logo"
-                      width={210}
-                      height={21}
-                    />
-                    <Image
-                      className="white-logo"
-                      src="/images/logo-white.png"
-                      alt="ClaPat Logo"
-                      width={210}
-                      height={21}
-                    />
-                  </Link>
-                </div>
-
-                <nav className="clapat-nav-wrapper">
-                  <div className="nav-height">
-                    <ul data-breakpoint="1025" className="flexnav">
-                      <li className="menu-timeline link">
-                        <Link
-                          className="ajax-link"
-                          data-type="page-transition"
-                          href="index.html"
-                        >
-                          <div className="before-span">
-                            <span data-hover="Index">Index</span>
-                          </div>
-                        </Link>
-                      </li>
-                      <li className="menu-timeline link">
-                        <Link
-                          className="ajax-link active"
-                          data-type="page-transition"
-                          href="#"
-                        >
-                          <div className="before-span">
-                            <span data-hover="Projects">Projects</span>
-                          </div>
-                        </Link>
-                        <ul>
-                          <li>
-                            <Link
-                              className="ajax-link"
-                              href="index-highlights.html"
-                              data-type="page-transition"
-                            >
-                              Highlights
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              className="ajax-link"
-                              href="index-portfolio.html"
-                              data-type="page-transition"
-                            >
-                              Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              className="ajax-link"
-                              href="index-playground.html"
-                              data-type="page-transition"
-                            >
-                              Playground
-                            </Link>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="menu-timeline link">
-                        <Link
-                          className="ajax-link"
-                          data-type="page-transition"
-                          href="about.html"
-                        >
-                          <div className="before-span">
-                            <span data-hover="Agency">Agency</span>
-                          </div>
-                        </Link>
-                      </li>
-                      <li className="menu-timeline link">
-                        <Link
-                          className="ajax-link"
-                          data-type="page-transition"
-                          href="resources.html"
-                        >
-                          <div className="before-span">
-                            <span data-hover="Resources">Resources</span>
-                          </div>
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </nav>
-
-                <Link
-                  className="header-button ajax-link"
-                  data-type="page-transition"
-                  href="contact.html"
-                >
-                  <div className="button-icon-link right">
-                    <div className="icon-wrap-scale">
-                      <div className="icon-wrap parallax-wrap">
-                        <div className="button-icon parallax-element">
-                          <i className="fa-solid fa-arrow-right"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="button-text sticky right">
-                      <span data-hover="Let's Talk">Let's Talk</span>
-                    </div>
-                  </div>
-                </Link>
-
-                <div className="button-wrap right menu burger-lines">
-                  <div className="icon-wrap parallax-wrap">
-                    <div className="button-icon parallax-element">
-                      <div id="burger-wrapper">
-                        <div id="menu-burger">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="button-text sticky right">
-                    <span data-hover="Menu">Menu</span>
-                  </div>
-                </div>
-              </div>
-            </header>
-
             <div id="content-scroll">
-              <div id="main">
-                <div id="hero" className="has-image autoscroll">
+              <div id="main" ref={mainContentRef}>
+                <div id="hero" className="has-image autoscroll" ref={heroRef}>
                   <div id="hero-styles">
                     <div
                       id="hero-caption"
@@ -190,13 +223,12 @@ const page = () => {
                     >
                       <div className="inner">
                         <h1 className="hero-title caption-timeline">
-                          <span>Sport's</span> <span>Specials</span>
+                          <span>Shop Smart.</span> <span>Save the Planet.</span>
                         </h1>
                         <div className="hero-subtitle caption-timeline onload-shuffle">
                           <span>Branding</span>
                         </div>
                       </div>
-
                       <div id="hero-footer">
                         <div className="hero-footer-left">
                           <div className="button-wrap left scroll-down">
@@ -217,95 +249,123 @@ const page = () => {
                             id="share"
                             className="page-action-content"
                             data-text="SHARE:"
-                          ></div>
+                          >
+                            <div className="jssocials-shares">
+                              <div className="parallax-wrap">
+                                <FaFacebookF />
+                              </div>
+                              <div className="parallax-wrap">
+                                <BsTwitterX />
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
                 <div
                   id="hero-image-wrapper"
-                  className="change-header-color hero-pixels-cover parallax-scroll-image"
+                  className="change-header-color hero-pixels-cover parallax-scroll-image flex flex-col justify-center items-center"
                 >
-                  <div id="hero-background-layer" className="parallax-scroll-image">
+                  <div
+                    id="hero-background-layer"
+                    className="parallax-scroll-image"
+                    style={{ backgroundColor: "#032251" }}
+                  >
                     <div
                       id="hero-bg-image"
-                      style={{ backgroundImage: "url('/images/iphone-15-pro.png')" }}
+                      style={{
+                        backgroundImage:
+                          "url('../images/projects/techableslide2.jpeg')",
+                      }}
                     ></div>
                   </div>
                 </div>
-
-                <div id="main-content" >
+                <div id="main-content">
                   <div id="main-page-content">
-                    <div className="bg-liner marginTBo width90">
+                    <div className="marginTBo width90">
+                      <div className="content-row small row_padding_top light-section">
+                        <figure
+                          className="parallax-image-wrapper"
+                          id="techable-image-parallax"
+                        >
+                          <Link
+                            href="/images/projects/techableP1.png"
+                            className="image-link"
+                          >
+                            <img
+                              src="/images/projects/techableP1.png"
+                              alt="Image Title"
+                              className="parallax-image"
+                              width={1000}
+                              height={1000}
+                            />
+                          </Link>
+                          <figcaption>Caption</figcaption>
+                        </figure>
+                      </div>
+                      <div className="content-row small row_padding_bottom light-section text-align-center">
+                        <hr />
+                        <hr className="destroy" />
+                        <p className="bigger has-opacity">
+                          Web PROJECT eskale GWear up for victory with our
+                          exclusive range of Brazil-inspired apparel.
+                        </p>
+                      </div>
+                    </div>
                     <div
-                      className="content-row small row_padding_top light-section"
-                      style={{background:"red"}}
+                      className="content-row full light-section disable-header-gradient change-header-color"
+                      data-bgcolor="#EBEBEB"
                     >
-                      <figure>
-                        <Link href="/images/just-for.png" className="image-link">
-                          <img
-                            src={Justfor.src}
-                            alt="Image Title"
-                            width={100}
-                            height={100}
-                          />
-                        </Link>
-                        <figcaption>Caption</figcaption>
+                      <figure className="has-parallax">
+                        <Image
+                          src="/images/projects/techableP2.png"
+                          alt="Image Title"
+                          width={3000}
+                          height={3000}
+                          className="parallax-image"
+                        />
                       </figure>
                     </div>
-
                     <div
-                      className="content-row small row_padding_bottom light-section text-align-center"
-                      // data-bgcolor="#ebebeb"
+                      className="content-row small row_padding_top row_padding_bottom light-section text-align-center"
+                      data-bgcolor="#EBEBEB"
+                      ref={sectionRef}
                     >
-                      <hr />
-                      <hr className="destroy" />
-                      <p className="bigger has-opacity">
-                        Web PROJECT eskale
-                        Gear up for victory with our exclusive range of Brazil-inspired apparel. 
-                      </p>
+                      <div className="pin-spacer ">
+                        <div
+                          className="pinned-lists-wrapper scale-mode step"
+                          data-duration="3x"
+                        >
+                          <p className="smaller">Characteristics</p>
+                          <ul className="pinned-lists">
+                            {[
+                              "Technology",
+                              "Innovation",
+                              "Software",
+                              "Startups",
+                              "Growth",
+                            ].map((item, index) => (
+                              <li key={index} className="pinned-item">
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                    </div>
-                    <div className="content-row full light-section disable-header-gradient change-header-color" data-bgcolor="#ebebeb">
-          <figure className="has-parallax">
-            <Image 
-              src="/images/our-process.png" 
-              alt="Image Title" 
-              width={1920} // Adjust width based on your image
-              height={750} // Adjust height based on your image
-              className="parallax-image"
-            />
-          </figure>
-        </div>
-
-
-        <div className="content-row small row_padding_top row_padding_bottom light-section text-align-center" data-bgcolor="#ebebeb">
-      <div className="pin-spacer">
-        <div className="pinned-lists-wrapper scale-mode" data-duration="3x">
-          <p className="smaller">Characteristics</p>
-          <ul className="pinned-lists">
-            {["Flavorful", "Aromatic", "Spicy", "Savory", "Delicious"].map((item, index) => (
-              <li key={index} className="pinned-item">{item}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    {/* <ClapatSlider /> */}
                   </div>
                 </div>
-
-                
               </div>
             </div>
+            <ProjectSlider />
+            <TechableProject />
+            <AppleTech />
           </div>
         </div>
       </main>
     </>
   );
 };
-
-export default page;
+export default Page;

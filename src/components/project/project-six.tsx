@@ -36,7 +36,7 @@ export default function ProjectSix({ data }: any) {
                   data-centerline="OPEN"
                 >
                   <div className="img-mask pixels-cover animated">
-                    <a className="slide-link" href={project.link || "/projects"}>
+                    <a className="slide-link" href={project.link || "/project"}>
                       <div
                         className="flip-thumb-inner"
                         data-flip-id={`auto-${index + 1}`}
@@ -72,10 +72,10 @@ export default function ProjectSix({ data }: any) {
           )}
         </div>
         <div className="btn_sec flex gap-3 flex-wrap justify-center mt-0 mb-10">
-                  <Link href="/contact-us" className="Btnthree btnWrapper">
-                    View All Projects
-                  </Link>
-                </div>
+          <Link href="/contact-us" className="Btnthree btnWrapper">
+            View All Projects
+          </Link>
+        </div>
       </div>
     </section>
   );
