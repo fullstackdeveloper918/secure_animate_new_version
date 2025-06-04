@@ -58,24 +58,24 @@ const TechableProject = () => {
         .fromTo(
           sectionRef.current,
           { backgroundColor: "transparent" },
-          { backgroundColor: "#192327", duration: 1 }
+          { backgroundColor: "#3eaced", duration: 1 }
         )
         .fromTo(
           titleRef.current,
-          { opacity: 0, color: "#192327" },
+          { opacity: 0, color: "#3eaced" },
           {
             opacity: 1,
             color: "white",
             duration: 0.5,
             onStart: () => {
               if (titleRef.current)
-                scrambleText(titleRef.current, "Techable Sellmac", 1.2);
+                scrambleText(titleRef.current, "Sellmac Project", 1.2);
             },
           }
         )
         .fromTo(
           spanRef.current,
-          { opacity: 0, color: "#192327" },
+          { opacity: 0, color: "#3eaced" },
           {
             opacity: 1,
             color: "white",
@@ -164,7 +164,7 @@ const TechableProject = () => {
         className="h-screen flex flex-col justify-center items-center text-black px-4 text-center"
       >
         <h1 ref={titleRef} className="text-8xl font-bold mb-4 ">
-          Techable Sellmac
+          Sellmac Project
         </h1>
         <span ref={spanRef} className="text-3xl ">
           The Easiest Way to Sell Your MacBook Air
@@ -253,15 +253,15 @@ const TechableProject = () => {
           src="/images/projects/sellamc01banner.png"
           alt="techable slide"
           className="object-contain transition-all duration-300 ease-in-out"
-          style={{ width: "95vw" }}
+          style={{ width: "50vw" }}
           width={2000}
         />
       </div>
 
-      <div className="text-white pt-8 pb-12 w-full bg-[#192327]">
-        <p className="mt-20 text-5xl text-white font-bold text-center px-20">
-          Web PROJECT eskale Gear up for victory with our exclusive range of
-          Brazil-inspired apparel.
+      <div className="text-white pt-8 pb-12 w-full bg-[#3eaced] textAnimation">
+        <p className="mt-20 text-5xl text-white font-bold text-center px-20 max-w-[50rem]:">
+         SELL YOUR MAC EASILY
+          WITH SELLMAC FOR THE MOST CASH
         </p>
         <div className="overflow-hidden relative h-[800px] mt-12 flex justify-center items-center rounded-2xl">
           <img
@@ -273,7 +273,7 @@ const TechableProject = () => {
       </div>
 
       <div>
-        <section className="bg-[#192327] px-6 pb-20 min-h-screen">
+        <section className="bg-[#3eaced] px-6 pb-20 min-h-screen">
           <h2 className="text-white text-center text-5xl font-bold mb-16">
             Our Showcase
           </h2>

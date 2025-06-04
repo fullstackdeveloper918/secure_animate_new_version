@@ -1846,7 +1846,25 @@ div#header-container .icon-wrap.parallax-wrap .button-icon.parallax-element {
 .BtnOne:hover svg path, .BtnOne:hover svg{
   fill: #03afef !important;
 }
+figure#techable-image-parallax img.parallax-image {
+    border-radius: 20px;
+}
+.bottomImges img{
+  transform: unset !important;
+}
 /* responsiveness */
+@media (min-width:2000px){
+  .bannercontent h1, .bannercontent .h1, .bannercontent h1 span, .bannercontent .h1 span{
+    font-size: 90px;
+    line-height: 90px;
+  }
+  .real-second-section .real-content-box h2 {
+    max-width: 115rem;
+}
+.fogContainerBox {
+    height: 770px !important;
+}
+}
 @media (max-width: 1440px) {
   .astronutImgcircle > div:first-child {
     height: 30px;

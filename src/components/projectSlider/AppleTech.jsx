@@ -368,7 +368,7 @@ const AppleTech = () => {
         />
       </div>
 
-      <div className="text-[#ffff] mt-40 pt-8 pb-12 w-[100vw] bg-[#E9C3F4]">
+      <div className="text-[#ffff] mt-40 pt-8 pb-16 w-[100vw] bg-[#E9C3F4]">
         <p
           className="mt-20 text-5xl text-[#111] font-bold text-center px-20 applecontent mx-auto"
           style={{ maxWidth: "1200px" }}
@@ -378,20 +378,20 @@ const AppleTech = () => {
         </p>
 
         <div
-          className="overflow-hidden relative h-[500px] mt-12 flex justify-center items-center "
+          className="overflow-hidden relative mt-12 flex justify-center items-center "
           style={{ borderRadius: "15px" }}
         >
           <img
             //   ref={image1Ref}
             src="/images/projects/appletechslide04.png"
             alt="techable slide"
-            className="object-contain transition-all duration-300 ease-in-out w-[90%] h-screen "
-            style={{ borderRadius: "20" }}
+            className="object-cover transition-all duration-300 ease-in-out w-[60%] h-screen "
+            style={{ borderRadius: "20px" }}
           />
         </div>
       </div>
 
-      <div ref={section1Ref} className="text-black w-screen bg-black">
+      <div ref={section1Ref} className="text-black w-screen  bottomImges">
         <div className="overflow-hidden relative w-full h-[1000px] flex justify-center items-center">
           {/* Image */}
           <img
@@ -411,8 +411,8 @@ const AppleTech = () => {
         </div>
       </div>
 
-      <div className="">
-        <section className="bg-black px-6 pb-20 min-h-screen">
+      {/* <div className="">
+        <section className="bg-[#e9c3f4] px-6 pb-20 min-h-screen">
           <h2 className="text-white text-center text-5xl font-bold mb-16">
             Our Showcase
           </h2>
@@ -433,7 +433,7 @@ const AppleTech = () => {
             ))}
           </div>
         </section>
-      </div>
+      </div> */}
     </>
   );
 };

@@ -483,9 +483,13 @@ figcaption {
   position: absolute;
   right: 0px;
   z-index: 10;
-  border-radius: 0;
+  border-radius: 20px;
 }
-
+.textAnimation p{
+  max-width: 80rem;
+  margin: 6rem auto 0px;
+  line-height: 4rem;
+}
 fieldset {
   border: 1px solid rgba(0, 0, 0, 0.1);
   margin: 0 0 24px;
@@ -7024,10 +7028,10 @@ animation-timing-function: linear
   font-family: "Manrope", sans-serif !important;
 }
 .real-second-section .real-content-box h2{
-    font-weight: 500;
+    /* font-weight: 500; */
     letter-spacing: 0px !important;
 }
-.bannercontent h1{
+/* .bannercontent h1{
     font-family: "Manrope", sans-serif !important;
 }
 .bannercontent h1 span{
@@ -7056,7 +7060,7 @@ animation-timing-function: linear
 }
 .blog-main-new .blog-content h2{
    font-family: "Manrope", sans-serif !important;
-}
+} */
 .night {
   position: absolute;
     width: 100%;
