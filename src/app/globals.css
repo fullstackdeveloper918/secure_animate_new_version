@@ -1936,7 +1936,7 @@ scale-up .link,
 }
 
 #clapat-logo img.white-logo {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   opacity: 1 !important;
@@ -2038,7 +2038,7 @@ scale-up .link,
     position: absolute;
     display: table;
     height: 40px;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -40%);
     margin: auto;
@@ -2807,7 +2807,7 @@ scale-up .link,
 .button-icon-link .button-text {
   font-weight: 500;
   font-size: 14px;
-  line-height: 30px;
+  line-height: 2.2;
   margin: 0;
   overflow: hidden;
   width: auto;
@@ -5751,7 +5751,7 @@ a.serv-in-ban-btn:hover {
 .use-case-section{
   padding: 100px 0;
   background: #009dd610 !important;
-  margin-top: 80px;
+  /* margin-top: 80px; */
 
 }
 .use-card-inner h3 {
@@ -5779,7 +5779,9 @@ a.serv-in-ban-btn:hover {
 }
 
 /* use case section css start here end */
-
+#clapat-logo img.black-logo {
+    display: none !important;
+}
 section.service-tier-section {
     padding: 100px 0px;
     background: #fff !important;
@@ -5863,7 +5865,7 @@ section.pricing-serv-tier article.price-serv-card .price-wrap-content ul li svg{
   fill: #04afee !important;
 }
 .price-top-head{
-  padding: 100px 0 60px;
+  padding:60px 0 80px;
   font-size: 36px;
 }
 
@@ -6550,7 +6552,7 @@ section.cyber-serv-sec .cb-btn-prc{
     line-height: 2.5rem;
   }
   div#header-container a.ajax-link {
-    font-size: 20px !important;
+    font-size: 30px !important;
   }
   .btn-mission{
     transform: translateY(0px) !important;
@@ -6889,6 +6891,9 @@ section.cyber-serv-sec .cb-btn-prc{
   .ab-funfact-item span {
     font-size: 30px;
   }
+  .fogContainerBox {
+    height: 200px !important;
+}
 }
 
 

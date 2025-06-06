@@ -121,7 +121,7 @@ const sectionStyle = !isVideo
     </div>
   </div> */}
 
-<div className="serv-detail-ban" style={sectionStyle}>
+<div className="serv-detail-ban innnerServices" style={sectionStyle}>
   {isVideo && backgroundUrl && (
     <video
       autoPlay
@@ -155,7 +155,7 @@ const sectionStyle = !isVideo
             {serviceBannerData?.description1}
           </span>
           <div className="d-block py-3 mt-3">
-            <a href="#" className="serv-in-ban-btn text-white border-2 rounded-pill">
+            <a href="#singleSerivce" className="serv-in-ban-btn text-white border-2 rounded-pill">
               {serviceBannerData?.banner?.button1}
             </a>
           </div>
@@ -170,7 +170,7 @@ const sectionStyle = !isVideo
   </div>
 </div>
 
-
+{/* 
       <div className="container">
         <div className="row">
           <div className="col-xl-12 col-lg-12">
@@ -241,28 +241,9 @@ const sectionStyle = !isVideo
               </div>
             </div>
 
-            {/* <div
-              className="service-details__left-wrap pt-100"
-              style={{ borderBottom: "1px solid #eee" }}
-            >
-              <div className="ben-head-box mb-20">
-                <h4>04. Reduced Costs</h4>
-                <p className="benfits_content">
-                  We create and tell stories that connect with people and convey
-                  your brand's message in a clear, authentic way. Our creative,
-                  artistic thinkers immerse into the DNA of your brand to
-                  conceptualize and shape visual content that achieves your
-                  objectives and resonates within your target audience.
-                </p>
-              </div>
-              <div className="service-details__fea-list"></div>
-              <div className="service-details__sm-thumb-wrap md:mb-10 mb-4">
-                <ImageSection leftImage={sv_8} rightImage={sv_9} />
-              </div>
-            </div> */}
           </div>
         </div>
-      </div>
+      </div> */}
       {/* <FirstSection serviceBannerData={serviceBannerData} /> */}
 
       {serviceBannerData?.slug === "ai-services" && (

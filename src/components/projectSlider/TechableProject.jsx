@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaFacebookF } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
-
+import TextScrollAnimation from "../../components/ProjectTextaniamtion/TextScrollAnimation";
 gsap.registerPlugin(ScrollTrigger);
 
 const scrambleText = (element, finalText, duration = 1.5) => {
@@ -272,7 +272,7 @@ const TechableProject = () => {
         </div>
       </div>
 
-      <div>
+      {/* <div>
         <section className="bg-[#3eaced] px-6 pb-20 min-h-screen">
           <h2 className="text-white text-center text-5xl font-bold mb-16">
             Our Showcase
@@ -293,7 +293,8 @@ const TechableProject = () => {
             ))}
           </div>
         </section>
-      </div>
+      </div> */}
+{/* <TextScrollAnimation /> */}
     </>
   );
 };

@@ -31,26 +31,65 @@ export default function ContactForm({btnCls=''}:IProps) {
   });
   return (
     <form onSubmit={onSubmit}>
-      <div className="cn-contactform-input mb-25">
+      {/* <div className="cn-contactform-input ">
         <label>Name</label>
         <input id='name' {...register("name")} type="text" placeholder="John Doe" />
-        {/* <ErrorMsg msg={errors.name?.message!} /> */}
+        <ErrorMsg msg={errors.name?.message!} />
       </div>
       <div className="cn-contactform-input mb-25">
         <label>Subject</label>
         <input id='subject' {...register("subject")} type="text" placeholder="Your@email.com" />
-        {/* <ErrorMsg msg={errors.subject?.message!} /> */}
+        <ErrorMsg msg={errors.subject?.message!} />
       </div>
       <div className="cn-contactform-input">
         <label>Message</label>
         <textarea id='message' {...register("message")} placeholder="Tell Us About Your Project"></textarea>
-        {/* <ErrorMsg msg={errors.message?.message!} /> */}
+        <ErrorMsg msg={errors.message?.message!} />
       </div>
       <div className="cn-contactform-btn">
         <button className={`tp-btn-black-md ${btnCls} w-100`} type="submit">
           Submit
         </button>
+      </div> */}
+<div className='divwrap '>
+ <div className="cn-contactform-input ">
+        {/* <label>Name</label> */}
+        <input id='name' type="text" placeholder="John " />
+        {/* <ErrorMsg msg={errors.name?.message!} /> */}
       </div>
+       <div className="cn-contactform-input ">
+        {/* <label>Name</label> */}
+        <input id='Lastname' type="text" placeholder=" Doe" />
+        {/* <ErrorMsg msg={errors.name?.message!} /> */}
+      </div>
+</div>
+
+<div className="cn-contactform-input ">
+        <input id='CompanyName' type="text" placeholder="Company name" />
+      </div>
+
+      <div className="cn-contactform-input ">
+        <input id='Email' type="text" placeholder="Email" />
+      </div>
+     
+       <div className="cn-contactform-input ">
+        <input id='PhoneNumber' type="tel" placeholder="Phone number" />
+      </div>
+
+      <div className="cn-contactform-input ">
+        <input id='HowCan' type="text" placeholder="How Can We Help?" />
+      </div>
+
+       <div className="cn-contactform-input">
+        <textarea id='message' {...register("message")} placeholder="Tell Us About Your Project"></textarea>
+      </div>
+
+
+      <div className="cn-contactform-btn">
+        <button className={`tp-btn-black-md ${btnCls} w-100`} type="submit">
+          Submit
+        </button>
+        </div>
     </form>
   );
 }

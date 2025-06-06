@@ -83,14 +83,14 @@ const RealEstateSection = ({ data }) => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           data-aos="fade-up"
-          className="text-center sm:text-4xl text-white font-bold tracking-tighter md:text-6xl md:leading-[4rem] flex flex-wrap justify-center xl:px-64"
+          className="text-center leading-[2.5rem] text-3xl text-white font-bold tracking-tighter 2xl:text-6xl 2xl:leading-[4rem] flex flex-wrap justify-center xl:px-64"
         >
           {data?.home_page_challenge_section_challenge}
         </motion.h2>
 
         <motion.p
           data-aos="fade-up"
-          className="text-gray-50 text-sm md:text-lg mt-4 max-w-5xl text-center"
+          className="text-gray-50 text-sm 2xl:text-lg mt-4 max-w-3xl 2xl:max-w-5xl text-center"
         >
           {data?.home_page_challenge_section_paragraph}
         </motion.p>

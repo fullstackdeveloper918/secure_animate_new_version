@@ -47,7 +47,7 @@ export const FourthSection = () => {
 
         <motion.p
           data-aos="fade-up"
-          className="text-gray-50 text-sm md:text-lg mt-4 max-w-5xl text-center"
+          className="text-gray-50 text-sm 2xl:text-lg mt-4 max-w-5xl text-center"
         >
           Book a discovery call today and learn how our integrated services can
           drive growth for your business.

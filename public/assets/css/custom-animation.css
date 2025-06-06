@@ -460,7 +460,7 @@
   color: #fff;
 }
 .conatct-col {
-  padding-block: 20px;
+  padding-block: 40px;
   padding-inline: 10px;
   /* background-color: #000; */
   border-radius: 6px;
@@ -474,7 +474,7 @@
   max-width: 70% !important;
 }
 .cn-contactform-area {
-  padding-top: 8vw !important;
+  padding-top: 4vw !important;
 }
 .conatct-col h2,
 .conatct-col p {

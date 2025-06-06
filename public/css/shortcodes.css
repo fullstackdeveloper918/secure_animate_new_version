@@ -2514,7 +2514,7 @@ textarea {
 	box-sizing: border-box;
 	padding: 14px 20px 6px 20px;
 	padding-left:0;
-	margin-bottom:40px;
+	/* margin-bottom:40px; */
 }
 
 textarea:after {
@@ -3935,7 +3935,7 @@ span.has-hover-image.vertical .hover-reveal {
 }		
 	
 textarea {
-	margin-bottom: 30px;
+	margin-bottom: 0px;
 }
 
 .full .video-wrapper video.bgvid, .full_elementor .video-wrapper video.bgvid {

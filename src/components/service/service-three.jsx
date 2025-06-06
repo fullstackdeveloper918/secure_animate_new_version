@@ -133,7 +133,7 @@ export default function ServiceThree({serviceBannerData}) {
                     <Link href="/service">{item?.title}</Link>
                   </h2>
                   <p>{item?.subtitle}</p>
-                  <Link className="tp-service-4-link" href="/service">
+                  <Link className="tp-service-4-link" href="/contact-us">
                   {/* {item?.button} */}
                   Read More
                   </Link>

@@ -9,6 +9,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TechableProject from "@/components/projectSlider/TechableProject";
 import AppleTech from "@/components/projectSlider/AppleTech";
+import TextScrollAnimation from "@/components/ProjectTextaniamtion/TextScrollAnimation";
 gsap.registerPlugin(ScrollTrigger);
 const Page = () => {
   const heroRef = useRef(null);
@@ -328,7 +329,7 @@ const Page = () => {
                         />
                       </figure>
                     </div>
-                    <div
+                    {/* <div
                       className="content-row small row_padding_top row_padding_bottom light-section text-align-center"
                       data-bgcolor="#EBEBEB"
                       ref={sectionRef}
@@ -354,7 +355,9 @@ const Page = () => {
                           </ul>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
+                    {/* <TextScrollAnimation />service-details__area service-details__space bann-p-block */}
+         
                   </div>
                 </div>
               </div>

@@ -1463,7 +1463,7 @@ span.textline-1 {
   display: flex;
   gap: 30px;
   align-items: center;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #ddd;
   padding-bottom: 30px;
 }
 
@@ -1510,6 +1510,12 @@ span.textline-1 {
 .cn-contactform-wrap textarea,
 .cn-contactform-wrap input {
   color: #111 !important;
+}
+.contactForm .cn-contactform-wrap {
+    padding-inline: 20px !important;
+}
+.singleSerivce input, .singleSerivce textarea {
+    background: #ffffff !important;
 }
 .bgblue {
   background: #e2f5fc !important;
@@ -1852,6 +1858,68 @@ figure#techable-image-parallax img.parallax-image {
 .bottomImges img{
   transform: unset !important;
 }
+/* contactpage */
+.contact-container .row.xl\:flex-nowrap {
+    flex-wrap: nowrap !important;
+}
+.contact-container .row.xl\:flex-nowrap {
+    flex-wrap: nowrap !important;
+}
+
+.contactForm input::placeholder {
+    font-size: 14px;
+}
+
+.contact-container .contactForm input, .contact-container .contactForm textarea{
+    background: #f9f9f9;
+    padding: 10px 10px 10px 15px;
+    font-size: 14px !important;
+    border-radius: 12px !important;
+    border: 1px solid #cacaca5e !important;
+    box-shadow: none !important;
+
+}
+.cn-contactform-btn .tp-btn-black-md {
+    max-width: 190px;
+    border-radius: 30px;
+    border: 1px solid #04adec;
+    background: #04adec;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.contactForm .cn-contactform-wrap form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.divwrap {
+    display: flex;
+    flex-wrap: nowrap !important;
+    gap: 20px;
+}
+.contact-container .contactForm input{
+    min-height: 50px;
+        border-radius: 40px !important;
+}
+.contact-container .contactForm input::placeholder, 
+.contact-container .contactForm textarea::placeholder{
+      font-size: 16px !important;
+}
+.contactHeading {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.contactHeading h2 {
+    font-size: 42px;
+    font-weight: 600;
+}
+.divwrap .cn-contactform-input {
+    width: 100%;
+}
+/* contactpage end */
+
 /* responsiveness */
 @media (min-width:2000px){
   .bannercontent h1, .bannercontent .h1, .bannercontent h1 span, .bannercontent .h1 span{
@@ -1863,6 +1931,10 @@ figure#techable-image-parallax img.parallax-image {
 }
 .fogContainerBox {
     height: 770px !important;
+}
+.serv-detail-ban.innnerServices {
+    height: fit-content !important;
+    padding-top: 15rem !important;
 }
 }
 @media (max-width: 1440px) {
@@ -2148,6 +2220,20 @@ figure#techable-image-parallax img.parallax-image {
   .sub-menu {
     top: 50px !important;
   }
+    .contact-container .row.xl\:flex-nowrap {
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+}
+.conatct-col.col-xl-7.contactForm {
+    background: #fff;
+    padding: 0px !important;
+}
+.contactForm .cn-contactform-wrap {
+    padding-inline: 0px !important;
+}
+.contact-container .row.xl\:flex-nowrap {
+    flex-wrap: wrap !important;
+}
 }
 @media (max-width: 1024px) {
   div#header-container ul.flexnav.with-js,
@@ -2201,6 +2287,7 @@ figure#techable-image-parallax img.parallax-image {
     height: 60px;
     width: fit-content;
   }
+
 }
 @media (max-width: 991px) {
   .tp-service-right-wrap {
@@ -2282,9 +2369,9 @@ figure#techable-image-parallax img.parallax-image {
   .text-size-medium {
     font-size: 1.125rem;
   }
-  .cn-contactform-area.cn-contactform-style.p-relative.pt-50.lg\:pb-50.pb-100 {
+  /* .cn-contactform-area.cn-contactform-style.p-relative.pt-50.lg\:pb-50.pb-100 {
     padding-top: 270px !important;
-  }
+  } */
   h2.heading-style-h3 {
     font-size: 56px;
     font-weight: 600;
@@ -2560,6 +2647,9 @@ figure#techable-image-parallax img.parallax-image {
   padding-inline: 20px;
 }
 @media (max-width: 575px) {
+  .divwrap {
+    flex-wrap: wrap !important;
+}
   .bannercontent h1,
   .bannercontent .h1,
   .bannercontent h1 span,
@@ -2581,18 +2671,19 @@ figure#techable-image-parallax img.parallax-image {
     line-height: 26px;
   }
   .cn-contactform-area.cn-contactform-style.p-relative.pt-50.lg\:pb-50.pb-100 {
-    padding-top: 150px !important;
+    padding-top: 50px !important;
   }
   /* 	.awardsSec {
     padding-inline: 20px;
 } */
   .main_banner {
-    padding: 0px 20px;
+    padding: 0px ;
   }
   section#hero {
     display: flex;
     align-items: end;
     justify-content: end;
+    margin-bottom: -2px;
   }
 
   section#hero .container {

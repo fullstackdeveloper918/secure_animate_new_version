@@ -21,6 +21,7 @@ import ServiceThree from "@/components/service/service-three";
 import FooterFour from "@/layouts/footers/footer-four";
 import { servicePanel } from "@/utils/panel-animation";
 import { FourthSection } from "../../components/inner-services/ai-services/FourthSection";
+import ContactTwo from "@/components/contact/contact-two";
 
 const ServiceDetailsMain = ({ serviceBannerData }) => {
   useScrollSmooth();
@@ -43,6 +44,10 @@ const ServiceDetailsMain = ({ serviceBannerData }) => {
         <div id="smooth-content">
           <main>
             <ServiceDetailsArea serviceBannerData={serviceBannerData} />
+            <div className="bg-[#009dd610] singleSerivce" id="singleSerivce"> 
+
+            <ContactTwo />
+            </div>
             <ServiceThree serviceBannerData={serviceBannerData} />
             <FourthSection />
           </main>

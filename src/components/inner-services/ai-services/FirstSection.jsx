@@ -37,7 +37,7 @@ export const FirstSection = ({ serviceBannerData }) => {
           variants={container}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center sm:text-4xl text-white font-bold tracking-tighter md:text-6xl md:leading-[4rem] flex flex-wrap justify-center xl:px-64"
+          className="text-center text-4xl text-white font-bold tracking-tighter 2xl:text-6xl md:leading-[4rem] flex flex-wrap justify-center xl:px-64"
         >
           {serviceBannerData?.banner?.title?.split("").map((char, index) => (
             <motion.span key={index} variants={child}>
