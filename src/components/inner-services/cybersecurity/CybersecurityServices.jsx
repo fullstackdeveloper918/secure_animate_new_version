@@ -84,7 +84,7 @@ export default function CybersecurityServices() {
   }, []);
 
   return (
-    <section className="cyber-serv-sec" ref={sectionRef}>
+    <section className="cyber-serv-sec relative bg-white" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Cybersecurity Services
@@ -118,7 +118,9 @@ export default function CybersecurityServices() {
               </div>
 
               <div className="mt-6">
-                <div className="text-2xl font-bold cb-price-txt">{service.price}</div>
+                <div className="text-2xl font-bold cb-price-txt">
+                  {service.price}
+                </div>
                 <p className="text-sm text-slate-500">{service.priceNote}</p>
                 <button
                   className={`mt-4 w-full px-4 py-2 rounded-md text-white font-semibold cb-btn-prc ${

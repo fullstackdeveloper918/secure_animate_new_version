@@ -20,45 +20,48 @@ import CybersecurityServices from "../inner-services/cybersecurity/Cybersecurity
 import ComplianceExpertise from "../inner-services/cybersecurity/ComplianceExpertise";
 import ThreatIntelligence from "../inner-services/cybersecurity/ThreatIntelligence";
 import SecurityStakeholders from "../inner-services/cybersecurity/SecurityStakeholders";
+import CardStackingSection from "@/components/service/CardStackingSection";
 
 export default function ServiceDetailsArea({ serviceBannerData }) {
-//   const backgroundImageUrl = serviceBannerData?.banner?.backgroundImage || '/assets/img/inner-service/service/Ai-Automtion.webp';
+  //   const backgroundImageUrl = serviceBannerData?.banner?.backgroundImage || '/assets/img/inner-service/service/Ai-Automtion.webp';
 
-//   console.log("serviceBannerDatapp", serviceBannerData);
-//   const sectionStyle = {
-//   backgroundImage: `url(${backgroundImageUrl})`,
-//   backgroundPosition: 'top right',
-//   backgroundRepeat: 'no-repeat',
-//   backgroundSize: 'cover',
-//   height: '80vh',
-//   display: 'flex',
-//   alignItems: 'end',
-//   position: 'relative',
-//   paddingBottom: '0px',
-// };
+  //   console.log("serviceBannerDatapp", serviceBannerData);
+  //   const sectionStyle = {
+  //   backgroundImage: `url(${backgroundImageUrl})`,
+  //   backgroundPosition: 'top right',
+  //   backgroundRepeat: 'no-repeat',
+  //   backgroundSize: 'cover',
+  //   height: '80vh',
+  //   display: 'flex',
+  //   alignItems: 'end',
+  //   position: 'relative',
+  //   paddingBottom: '0px',
+  // };
 
-const isVideo = serviceBannerData?.banner?.backgroundType === 'video'; // e.g., 'image' or 'video'
-const backgroundUrl = serviceBannerData?.banner?.backgroundUrl;
+  const isVideo = serviceBannerData?.banner?.backgroundType === "video"; // e.g., 'image' or 'video'
+  const backgroundUrl = serviceBannerData?.banner?.backgroundUrl;
 
-const sectionStyle = !isVideo
-  ? {
-      backgroundImage: `url(${backgroundUrl || '/assets/img/inner-service/service/Ai-Automtion.webp'})`,
-      backgroundPosition: 'top right',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      height: '80vh',
-      display: 'flex',
-      alignItems: 'end',
-      position: 'relative',
-      paddingBottom: '0px',
-    }
-  : {
-      position: 'relative',
-      height: '80vh',
-      display: 'flex',
-      alignItems: 'end',
-      paddingBottom: '0px',
-    };
+  const sectionStyle = !isVideo
+    ? {
+        backgroundImage: `url(${
+          backgroundUrl || "/assets/img/inner-service/service/Ai-Automtion.webp"
+        })`,
+        backgroundPosition: "top right",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        height: "80vh",
+        display: "flex",
+        alignItems: "end",
+        position: "relative",
+        paddingBottom: "0px",
+      }
+    : {
+        position: "relative",
+        height: "80vh",
+        display: "flex",
+        alignItems: "end",
+        paddingBottom: "0px",
+      };
 
   return (
     <div className="service-details__area service-details__space bann-p-block">
@@ -121,56 +124,64 @@ const sectionStyle = !isVideo
     </div>
   </div> */}
 
-<div className="serv-detail-ban innnerServices" style={sectionStyle}>
-  {isVideo && backgroundUrl && (
-    <video
-      autoPlay
-      muted
-      loop
-      playsInline
-      style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover',
-        zIndex: 0,
-      }}
-    >
-      <source src={backgroundUrl} type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  )}
-<div className="overlay-ser-inner"></div>
-  <div className="container z-10" style={{ position: 'relative', zIndex: 1 }}>
-    <div className="row">
-      <div className="col-xl-12">
-        <div className="service-details__title-box mb-10">
-          <h2 className="sv-hero-title tp-char-animation mb-4">
-            {serviceBannerData?.title1}{" "}
-            <span className="blueColor">{serviceBannerData?.subtitle}</span>
-          </h2>
-          <span className="service-details__subtitle tp-char-animation text-white mb-4 inline-block">
-            {serviceBannerData?.description1}
-          </span>
-          <div className="d-block py-3 mt-3">
-            <a href="#singleSerivce" className="serv-in-ban-btn text-white border-2 rounded-pill">
-              {serviceBannerData?.banner?.button1}
-            </a>
+      <div className="serv-detail-ban innnerServices" style={sectionStyle}>
+        {isVideo && backgroundUrl && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              zIndex: 0,
+            }}
+          >
+            <source src={backgroundUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        )}
+        <div className="overlay-ser-inner"></div>
+        <div
+          className="container z-10"
+          style={{ position: "relative", zIndex: 1 }}
+        >
+          <div className="row">
+            <div className="col-xl-12">
+              <div className="service-details__title-box mb-10">
+                <h2 className="sv-hero-title tp-char-animation mb-4">
+                  {serviceBannerData?.title1}{" "}
+                  <span className="blueColor">
+                    {serviceBannerData?.subtitle}
+                  </span>
+                </h2>
+                <span className="service-details__subtitle tp-char-animation text-white mb-4 inline-block">
+                  {serviceBannerData?.description1}
+                </span>
+                <div className="d-block py-3 mt-3">
+                  <a
+                    href="#singleSerivce"
+                    className="serv-in-ban-btn text-white border-2 rounded-pill"
+                  >
+                    {serviceBannerData?.banner?.button1}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-xl-5">
+                <div className="service-details__banner-text mb-8"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div className="row">
-        <div className="col-xl-5">
-          <div className="service-details__banner-text mb-8"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-{/* 
+      {/* 
       <div className="container">
         <div className="row">
           <div className="col-xl-12 col-lg-12">
@@ -248,6 +259,8 @@ const sectionStyle = !isVideo
 
       {serviceBannerData?.slug === "ai-services" && (
         <>
+          <CardStackingSection />
+          {/* <div className="h-[500px]"></div> */}
           <HighROIUseCases />
           <PricingCards />
         </>
@@ -255,6 +268,7 @@ const sectionStyle = !isVideo
 
       {serviceBannerData?.slug === "app-development" && (
         <>
+          <CardStackingSection />
           <FiveStepBuildSprint />
           <OurWorks />
           <TrustedBy />
@@ -263,6 +277,7 @@ const sectionStyle = !isVideo
 
       {serviceBannerData?.slug === "site-design" && (
         <>
+          <CardStackingSection />
           <BeforeAfterResults />
           {/* <ServiceTiers /> */}
           <OurWorks />
@@ -272,12 +287,14 @@ const sectionStyle = !isVideo
 
       {serviceBannerData?.slug === "marketing" && (
         <>
+          <CardStackingSection />
           <FiveStepBuildSprint />
         </>
       )}
 
       {serviceBannerData?.slug === "cybersecurity" && (
         <>
+          <CardStackingSection />
           <CybersecurityServices />
           <ThreatIntelligence />
           <SecurityStakeholders />

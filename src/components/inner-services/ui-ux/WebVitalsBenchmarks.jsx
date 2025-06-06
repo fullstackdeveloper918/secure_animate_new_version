@@ -63,7 +63,10 @@ export default function WebVitalsBenchmarks() {
   ];
 
   return (
-    <section className="py-20 bg-slate-50 core-web-vit-sec" ref={sectionRef}>
+    <section
+      className="py-20 relative bg-white core-web-vit-sec"
+      ref={sectionRef}
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 core-web-head">
           Core Web Vitals Benchmarks

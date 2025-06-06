@@ -36,7 +36,7 @@ export default function ThreatIntelligence() {
 
   return (
     <section
-      className="py-20 bg-slate-900 text-white overflow-hidden threat-sec"
+      className="py-20 bg-slate-900 relative text-white overflow-hidden threat-sec"
       ref={sectionRef}
     >
       <div className="container mx-auto px-4 mb-6">

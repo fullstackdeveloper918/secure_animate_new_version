@@ -22,7 +22,7 @@ import FooterFour from "@/layouts/footers/footer-four";
 
 const ServiceMain = ({ serviceData, serviceBannerData }) => {
   useScrollSmooth();
-  console.log("serviceData", serviceBannerData  );
+  console.log("serviceData", serviceBannerData);
   useGSAP(() => {
     const timer = setTimeout(() => {
       charAnimation();
