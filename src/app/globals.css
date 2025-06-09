@@ -5777,17 +5777,24 @@ a.serv-in-ban-btn:hover {
 
 .use-case-section {
   padding: 100px 0;
-  background: #fff !important;
+  background: #fafeff !important;
   position: relative;
   /* margin-top: 80px; */
 }
 .use-card-inner h3 {
   font-size: 24px;
 }
+.benifitsec{
+  overflow-y: hidden !important;
+}
+.borderColor{
+  border-color: #363636 !important;
+}
 .use-card-inner {
-  border: 2px solid #009dd6 !important;
-  background: #fff !important;
-  border-radius: 16px;
+    border: 2px solid #009dd630 !important;
+    background: #fff !important;
+    border-radius: 16px;
+    box-shadow: none !important;
 }
 .use-head {
   position: relative;

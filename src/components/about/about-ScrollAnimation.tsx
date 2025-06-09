@@ -95,9 +95,9 @@ export default function ScrollAnimation() {
         scale: 3,
       }, // from: start at 0 opacity and 100px below
       {
-        y: -330,
+        y: -130,
         opacity: 1,
-        duration: 600,
+        duration: 9000,
         scale: 3,
         ease: "power3.out",
       } // to: fully visible at original position
@@ -124,27 +124,19 @@ export default function ScrollAnimation() {
         animatedTextRef.current,
         {
           opacity: 0,
-          y: 500,
+          y: 5000,
           duration: 0.5,
         },
         {
           opacity: 1,
           y: 0, // changed from y: 20 to y: 0
           // scale: 1.5,
-          duration: 100,
+          duration: 2000,
           color: "#ffffff",
           ease: "power3.out",
         }
         // "+=0.1"
       )
-      // .to(animatedTextRef.current, {
-      //   opacity: 1,
-      //   y: 0, // changed from y: 20 to y: 0
-      //   // scale: 1.5,
-      //   duration: 100,
-      //   color: "#ffffff",
-      //   ease: "power3.out",
-      // })
 
       // .to(contentContainerRef.current, {
       //   color: "#ffffff",
@@ -163,7 +155,7 @@ export default function ScrollAnimation() {
         {
           opacity: 1,
           y: 10,
-          duration: 80,
+          duration: 2800,
           ease: "power2.out",
           // ease: "back.out(1.7)",
         }
@@ -197,7 +189,7 @@ export default function ScrollAnimation() {
           id="starfield"
           ref={canvasRef}
           className="absolute inset-0 w-full h-full z-0"
-          style={{ background: "radial-gradient(#0D0B2E 0%, #050113 70%)" }}
+          style={{ background: "radial-gradient(#04071f 0%, #04071e 70%)" }}
         />
 
         {/* Cloud Image */}
@@ -207,8 +199,8 @@ export default function ScrollAnimation() {
           ref={rocketRef}
           className="rocket-svg"
           xmlns="http://www.w3.org/2000/svg"
-          width="980"
-          height="1988"
+          width="200"
+          height="200"
           fill="none"
           viewBox="0 0 980 1988"
         >

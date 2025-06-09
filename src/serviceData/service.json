@@ -65,9 +65,8 @@
         "description": "Embed cutting-edge AI and automation into your business operations to save time, reduce costs, and unlock new capabilities.",
         "button1": "Book a 15-min AI Readiness Call",
         "button2": "Get Your Free AI Readiness Scorecard",
-         "backgroundType": "image", 
-    "backgroundUrl": "/assets/img/inner-service/service/Ai-Automtion.webp"
-        
+        "backgroundType": "video",
+        "backgroundUrl": "/aiService.mp4"
       }
     },
     {
@@ -136,7 +135,7 @@
         "button1": "Request a 48-hour MVP Storyboard",
         "button2": "Try Our Interactive Cost Estimator",
         "backgroundType": "video",
-    "backgroundUrl": "/App-Development.mp4"
+        "backgroundUrl": "/App-Development.mp4"
       }
     },
     {
@@ -204,9 +203,9 @@
         "description": "Rapid-delivery websites optimized for speed, user experience, and conversion rates.",
         "button1": "Claim Your Free UX Audit",
         "button2": "View Our Portfolio",
-        "backgroundImage":"/assets/img/inner-service/service/E-commerce-Platform.jpg",
-        "backgroundType": "image", 
-    "backgroundUrl": "/assets/img/inner-service/service/SiteDesign-UI.jpg"
+        "backgroundImage": "/assets/img/inner-service/service/E-commerce-Platform.jpg",
+        "backgroundType": "video",
+        "backgroundUrl": "/Site-design-and-UX.mp4"
       }
     },
     {
@@ -274,8 +273,8 @@
         "description": "Comprehensive cybersecurity and compliance solutions that protect your business from threats and data breaches.",
         "button1": "Run a Free 60-second Vulnerability Scan",
         "button2": "Book a Security Consultation",
-        "backgroundType": "video", 
-    "backgroundUrl": "/CyberSecurity-Banner-Video.mp4"
+        "backgroundType": "video",
+        "backgroundUrl": "/CyberSecurity-Banner-Video.mp4"
       }
     },
     {
@@ -343,8 +342,8 @@
         "description": "Full-funnel growth marketing that drives measurable results for your business.",
         "button1": "Get a Free 7-day Traffic Forecast",
         "button2": "Book a Growth Strategy Call",
-        "backgroundType": "video", 
-    "backgroundUrl": "/Growth-Marketing1.mp4"
+        "backgroundType": "video",
+        "backgroundUrl": "/Growth-Marketing1.mp4"
       }
     }
   ]

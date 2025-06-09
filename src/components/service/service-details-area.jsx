@@ -259,9 +259,9 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
 
       {serviceBannerData?.slug === "ai-services" && (
         <>
-          <CardStackingSection />
           {/* <div className="h-[500px]"></div> */}
           <HighROIUseCases />
+          <CardStackingSection />
           <PricingCards />
         </>
       )}
