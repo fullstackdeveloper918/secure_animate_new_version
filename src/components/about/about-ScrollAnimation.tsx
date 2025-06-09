@@ -95,7 +95,7 @@ export default function ScrollAnimation() {
       .to(rocketRef.current, {
         y: -330,
         opacity: 1,
-        duration: 20,
+        duration: 180,
         scale: 3,
         ease: "power2.inOut",
       })
