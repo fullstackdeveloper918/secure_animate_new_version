@@ -20,6 +20,10 @@ export default {
       animation: {
         marquee: 'marquee 30s linear infinite',
       },
+      fontFamily: {
+        code: ['monospace', 'Menlo', 'Courier'],
+      },
+
     },
   },
   plugins: [],

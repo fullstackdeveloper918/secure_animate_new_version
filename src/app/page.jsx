@@ -104,11 +104,11 @@ export default function Home() {
             <div id="itemsWrapperLinks">
               <div
                 id="itemsWrapper"
-                className="webgl-fitthumbs fx-one relative"
+                className="webgl-fitthumbs fx-one relative bg-white"
               >
                 {/* securesec */}
-                {/* <ScrollAnimation /> */}
-                <RealEstateSection data={data} />
+                <ScrollAnimation />
+                {/* <RealEstateSection data={data} /> */}
                 <SecureSection />
                 {/* securesec end*/}
 
@@ -214,7 +214,7 @@ export default function Home() {
 
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <main>
+          <main className="bg-white">
             <div className="awardsSec">
               {/* <AwardOne data={data} /> */}
               <ServicesSection data={data} />

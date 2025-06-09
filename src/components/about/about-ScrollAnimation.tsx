@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
+import { Rocket } from "lucide-react";
 
 interface Star {
   x: number;
@@ -77,7 +79,7 @@ export default function ScrollAnimation() {
       scrollTrigger: {
         trigger: pinSectionRef.current,
         start: "top top",
-        end: "+=100%",
+        end: "+=200%",
         scrub: true,
         pin: true,
         markers: false,
@@ -85,39 +87,42 @@ export default function ScrollAnimation() {
     });
 
     tl.from(rocketRef.current, {
-      y: 400,
+      y: 700,
       opacity: 0,
       duration: 2,
+      scale: 3,
     })
       .to(rocketRef.current, {
         y: -330,
         opacity: 1,
-        duration: 80,
-        ease: "power2.out",
+        duration: 20,
+        scale: 3,
+        ease: "power2.inOut",
       })
       .from(
         animatedTextRef.current,
         {
           opacity: 0,
-          scale: 0.8,
-          duration: 2,
+          y: 100,
+          // scale: 0.8,
+          duration: 0.5,
         },
-        ">-0.3"
-      )
-      .to(
-        animatedTextRef.current,
-        {
-          opacity: 1,
-          scale: 1.5,
-          duration: 2,
-        },
-        "-=0.3"
-      )
+        "+=0.1"
+      ) // overlaps slightly with rocket animation
       .to(animatedTextRef.current, {
-        color: "#ffffff",
+        opacity: 1,
+        y: 0,
+        scale: 1.5,
         duration: 0.3,
-        ease: "power2.inOut",
+        color: "#ffffff",
+        ease: "power3.out",
       })
+      // .to(contentContainerRef.current, {
+      //   color: "#ffffff",
+      //   duration: 0.3,
+      //   ease: "power2.inOut",
+      // })
+      // 👇 Explicitly sequence these
       .from(
         contentContainerRef.current,
         {
@@ -126,17 +131,18 @@ export default function ScrollAnimation() {
           duration: 0.8,
           ease: "power2.out",
         },
-        ">-0.3"
+        "+=2.5"
       )
-      .from(
-        buttonRef.current,
+      .to(
+        contentContainerRef.current,
         {
-          opacity: 0,
-          y: 30,
-          duration: 0.8,
-          ease: "back.out(1.7)",
+          opacity: 1,
+          y: 10,
+          duration: 20,
+          ease: "power2.out",
+          // ease: "back.out(1.7)",
         },
-        "+=0.2"
+        "+=5.2"
       );
 
     return () => {
@@ -165,8 +171,8 @@ export default function ScrollAnimation() {
           ref={rocketRef}
           className="rocket-svg"
           xmlns="http://www.w3.org/2000/svg"
-          width="400"
-          height="800"
+          width="980"
+          height="1988"
           fill="none"
           viewBox="0 0 980 1988"
         >
@@ -671,20 +677,20 @@ export default function ScrollAnimation() {
         </svg>
 
         {/* Animated Text */}
-        <h1
+        <h2
           ref={animatedTextRef}
-          className="relative z-30 text-4xl text-center max-w-[90%] mx-auto text-white font-semibold"
+          className="relative z-30 text-4xl text-center max-w-4xl mx-auto text-white font-semibold"
         >
           Navigating Your Business Through the Stars... and Safeguarding Every
           Step
-        </h1>
+        </h2>
 
         {/* Content Container */}
         <div
           ref={contentContainerRef}
-          className="relative z-30 text-center mt-8 max-w-2xl mx-auto"
+          className="relative z-30 mt-4 pb-40 text-center max-w-2xl mx-auto"
         >
-          <div className="text-2xl leading-relaxed font-medium text-white">
+          <div className="text-md leading-relaxed font-medium text-white">
             Think of Secure365 as your interstellar co-pilot, guiding you safely
             through the ever-expanding cosmos of modern technology. We blend
             visionary web development with rock-solid IT services, cloud
@@ -693,21 +699,53 @@ export default function ScrollAnimation() {
             Simple: to help your brand thrive and remain secure, from initial
             launch to the far reaches of tomorrow.
           </div>
-          <button
+          {/* <button
             ref={buttonRef}
             className="mt-12 px-10 py-4 text-lg font-semibold text-white bg-transparent border-2 border-white rounded-full cursor-pointer relative overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/40 hover:bg-gradient-to-r hover:from-blue-800 hover:to-blue-600 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-500 hover:before:left-full"
           >
             GET STARTED
+          </button> */}
+          <button
+            ref={buttonRef}
+            className="relative mt-4 z-[9999] bannerbtn"
+            data-aos="fade-up"
+          >
+            <Link className="header-button ajax-link" href="/about-us">
+              <div className="button-icon-link right">
+                <div className="icon-wrap-scale">
+                  <div className="icon-wrap parallax-wrap">
+                    <div className="button-icon parallax-element">
+                      {/* <i className="fa-solid fa-arrow-right"></i> */}
+                      <Rocket className="ml-2 h-5 w-5" />
+                    </div>
+                  </div>
+                </div>
+                <div className="button-text sticky right">
+                  {/* <span data-hover="Let's Talk">Start Your Mission <Rocket className="ml-2 h-5 w-5" /></span> */}
+                  <span data-hover="Let's Talk">About us</span>
+                </div>
+              </div>
+            </Link>
           </button>
         </div>
-        <Image
-          src="/images/Cloud-image.jpg"
-          alt="Cloud background"
-          width={1920}
-          height={1080}
-          className="absolute inset-0 object-cover z-10 opacity-1"
-          priority
-        />
+        <div className={`cloud-inner-box cloudImage`}>
+          {/* <Image
+            src="/images/Cloud-image.jpg"
+            alt="Cloud background"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 object-cover z-10 opacity-1"
+            priority
+          /> */}
+          <img src="/images/Cloud-image.jpg" width={1920} height={1000} />
+        </div>
+        <div className="fogContainerBox">
+          <img
+            className="fog"
+            src="https://64.media.tumblr.com/224f9198d5d88a5e92e43f5ef4f7a592/139ff9bb70edd708-66/s540x810/0edbf6d586b6b4c85c5bd61569992f036c21191b.png"
+            alt="Fog"
+          />
+        </div>
       </section>
 
       <style jsx global>{`
@@ -717,6 +755,18 @@ export default function ScrollAnimation() {
           background: #111;
           color: white;
           overflow-x: hidden;
+        }
+        .cloudImage {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 100%;
+        }
+
+        .cloudImage img {
+          width: 100%;
+          height: 100%;
         }
         .scroll-animation {
           position: relative;

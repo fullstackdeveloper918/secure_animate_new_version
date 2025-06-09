@@ -63,9 +63,9 @@ export default function CardStackingSection() {
     // Create ScrollTrigger for pinning the header
     ScrollTrigger.create({
       trigger: headerRef.current,
-      start: "top top+=100", // Matches Tailwind's top-5 (1.25rem)
+      start: "top top+=80", // Matches Tailwind's top-5 (1.25rem)
       endTrigger: cardsRef.current[cardsRef.current.length - 1],
-      end: "bottom+=300",
+      end: "bottom+=500",
       pin: true,
       pinSpacing: false,
     });
@@ -113,7 +113,7 @@ export default function CardStackingSection() {
   }, []);
 
   return (
-    <section className="py-[60px] mb-20 overflow-hidden">
+    <section className="py-[60px] mb-28 overflow-hidden">
       <div className="container mx-auto">
         <div className="flex justify-center">
           <div className="w-full">
@@ -123,14 +123,14 @@ export default function CardStackingSection() {
             >
               Benefits of Choosing{" "}
               <span className="text-[#009dd6]">Secure365</span>
-              <p className="text-lg w-full mt-3 mb-8 mx-auto">
+              <p className="benefitPara text-lg w-full mt-3 mb-12 mx-auto">
                 Secure365 offers robust, 24/7 protection with advanced threat
                 detection to keep your data safe. Enjoy peace of mind with
                 reliable security solutions tailored for businesses of all
                 sizes.
               </p>
             </h2>
-            <div className="max-w-[1300px] mx-auto mb-20 mt-10 gap-[30px]">
+            <div className="max-w-[1300px] mx-auto flex flex-col gap-80">
               {cards.map((card, index) => (
                 <div
                   key={card.id}

@@ -1,11 +1,12 @@
-.center{
+.center {
   text-align: center;
 }
 
-.main{
+.main {
   width: full;
   margin: auto;
   height: 100vh;
+  background-color: white;
 }
 
 @keyframes scrollLeft {

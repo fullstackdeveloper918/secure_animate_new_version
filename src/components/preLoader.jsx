@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import ScrambleSequence from './ScrambleTextLoad';
+import React, { useState, useEffect } from "react";
+import ScrambleSequence from "./ScrambleTextLoad";
 
 const TEXTS = [
-  'Brewing some cool things',
-  'Hang tight, magic is happening',
-  'Loading your adventure',
-  'Loading ... ',
+  "Brewing some cool things",
+  "Hang tight, magic is happening",
+  "Loading your adventure",
+  "Loading... ",
 ];
 
 const PreLoader = () => {
@@ -24,11 +24,15 @@ const PreLoader = () => {
   };
 
   return (
-    <div className={`pre-load-main transition-opacity duration-500 ${hide ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+    <div
+      className={`bg-black min-h-screen transition-opacity duration-500 ${
+        hide ? "opacity-0 pointer-events-none" : "opacity-100"
+      }`}
+    >
       <ScrambleSequence
         text={TEXTS[currentIndex]}
-        onComplete={handleNext} 
-        className="text-white font-bold text-1xl text-center"
+        onComplete={handleNext}
+        className="text-white code-block font-semibold text-5xl text-center pt-80"
       />
     </div>
   );

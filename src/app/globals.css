@@ -7286,3 +7286,11 @@ h1.main-serv-head {
 .input-error {
   border: 1px solid red;
 }
+.code-block {
+  font-family: monospace, Menlo, Courier !important;
+}
+
+.benefitPara {
+  max-width: 60%;
+  margin: 0 auto;
+}
