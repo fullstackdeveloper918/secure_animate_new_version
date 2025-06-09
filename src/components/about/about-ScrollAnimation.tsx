@@ -95,28 +95,28 @@ export default function ScrollAnimation() {
       .to(rocketRef.current, {
         y: -330,
         opacity: 1,
-        duration: 180,
+        duration: 280,
         scale: 3,
-        ease: "power2.inOut",
+        ease: "power2.in",
       })
       .from(
         animatedTextRef.current,
         {
           opacity: 0,
-          y: 100,
-          // scale: 0.8,
+          y: 500,
           duration: 0.5,
         },
         "+=0.1"
-      ) // overlaps slightly with rocket animation
+      )
       .to(animatedTextRef.current, {
         opacity: 1,
-        y: 0,
-        scale: 1.5,
-        duration: 0.3,
+        y: 0, // changed from y: 20 to y: 0
+        // scale: 1.5,
+        duration: 100,
         color: "#ffffff",
         ease: "power3.out",
       })
+
       // .to(contentContainerRef.current, {
       //   color: "#ffffff",
       //   duration: 0.3,
@@ -127,11 +127,11 @@ export default function ScrollAnimation() {
         contentContainerRef.current,
         {
           opacity: 0,
-          y: 50,
+          y: 500,
           duration: 0.8,
           ease: "power2.out",
         },
-        "+=2.5"
+        "+=8.5"
       )
       .to(
         contentContainerRef.current,
@@ -681,7 +681,7 @@ export default function ScrollAnimation() {
           ref={animatedTextRef}
           className="relative z-30 text-4xl text-center max-w-4xl mx-auto text-white font-semibold"
         >
-          Navigating Your Business Through the Stars... and Safeguarding Every
+          Navigating Your Business Through the Stars.. and Safeguarding Every
           Step
         </h2>
 
