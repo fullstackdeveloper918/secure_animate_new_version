@@ -86,40 +86,65 @@ export default function ScrollAnimation() {
       },
     });
 
-    tl.from(
+    tl.fromTo(
       rocketRef.current,
       {
-        y: 1700,
+        y: 700,
         opacity: 0,
         duration: 2,
         scale: 3,
-      }
-      // "+=0.9"
-    )
-      .to(rocketRef.current, {
+      }, // from: start at 0 opacity and 100px below
+      {
         y: -330,
         opacity: 1,
-        duration: 6000,
+        duration: 600,
         scale: 3,
         ease: "power3.out",
-      })
-      .from(
+      } // to: fully visible at original position
+    )
+
+      // tl.from(
+      //   rocketRef.current,
+      //   {
+      //     y: 1700,
+      //     opacity: 0,
+      //     duration: 2,
+      //     scale: 3,
+      //   }
+      //   // "+=0.9"
+      // )
+      //   .to(rocketRef.current, {
+      //     y: -330,
+      //     opacity: 1,
+      //     duration: 6000,
+      //     scale: 3,
+      //     ease: "power3.out",
+      //   })
+      .fromTo(
         animatedTextRef.current,
         {
           opacity: 0,
           y: 500,
           duration: 0.5,
         },
-        "+=0.1"
+        {
+          opacity: 1,
+          y: 0, // changed from y: 20 to y: 0
+          // scale: 1.5,
+          duration: 100,
+          color: "#ffffff",
+          ease: "power3.out",
+        }
+        // "+=0.1"
       )
-      .to(animatedTextRef.current, {
-        opacity: 1,
-        y: 0, // changed from y: 20 to y: 0
-        // scale: 1.5,
-        duration: 100,
-        color: "#ffffff",
-        ease: "power3.out",
-      })
+      // .to(animatedTextRef.current, {
+      //   opacity: 1,
+      //   y: 0, // changed from y: 20 to y: 0
+      //   // scale: 1.5,
+      //   duration: 100,
+      //   color: "#ffffff",
+      //   ease: "power3.out",
+      // })
 
       // .to(contentContainerRef.current, {
       //   color: "#ffffff",
@@ -127,7 +152,7 @@ export default function ScrollAnimation() {
       //   ease: "power2.inOut",
       // })
       // 👇 Explicitly sequence these
-      .from(
+      .fromTo(
         contentContainerRef.current,
         {
           opacity: 0,
@@ -135,19 +160,26 @@ export default function ScrollAnimation() {
           duration: 10,
           ease: "power2.out",
         },
-        "+=8.5"
-      )
-      .to(
-        contentContainerRef.current,
         {
           opacity: 1,
           y: 10,
           duration: 80,
           ease: "power2.out",
           // ease: "back.out(1.7)",
-        },
-        "+=5.2"
+        }
+        // "+=8.5"
       );
+    // .to(
+    //   contentContainerRef.current,
+    //   {
+    //     opacity: 1,
+    //     y: 10,
+    //     duration: 80,
+    //     ease: "power2.out",
+    //     // ease: "back.out(1.7)",
+    //   },
+    //   "+=5.2"
+    // );
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
