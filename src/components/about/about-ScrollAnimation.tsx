@@ -93,11 +93,11 @@ export default function ScrollAnimation() {
       scale: 3,
     })
       .to(rocketRef.current, {
-        y: -330,
+        y: -30,
         opacity: 1,
-        duration: 280,
+        duration: 600,
         scale: 3,
-        ease: "power2.in",
+        ease: "power3.in",
       })
       .from(
         animatedTextRef.current,
@@ -128,7 +128,7 @@ export default function ScrollAnimation() {
         {
           opacity: 0,
           y: 500,
-          duration: 0.8,
+          duration: 10,
           ease: "power2.out",
         },
         "+=8.5"
@@ -138,7 +138,7 @@ export default function ScrollAnimation() {
         {
           opacity: 1,
           y: 10,
-          duration: 20,
+          duration: 80,
           ease: "power2.out",
           // ease: "back.out(1.7)",
         },
