@@ -86,18 +86,22 @@ export default function ScrollAnimation() {
       },
     });
 
-    tl.from(rocketRef.current, {
-      y: 700,
-      opacity: 0,
-      duration: 2,
-      scale: 3,
-    })
-      .to(rocketRef.current, {
-        y: -30,
-        opacity: 1,
-        duration: 600,
+    tl.from(
+      rocketRef.current,
+      {
+        y: 1700,
+        opacity: 0,
+        duration: 2,
         scale: 3,
-        ease: "power3.in",
+      }
+      // "+=0.9"
+    )
+      .to(rocketRef.current, {
+        y: -330,
+        opacity: 1,
+        duration: 6000,
+        scale: 3,
+        ease: "power3.out",
       })
       .from(
         animatedTextRef.current,

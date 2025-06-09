@@ -91,7 +91,7 @@ export default function ScrambleSequence({ className = "" }) {
       const scrambled = fullText
         .split("")
         .map((char, i) => {
-          if (char === " ") return "\u200A";
+          if (char === " ") return " ";
           if (i < scrambleProgress) {
             return fullText[i]; // lock correct char
           }
@@ -104,7 +104,7 @@ export default function ScrambleSequence({ className = "" }) {
 
       if (iterations > scrambleIterations) {
         clearInterval(intervalRef.current);
-        setDisplayText(fullText.replace(/ /g, "\u200A"));
+        setDisplayText(fullText.replace(/ /g, " "));
 
         // wait then go to next line
         setTimeout(() => {
@@ -122,7 +122,7 @@ export default function ScrambleSequence({ className = "" }) {
     <h1
       className={className}
       style={{
-        fontFamily: "monospace, Menlo, Courier",
+        // fontFamily: "monospace, Menlo, Courier",
         whiteSpace: "nowrap", // prevent line breaks
       }}
     >

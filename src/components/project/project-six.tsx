@@ -36,7 +36,10 @@ export default function ProjectSix({ data }: any) {
                   data-centerline="OPEN"
                 >
                   <div className="img-mask pixels-cover animated">
-                    <a className="slide-link" href={project.link || "/project"}>
+                    <Link
+                      className="slide-link"
+                      href={project.link || "/project"}
+                    >
                       <div
                         className="flip-thumb-inner"
                         data-flip-id={`auto-${index + 1}`}
@@ -49,7 +52,7 @@ export default function ProjectSix({ data }: any) {
                           />
                         </div>
                       </div>
-                    </a>
+                    </Link>
                   </div>
                   <div className="slide-caption trigger-item-link-secondary">
                     <div className="slide-title">
