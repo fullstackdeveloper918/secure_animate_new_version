@@ -32,7 +32,7 @@ const PreLoader = () => {
       <ScrambleSequence
         text={TEXTS[currentIndex]}
         onComplete={handleNext}
-        className="text-white code-block font-semibold text-5xl text-center pt-80"
+        className="text-white code-block font-semibold text-5xl text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
       />
     </div>
   );
