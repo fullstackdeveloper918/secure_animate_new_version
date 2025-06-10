@@ -5946,7 +5946,7 @@ section.pricing-serv-tier
   fill: #04afee !important;
 }
 .price-top-head {
-  padding: 60px 0 80px;
+  padding: 60px 0 10px;
   font-size: 36px;
 }
 
@@ -6597,7 +6597,7 @@ section.cyber-serv-sec .cb-btn-prc {
     margin-top: 60px;
   }
   .price-top-head {
-    padding: 60px 0 60px;
+    padding: 60px 0 10px;
     font-size: 32px;
   }
   .tp-service-4-area.pt-30.pb-10.fix {
@@ -7376,3 +7376,8 @@ h1.main-serv-head {
 
 
 /* Project Page CSS Start end Here */
+@media (max-width:991px){
+  .benifitsec::after{
+    display:none;
+  }
+}

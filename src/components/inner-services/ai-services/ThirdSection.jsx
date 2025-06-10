@@ -3,11 +3,11 @@ import { UilCheck } from "@iconscout/react-unicons";
 
 const PricingCards = () => {
   return (
-    <div className="bg-white relative pb-14">
+    <div className="bg-white relative pb-20">
       <h2 className="price-top-head text-center text-uppercase fw-bold">
         Pricing tiers
       </h2>
-      <section className="container mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 pricing-serv-tier">
+      <section className="container mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 md:gap-8 pricing-serv-tier">
         {/* CARD 1 */}
         <article className="bg-white rounded-lg shadow-md flex flex-col items-center text-center price-serv-card">
           <div class="card__pricing">

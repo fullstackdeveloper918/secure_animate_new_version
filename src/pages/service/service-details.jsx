@@ -67,7 +67,9 @@ const ServiceDetailsMain = ({ serviceBannerData }) => {
             ><FourthSection />
             </div>
           </main>
-          <div className="relative z-10"></div>
+          <div className="relative z-10">
+            <FooterFour />
+          </div>
         </div>
       </div>
     </Wrapper>
