@@ -10,6 +10,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import TechableProject from "@/components/projectSlider/TechableProject";
 import AppleTech from "@/components/projectSlider/AppleTech";
 import TextScrollAnimation from "@/components/ProjectTextaniamtion/TextScrollAnimation";
+import Component from "@/components/ProjectTextaniamtion/TextScrollAnimation";
 gsap.registerPlugin(ScrollTrigger);
 const Page = () => {
   const heroRef = useRef(null);
@@ -212,10 +213,10 @@ const Page = () => {
           <div
             id="clapat-page-content"
             className="dark-content"
-            data-bgcolor="#EBEBEB"
+            data-bgcolor="#ffffff"
           >
             <div id="content-scroll">
-              <div id="main" ref={mainContentRef}>
+              <div id="main" className="" ref={mainContentRef}>
                 <div id="hero" className="has-image autoscroll" ref={heroRef}>
                   <div id="hero-styles">
                     <div
@@ -225,6 +226,7 @@ const Page = () => {
                       <div className="inner">
                         <h1 className="hero-title caption-timeline">
                           <span>Shop Smart.</span> <span>Save the Planet.</span>
+                          
                         </h1>
                         <div className="hero-subtitle caption-timeline onload-shuffle">
                           <span>Branding</span>
@@ -317,7 +319,7 @@ const Page = () => {
                     </div>
                     <div
                       className="content-row full light-section disable-header-gradient change-header-color"
-                      data-bgcolor="#EBEBEB"
+                      data-bgcolor="#032251"
                     >
                       <figure className="has-parallax">
                         <Image
@@ -357,11 +359,11 @@ const Page = () => {
                       </div>
                     </div> */}
                     {/* <TextScrollAnimation />service-details__area service-details__space bann-p-block */}
-         
                   </div>
                 </div>
               </div>
             </div>
+            <TextScrollAnimation />
             <ProjectSlider />
             <TechableProject />
             <AppleTech />

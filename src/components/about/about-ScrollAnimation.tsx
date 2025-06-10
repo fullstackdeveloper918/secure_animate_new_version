@@ -95,7 +95,7 @@ export default function ScrollAnimation() {
         scale: 3,
       }, // from: start at 0 opacity and 100px below
       {
-        y: -130,
+        y: -230,
         opacity: 1,
         duration: 9000,
         scale: 3,
@@ -125,17 +125,18 @@ export default function ScrollAnimation() {
         {
           opacity: 0,
           y: 5000,
-          duration: 0.5,
+          duration: 800,
         },
         {
           opacity: 1,
           y: 0, // changed from y: 20 to y: 0
           // scale: 1.5,
-          duration: 2000,
+          duration: 5000,
           color: "#ffffff",
           ease: "power3.out",
-        }
-        // "+=0.1"
+        },
+        // "+=8.7"
+        0.5
       )
 
       // .to(contentContainerRef.current, {

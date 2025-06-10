@@ -5,7 +5,7 @@ const TEXTS = [
   "Brewing some cool things",
   "Hang tight, magic is happening",
   "Loading your adventure",
-  "Loading... ",
+  "Loading ... ",
 ];
 
 const PreLoader = () => {
@@ -25,14 +25,14 @@ const PreLoader = () => {
 
   return (
     <div
-      className={`bg-black min-h-screen transition-opacity duration-500 ${
+      className={`pre-load-main transition-opacity duration-500 ${
         hide ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
       <ScrambleSequence
         text={TEXTS[currentIndex]}
         onComplete={handleNext}
-        className="text-white code-block font-semibold text-5xl text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        className="text-white font-bold text-1xl text-center"
       />
     </div>
   );

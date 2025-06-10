@@ -31,9 +31,21 @@ const AnimationHeader = () => {
   const [activeItem, setActiveItem] = useState(null); // Track the active menu item
   const [scrolled, setScrolled] = useState(false); // Track if the page has been scrolled
   const [active, setActive] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const [isDesktop, setIsDesktop] = useState(false);
   const pathname = usePathname();
 
   const [serviceList, setServiceList] = useState([]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1025);
+    };
+
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -77,6 +89,7 @@ const AnimationHeader = () => {
 
   const handleClick = (text) => {
     setActiveItem(text); // Set the clicked item as active
+    setActive(false);
   };
 
   // Detect scroll and add/remove class based on scroll position
@@ -164,8 +177,8 @@ const AnimationHeader = () => {
                   className={`menu-timeline link header-link ${
                     activeItem === item ? "active" : ""
                   }`}
-                  // onMouseEnter={() => handleMouseEnter(item)}
-                  // onMouseLeave={handleMouseLeave}
+                  onMouseEnter={() => isDesktop && setHoveredItem(item)}
+                  onMouseLeave={() => isDesktop && setHoveredItem(null)}
                 >
                   <Link
                     className="ajax-link"
@@ -176,36 +189,37 @@ const AnimationHeader = () => {
                         ? "/why-choose"
                         : `/${item.toLowerCase().replace(/\s+/g, "-")}`
                     }
-                    onClick={() => handleClick(item)} // Set the clicked item as active
+                    onClick={() => handleClick(item)}
                   >
                     {item}
                     <ScrambleText text={item} />
                   </Link>
 
-                  {/* Only show the submenu for "Service" */}
-                  {item === "Service" && (
-                    <div className="sub-menu">
-                      {serviceList?.home_page_service_section_loop_data?.map(
-                        (service, index) => (
-                          <Link
-                            key={index}
-                            href={`/service/${service.home_page_service_section_loop.substring(
-                              service.home_page_service_section_loop.lastIndexOf(
-                                "/"
-                              ) + 1
-                            )}`}
-                          >
-                            {
-                              service.home_page_service_section_loop.split(
-                                "/"
-                              )[0]
-                            }
-                            {console.log("service", service)}
-                          </Link>
-                        )
-                      )}
-                    </div>
-                  )}
+                  {/* Show submenu on hover */}
+                  {item === "Service" &&
+                    isDesktop &&
+                    hoveredItem === "Service" && (
+                      <div className="sub-menu">
+                        {serviceList?.home_page_service_section_loop_data?.map(
+                          (service, index) => (
+                            <Link
+                              key={index}
+                              href={`/service/${service.home_page_service_section_loop.substring(
+                                service.home_page_service_section_loop.lastIndexOf(
+                                  "/"
+                                ) + 1
+                              )}`}
+                            >
+                              {
+                                service.home_page_service_section_loop.split(
+                                  "/"
+                                )[0]
+                              }
+                            </Link>
+                          )
+                        )}
+                      </div>
+                    )}
                 </li>
               ))}
             </ul>
