@@ -12,7 +12,7 @@ import AppleTech from "@/components/projectSlider/AppleTech";
 import TextScrollAnimation from "@/components/ProjectTextaniamtion/TextScrollAnimation";
 import Component from "@/components/ProjectTextaniamtion/TextScrollAnimation";
 import WhyTechable from "@/components/projectSlider/whyTechable";
-import UniqueSolution from "@/components/projectSlider/UniqueSolution";
+import UniqueSolution from "@/components/projectSlider/uniqueSolution";
 
 gsap.registerPlugin(ScrollTrigger);
 
