@@ -7348,3 +7348,31 @@ h1.main-serv-head {
   max-width: 60%;
   margin: 0 auto;
 }
+
+/* Project Page CSS Start Here */
+
+/* .project-top-bg{
+  background: black;
+} */
+
+.project-top-heading{
+    font-size: clamp(48px, 8.5vw, 100px) !important;
+    line-height: clamp(48px, 8.5vw, 120px) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.1vw !important;
+    color: #3eaced !important;
+}
+.project-top-para{
+    font-size: 20px !important;
+    line-height: 32px !important;
+    max-width: 52%;
+    margin: auto;
+    opacity: .8 !important;
+    /* color: #fff !important; */
+}
+.proj-full-image div#hero-bg-image {
+    background-size: cover !important;
+}
+
+
+/* Project Page CSS Start end Here */

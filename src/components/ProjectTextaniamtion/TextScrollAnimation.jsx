@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Register ScrollTrigger plugin
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -12,6 +11,7 @@ if (typeof window !== "undefined") {
 export default function TextScrollAnimation() {
   const containerRef = useRef(null);
   const wordsRef = useRef([]);
+  const canvasRef = useRef(null);
 
   const words = [
     "Speed",
@@ -34,19 +34,18 @@ export default function TextScrollAnimation() {
       scale: 0.8,
     });
 
-    // Create the main timeline
+    // Timeline for scroll-triggered text animations
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: container,
         start: "top top",
-        end: "+=400%", // Extend the scroll distance
+        end: "+=400%",
         scrub: 1,
         pin: true,
         anticipatePin: 1,
       },
     });
 
-    // Animate each word in sequence
     wordElements.forEach((word, index) => {
       tl.to(
         word,
@@ -58,9 +57,8 @@ export default function TextScrollAnimation() {
           ease: "power2.out",
         },
         index * 0.8
-      ); // Stagger the animations
+      );
 
-      // Keep the word visible for a bit, then fade out (except the last one)
       if (index < wordElements.length - 1) {
         tl.to(
           word,
@@ -75,46 +73,99 @@ export default function TextScrollAnimation() {
       }
     });
 
-    // Cleanup function
+    // Cleanup GSAP triggers
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+    const numStars = 500;
+
+    function initCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      stars = [];
+
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.5,
+          velocity: Math.random() * 0.5 + 0.1,
+          color:
+            "rgba(255, 255, 255, " + (Math.random() * 0.7 + 0.3).toFixed(2) + ")",
+        });
+      }
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach((star) => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = star.color;
+        ctx.fill();
+      });
+    }
+
+    function animateStars() {
+      stars.forEach((star) => {
+        star.x += star.velocity;
+        if (star.x > canvas.width) {
+          star.x = 0;
+          star.y = Math.random() * canvas.height;
+        }
+      });
+      drawStars();
+      requestAnimationFrame(animateStars);
+    }
+
+    initCanvas();
+    animateStars();
+
+    window.addEventListener("resize", initCanvas);
+    return () => window.removeEventListener("resize", initCanvas);
+  }, []);
+
   return (
     <div className="bg-black text-white">
-      {/* Hero Section - Full Screen */}
-
-      {/* Pinned Animation Section */}
       <section
         ref={containerRef}
         className="h-screen flex flex-col items-center justify-center bg-black relative overflow-hidden"
       >
-        <h1 className="text-white text-2xl font-medium">RESULT THAT MATTER</h1>
-        <div className="text-center">
+        {/* Canvas background */}
+        <canvas
+          id="galaxyCanvas"
+          ref={canvasRef}
+          className="absolute top-0 left-0 w-full h-full"
+        ></canvas>
+
+        <h1 className="text-white text-2xl font-medium relative z-10 mb-4">
+          RESULT THAT MATTER
+        </h1>
+
+        <div className="text-center relative z-10 space-y-2">
           {words.map((word, index) => (
             <div
               key={index}
               ref={(el) => {
                 if (el) wordsRef.current[index] = el;
               }}
-              className=" flex gap-1 justify-center"
+              className="flex justify-center"
             >
-              <h2 className="list-none w-auto table text-[calc(1rem+4vw)] leading-[calc(1rem+4vw)] tracking-[-0.15vw] font-medium text-white">
+              <h2 className="text-[calc(1rem+4vw)] leading-[calc(1rem+4vw)] tracking-[-0.15vw] font-medium text-white">
                 {word}
               </h2>
             </div>
           ))}
         </div>
-
-        {/* Background decoration */}
-        {/* <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-500 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-cyan-500 rounded-full blur-3xl"></div>
-        </div> */}
       </section>
-
-      {/* Content Sections Below */}
     </div>
   );
 }

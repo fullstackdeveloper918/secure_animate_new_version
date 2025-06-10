@@ -11,42 +11,17 @@ import TechableProject from "@/components/projectSlider/TechableProject";
 import AppleTech from "@/components/projectSlider/AppleTech";
 import TextScrollAnimation from "@/components/ProjectTextaniamtion/TextScrollAnimation";
 import Component from "@/components/ProjectTextaniamtion/TextScrollAnimation";
+import WhyTechable from "@/components/projectSlider/whyTechable";
+import UniqueSolution from "@/components/projectSlider/UniqueSolution";
+
 gsap.registerPlugin(ScrollTrigger);
+
 const Page = () => {
   const heroRef = useRef(null);
   const mainContentRef = useRef(null);
-  const sectionRef = useRef(null);
-  // useEffect(() => {
-  //   const ctx = gsap.context(() => {
-  //     const tl = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: sectionRef.current,
-  //         start: "top center",
-  //         end: "+=180", // Increase for more scroll length
-  //         scrub: true,
-  //         pin: true,
-  //         markers: false,
-  //       },
-  //     });
-  //     const stepsEls = gsap.utils.toArray(".step");
-  //     stepsEls.forEach((step, i) => {
-  //       tl.fromTo(
-  //         step,
-  //         { opacity: 0, y: 100 },
-  //         {
-  //           opacity: 1,
-  //           y: 0,
-  //           duration: 0.8,
-  //           ease: "power2.out",
-  //         },
-  //         i * 0.5 // stagger each step in scroll timeline
-  //       );
-  //     });
-  //   }, sectionRef);
-  //   return () => ctx.revert();
-  // }, []);
+
   useEffect(() => {
-    // Hero Section Animations
+    // Hero Animation
     gsap.set("#hero-background-layer", {
       y: "-100%",
       scale: 0.8,
@@ -54,6 +29,7 @@ const Page = () => {
       transformOrigin: "center top",
       opacity: 0,
     });
+
     const heroTl = gsap.timeline({ delay: 0.2 });
     heroTl
       .to("#hero-background-layer", {
@@ -66,11 +42,7 @@ const Page = () => {
       })
       .fromTo(
         ".hero-title span",
-        {
-          y: 120,
-          opacity: 0,
-          skewY: 5,
-        },
+        { y: 120, opacity: 0, skewY: 5 },
         {
           y: 0,
           opacity: 1,
@@ -83,10 +55,7 @@ const Page = () => {
       )
       .fromTo(
         ".hero-subtitle span",
-        {
-          y: 50,
-          opacity: 0,
-        },
+        { y: 50, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -97,10 +66,7 @@ const Page = () => {
       )
       .fromTo(
         ".hero-footer-left, .hero-footer-right",
-        {
-          y: 30,
-          opacity: 0,
-        },
+        { y: 30, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -110,9 +76,36 @@ const Page = () => {
         },
         "-=0.5"
       );
-    // Parallax for hero image
+
+
+        // Parallax fade/move on scroll for hero texts
+    gsap.to(".hero-title", {
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+      y: -50,
+      opacity: 0,
+      ease: "none",
+    });
+
+    gsap.to(".hero-subtitle", {
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+      y: -30,
+      opacity: 0,
+      ease: "none",
+    });
+
+    // Parallax Hero Image
     gsap.to("#hero-bg-image", {
-      yPercent: 20,
+      // yPercent: 10,
       ease: "none",
       scrollTrigger: {
         trigger: "#hero",
@@ -121,13 +114,12 @@ const Page = () => {
         scrub: true,
       },
     });
-    // Parallax for all images in main content
+
+    // Parallax Images
     gsap.utils.toArray(".parallax-image").forEach((image) => {
       gsap.fromTo(
         image,
-        {
-          y: -60,
-        },
+        { y: -60 },
         {
           y: 60,
           ease: "none",
@@ -140,74 +132,63 @@ const Page = () => {
         }
       );
     });
-    gsap.utils.toArray(".pinned-item").forEach((item, index) => {
-      gsap.fromTo(
-        item,
-        {
-          y: 100,
-          opacity: 0,
-          scale: 0.9,
-          // transformOrigin: "center top",
-        },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: item,
-            start: "top 80%",
-            end: "top 20%",
-            scrub: 0.5,
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
-    // Content section animations
-    gsap.utils.toArray(".content-row").forEach((section) => {
-      gsap.fromTo(
-        section,
-        {
-          y: 50,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 85%",
-            end: "top 20%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    });
-    // Smooth scroll for entire page
-    ScrollTrigger.create({
-      trigger: mainContentRef.current,
-      start: "top top",
-      end: "bottom bottom",
-      onUpdate: (self) => {
-        gsap.to(mainContentRef.current, {
-          y: -self.progress * 50,
-          ease: "power2.out",
-          overwrite: "auto",
-        });
-      },
-    });
-    // Refresh ScrollTrigger after setup
+
+    // Floating stars (space animation)
+    const createStars = () => {
+      const container = document.getElementById("space-animation");
+      if (!container) return;
+      for (let i = 0; i < 50; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+        star.style.width = `${Math.random() * 2 + 1}px`;
+        star.style.height = `${Math.random() * 2 + 1}px`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        container.appendChild(star);
+      }
+    };
+    createStars();
+
     ScrollTrigger.refresh();
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+
   return (
     <>
+      <style jsx global>{`
+        #space-animation {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 0;
+          background: transparent;
+          overflow: hidden;
+        }
+        .star {
+          position: absolute;
+          background: white;
+          border-radius: 50%;
+          opacity: 0.8;
+          animation: floatStars 5s linear infinite;
+        }
+        @keyframes floatStars {
+          0% {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(-100vh) scale(0.3);
+            opacity: 0;
+          }
+        }
+      `}</style>
+
       <main>
         <div className="cd-index cd-main-content">
           <div
@@ -221,15 +202,18 @@ const Page = () => {
                   <div id="hero-styles">
                     <div
                       id="hero-caption"
-                      className="content-full-width parallax-scroll-caption"
+                      className="content-full-width parallax-scroll-caption project-top-bg"
                     >
+                      <div id="space-animation"></div> {/* Space Animation Here */}
                       <div className="inner">
-                        <h1 className="hero-title caption-timeline">
-                          <span>Shop Smart.</span> <span>Save the Planet.</span>
-                          
+                        <h1 className="hero-title caption-timeline project-top-heading">
+                          <span>Transforming a Vision</span>{" "}
+                          <span>into Reality</span>
                         </h1>
-                        <div className="hero-subtitle caption-timeline onload-shuffle">
-                          <span>Branding</span>
+                        <div className="hero-subtitle caption-timeline onload-shuffle project-top-para">
+                          <span>
+                           Techable aimed to ouid a high-performance platform for tech enthusiasts, and <strong>Secure965</strong> took on the challenge to transform this a dynamic and engaging website.
+                          </span>
                         </div>
                       </div>
                       <div id="hero-footer">
@@ -267,103 +251,40 @@ const Page = () => {
                     </div>
                   </div>
                 </div>
+
                 <div
                   id="hero-image-wrapper"
-                  className="change-header-color hero-pixels-cover parallax-scroll-image flex flex-col justify-center items-center"
+                  className="change-header-color hero-pixels-cover parallax-scroll-image flex flex-col justify-center items-center proj-full-image"
                 >
                   <div
                     id="hero-background-layer"
                     className="parallax-scroll-image"
-                    style={{ backgroundColor: "#032251" }}
+                    style={{ backgroundColor: "#ffffff00" }}
                   >
                     <div
                       id="hero-bg-image"
                       style={{
                         backgroundImage:
-                          "url('../images/projects/techableslide2.jpeg')",
+                          "url('../images/projects/Astronaut-flag-hand.jpg')",
                       }}
-                    ></div>
+                      
+                    >
+                      {/* <img src={('../images/projects/Project-Main-full.jpg')} /> */}
+                    </div>
                   </div>
                 </div>
+
+                {/* Your existing content here */}
                 <div id="main-content">
                   <div id="main-page-content">
-                    <div className="marginTBo width90">
-                      <div className="content-row small row_padding_top light-section">
-                        <figure
-                          className="parallax-image-wrapper"
-                          id="techable-image-parallax"
-                        >
-                          <Link
-                            href="/images/projects/techableP1.png"
-                            className="image-link"
-                          >
-                            <img
-                              src="/images/projects/techableP1.png"
-                              alt="Image Title"
-                              className="parallax-image"
-                              width={1000}
-                              height={1000}
-                            />
-                          </Link>
-                          <figcaption>Caption</figcaption>
-                        </figure>
-                      </div>
-                      <div className="content-row small row_padding_bottom light-section text-align-center">
-                        <hr />
-                        <hr className="destroy" />
-                        <p className="bigger has-opacity">
-                          Web PROJECT eskale GWear up for victory with our
-                          exclusive range of Brazil-inspired apparel.
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      className="content-row full light-section disable-header-gradient change-header-color"
-                      data-bgcolor="#032251"
-                    >
-                      <figure className="has-parallax">
-                        <Image
-                          src="/images/projects/techableP2.png"
-                          alt="Image Title"
-                          width={3000}
-                          height={3000}
-                          className="parallax-image"
-                        />
-                      </figure>
-                    </div>
-                    {/* <div
-                      className="content-row small row_padding_top row_padding_bottom light-section text-align-center"
-                      data-bgcolor="#EBEBEB"
-                      ref={sectionRef}
-                    >
-                      <div className="pin-spacer ">
-                        <div
-                          className="pinned-lists-wrapper scale-mode step"
-                          data-duration="3x"
-                        >
-                          <p className="smaller">Characteristics</p>
-                          <ul className="pinned-lists">
-                            {[
-                              "Technology",
-                              "Innovation",
-                              "Software",
-                              "Startups",
-                              "Growth",
-                            ].map((item, index) => (
-                              <li key={index} className="pinned-item">
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div> */}
-                    {/* <TextScrollAnimation />service-details__area service-details__space bann-p-block */}
+                    {/* Add your sections here */}
                   </div>
                 </div>
               </div>
             </div>
+            <WhyTechable />
             <TextScrollAnimation />
+            <UniqueSolution />
             <ProjectSlider />
             <TechableProject />
             <AppleTech />
@@ -373,4 +294,5 @@ const Page = () => {
     </>
   );
 };
+
 export default Page;
