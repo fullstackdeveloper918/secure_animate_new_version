@@ -30,20 +30,36 @@ export const FourthSection = () => {
   };
   return (
     <div id="real-estate-section" className={styles.realEstateSection2}>
-      <div className="flex flex-col items-center">
-        <motion.h2
+
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: -1,
+        }}
+      >
+        <source src="/services.mp4" type="video/mp4" />
+      </video>
+
+      <div className="flex flex-col items-center z-10">
+        <h2
+        data-aos="fade-up"
           ref={ref}
           variants={container}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center sm:text-4xl text-white font-bold tracking-tighter md:text-6xl md:leading-[4rem] flex flex-wrap justify-center xl:px-64"
+          className="text-center sm:text-4xl text-white z-[99] font-semibold tracking-tighter md:text-6xl md:leading-[4rem] flex flex-wrap justify-center xl:px-64"
         >
-          {text?.split("").map((char, index) => (
-            <motion.span key={index} variants={child}>
-              {char === " " ? "\u00A0" : char}
-            </motion.span>
-          ))}
-        </motion.h2>
+         {text}
+        </h2>
 
         <motion.p
           data-aos="fade-up"
@@ -54,7 +70,7 @@ export const FourthSection = () => {
         </motion.p>
       </div>
 
-      <button class="newBtnOne bg-transparent text-white border-2 hover:bg-cyan-100 px-4 py-3 rounded-md text-lg font-medium hover:text-cyan-900 hover:bg-white border mt-4 rounded-pill">Book a Discovery Call</button>
+      <button class="newBtnOne z-[10] relative bg-transparent text-white border-2 hover:bg-cyan-100 px-4 py-3 rounded-md text-lg font-medium hover:text-cyan-900 hover:bg-white border mt-4 rounded-pill">Book a Discovery Call</button>
     </div>
   );
 };

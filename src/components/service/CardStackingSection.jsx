@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const cards = [
   {
     id: 1,
-    title: "1. Enhanced Security",
+    title: "Enhanced Security",
     description:
       "We create and tell stories that connect with people and convey your brand's message in a clear, authentic way. Our creative, artistic thinkers immerse into the DNA of your brand to conceptualize and shape visual content that achieves your objectives and resonates within your target audience.",
     listItems: [
@@ -21,7 +21,7 @@ const cards = [
   },
   {
     id: 2,
-    title: "2. Scalability & Flexibility",
+    title: "Scalability & Flexibility",
     description:
       "We create and tell stories that connect with people and convey your brand's message in a clear, authentic way. Our creative, artistic thinkers immerse into the DNA of your brand to conceptualize and shape visual content that achieves your objectives and resonates within your target audience.",
     listItems: [
@@ -34,7 +34,7 @@ const cards = [
   },
   {
     id: 3,
-    title: "3. Improved Performance",
+    title: "Improved Performance",
     description:
       "We create and tell stories that connect with people and convey your brand's message in a clear, authentic way. Our creative, artistic thinkers immerse into the DNA of your brand to conceptualize and shape visual content that achieves your objectives and resonates within your target audience.",
     listItems: [
@@ -168,15 +168,15 @@ export default function CardStackingSection() {
         id="starfield"
         ref={canvasRef}
         className="absolute inset-0 w-full h-full z-0"
-        style={{ background: "radial-gradient(#04071f 0%, #04071e 70%)" }}
+        style={{ background: "radial-gradient(rgb(22 25 30) 0%, rgb(23 26 31) 70%)" }}
       />
 
-      <div className="container mx-auto">
+      <div className="container mx-auto cardbenifits">
         <div className="flex justify-center">
           <div className="w-full">
             <h2
               ref={headerRef}
-              className="text-center text-[48px] font-extrabold text-white mb-[120px] sticky top-5"
+              className="text-center text-[48px] font-semibold text-white mb-[120px] sticky top-5"
             >
               Benefits of Choosing{" "}
               <span className="text-[#009dd6]">Secure365</span>
@@ -187,7 +187,7 @@ export default function CardStackingSection() {
                 sizes.
               </p>
             </h2>
-            <div className="max-w-[1300px] mx-auto flex flex-col gap-80">
+            <div className="max-w-[1300px] mx-auto flex flex-col gap-80 mainCard">
               {cards.map((card, index) => (
                 <div
                   key={card.id}

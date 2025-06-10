@@ -183,8 +183,14 @@
 }
 
 .tp-service-4-item {
-  padding: 20px 40px !important;
-  height: 50vh;
+    padding: 30px !important;
+    background-color: #12064466 !important;
+    border-radius: 25px;
+    height: fit-content;
+    min-width: 400px;
+}
+.tp-service-4-area .swiper.swiper-container .swiper-slide.swiper-slide-active .tp-service-4-item {
+    background: rgba(48, 1, 239, 0.4) !important;
 }
 .service-details__area {
   padding-bottom: 30px !important;
@@ -492,7 +498,12 @@
 .tm-hero-subtitle {
   font-size: 12px;
 }
-
+.tp-service-4-title-sm {
+    font-size: 36px !important;
+    font-weight: 400 !important;
+    line-height: 48px !important;
+    max-width: 26rem !important;
+}
 /* responsive starts */
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .sv-hero-title {

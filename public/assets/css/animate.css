@@ -1421,18 +1421,27 @@ span.textline-1 {
   height: 100%;
   width: 100%;
   object-fit: contain;
+    filter: invert(1);
 }
 .tp-service-4-item {
   background-color: #1e1e1e0d !important;
 }
 .tp-service-4-content p {
-  color: rgb(0 0 0 / 70%) !important;
+  color: #fff !important;
+}
+.tp-service-4-content p {
+    color: #fff !important;
+    font-size: 14px !important;
+    font-weight: 300 !important;
+    margin-bottom: 25px !important;
+    max-width: 26rem;
+    opacity: .7;
 }
 .tp-service-4-content a.tp-service-4-link {
-  color: #111 !important;
+  color: #fff !important;
 }
 .tp-service-4-link::after {
-  background-color: #000000 !important;
+  background-color: #ffffff21 !important;
 }
 .tp-service-4-title {
   font-weight: 600 !important;

@@ -16,14 +16,14 @@ import sv_6 from "@/assets/img/home-04/service/sv-icon-6.png";
 
 // slider setting
 const slider_setting = {
-  slidesPerView: 4,
+  slidesPerView: 3,
   loop: true,
   autoplay: false,
-  spaceBetween: 60,
+  spaceBetween: 20,
   speed: 1000,
   breakpoints: {
     "1400": {
-      slidesPerView: 4,
+      slidesPerView: 3,
     },
     "1200": {
       slidesPerView: 3,
@@ -88,21 +88,21 @@ export default function ServiceThree({serviceBannerData}) {
   console.log("serviceBannerData",serviceBannerData)
   return (
     <div
-      className="tp-service-4-area pt-30 pb-10 fix"
+      className="tp-service-4-area pt-30 md:pt-[120px] pd-[40px] md:pb-[120px] fix"
       data-background="assets/img/home-04/brand/overly.png"
       style={{ backgroundImage: "url(/assets/img/home-04/brand/overly.png)" }}
     >
       <div className="container">
         <div className="tp-service-4-title-wrap">
           <div className="row align-items-end">
-            <div className="col-xl-9 col-lg-9 col-md-9">
+            <div className="col-12">
               <div className="tp-service-4-title-box tp_fade_bottom">
-                <h2 className="tp-service-4-title">
+                <h2 className="tp-service-4-title text-white text-center">
                 Our Services Include
                 </h2>
               </div>
             </div>
-            <div className="col-xl-3 col-lg-3 col-md-3">
+            {/* <div className="col-xl-3 col-lg-3 col-md-3">
               <div className="tp-service-4-shape-1 text-start text-md-end">
                 <Image
                   className="tp-zoom-in-out"
@@ -110,7 +110,7 @@ export default function ServiceThree({serviceBannerData}) {
                   alt="star"
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

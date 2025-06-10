@@ -9,13 +9,21 @@
   margin-top: 0rem;
   height: 55vw;
 }
+.realEstateSection2::before{
+    position: absolute;
+    content: '';
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #1212126b, #121212);
+}
 .realEstateSection2 {
-  background-color: #101010;
+  /* background-color: #101010; */
+  background: url(/services.mp4);
   padding: 7rem 20px 110px;
   text-align: center;
   position: relative;
   overflow: hidden;
-  margin-top: 5rem;
   /* height: 55vw; */
 }
 .content h2 {

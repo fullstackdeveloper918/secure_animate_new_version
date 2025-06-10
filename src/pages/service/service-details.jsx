@@ -50,16 +50,24 @@ const ServiceDetailsMain = ({ serviceBannerData }) => {
         <div id="">
           <main>
             <ServiceDetailsArea serviceBannerData={serviceBannerData} />
+             <div
+              className="bg-[#000019] mt-[-50px] relative z-10 px-6 "
+            >
+               <ServiceThree serviceBannerData={serviceBannerData} />
+               </div>
             <div
               className="bg-[#009dd610] singleSerivce mt-[-50px]"
               id="singleSerivce"
             >
               <ContactTwo />
             </div>
-            <ServiceThree serviceBannerData={serviceBannerData} />
-            <FourthSection />
+         
+                  <div
+              className="bg-[#fff] mt-[-50px] relative z-10"
+            ><FourthSection />
+            </div>
           </main>
-          <FooterFour />
+          <div className="relative z-10"></div>
         </div>
       </div>
     </Wrapper>

@@ -162,7 +162,7 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
                 <span className="service-details__subtitle tp-char-animation text-white mb-4 inline-block">
                   {serviceBannerData?.description1}
                 </span>
-                <div className="d-block py-3 mt-3">
+                <div className="d-block py-3 md:mt-3">
                   <a
                     href="#singleSerivce"
                     className="serv-in-ban-btn text-white border-2 rounded-pill"

@@ -830,13 +830,13 @@ p {
 a:hover,
 a:active {
   outline: 0;
-  color: #000;
+  color: #fff;
 }
 
 a,
 .light-content .light-section a {
   text-decoration: none;
-  color: #000;
+  color: #fff;
   outline: 0;
 }
 
@@ -5647,6 +5647,38 @@ p.benfits_content {
 }
 /* Header CSS Start here end */
 
+/* benifitssection */
+.mainCard>div>div {
+    position: relative;
+    overflow: hidden !important;
+}
+
+.mainCard>div>div::after {
+    position: absolute;
+    content: '';
+    color: #fff;
+    font-size: 6vw;
+    line-height: 6vw;
+    right: 3%;
+    top: 10%;
+    transform: translateY(-10%);
+    -webkit-text-stroke: 1px #ffffff3b;
+    color: transparent;
+}
+.bg-linerbox{
+      background: radial-gradient(rgb(4, 7, 31) 0%, rgb(4, 7, 30) 70%);
+}
+.mainCard>div:nth-child(1)>div::after {
+    content: '01';
+}
+
+.mainCard>div:nth-child(2)>div::after {
+    content: '02';
+}
+.mainCard>div:nth-child(3)>div::after {
+    content: '03';
+}
+/* benifitssection end*/
 /* Start Service main page responsive css */
 
 .container {
@@ -6700,10 +6732,13 @@ section.cyber-serv-sec .cb-btn-prc {
     line-height: normal;
   }
   .service-details__title-box.mb-10 h2.sv-hero-title.tp-char-animation {
-    font-size: 32px !important;
+    font-size: 28px !important;
     margin: auto;
     letter-spacing: -2px !important;
-    max-width: 90%;
+    max-width: 100%;
+    margin: 0px auto 15px !important;
+    padding: 0px !important;
+    width: 100%;
   }
   .service-details__area.service-details__space.bann-p-block .serv-detail-ban {
     height: 550px;
@@ -7275,13 +7310,27 @@ h1.main-serv-head {
   font-weight: 500 !important;
 }
 .overlay-ser-inner {
-  position: absolute;
-  content: "";
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: #00000075;
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, black, #00000061);
+}
+.benifitsec::after {
+    position: absolute;
+    left: auto;
+    right: 0%;
+    top: -30%;
+    z-index: 1;
+    width: 200em;
+    height: 200em;
+    margin-right: -135.7em;
+    margin-bottom: -133.1em;
+    background-image: radial-gradient(circle farthest-corner at 50% 50%, #0793d5, rgba(92, 49, 255, 0) 69%);
+    opacity: .9;
+    content: '';
 }
 /* Custom Style end */
 .error {

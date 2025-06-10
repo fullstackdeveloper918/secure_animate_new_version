@@ -3,7 +3,7 @@ import { UilCheck } from "@iconscout/react-unicons";
 
 const PricingCards = () => {
   return (
-    <div className="bg-white relative">
+    <div className="bg-white relative pb-14">
       <h2 className="price-top-head text-center text-uppercase fw-bold">
         Pricing tiers
       </h2>
