@@ -22,6 +22,7 @@ export default function ScrollAnimation() {
   const contentContainerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const cloudRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -72,8 +73,120 @@ export default function ScrollAnimation() {
     };
   }, []);
 
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+
+  //   const tl = gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: pinSectionRef.current,
+  //       start: "top top",
+  //       end: "+=200%",
+  //       scrub: true,
+  //       pin: true,
+  //       markers: false,
+  //     },
+  //   });
+
+  //   tl.fromTo(
+  //     rocketRef.current,
+  //     {
+  //       y: -230,
+  //       opacity: 0,
+  //       duration: 2,
+  //       rotate: 180,
+  //       scale: 3,
+  //     }, // from: start at 0 opacity and 100px below
+  //     {
+  //       y: 900,
+  //       opacity: 1,
+  //       duration: 90000,
+  //       scale: 3,
+  //       ease: "power3.in",
+  //     } // to: fully visible at original position
+  //   )
+
+  //     .fromTo(
+  //       animatedTextRef.current,
+  //       {
+  //         opacity: 0,
+  //         y: 5000,
+  //         duration: 800,
+  //       },
+  //       {
+  //         opacity: 1,
+  //         y: 0, // changed from y: 20 to y: 0
+  //         // scale: 1.5,
+  //         duration: 50000,
+  //         color: "#ffffff",
+  //         ease: "power3.out",
+  //       },
+  //       // "+=8.7"
+  //       2.5
+  //     )
+
+  //     // .to(contentContainerRef.current, {
+  //     //   color: "#ffffff",
+  //     //   duration: 0.3,
+  //     //   ease: "power2.inOut",
+  //     // })
+  //     // 👇 Explicitly sequence these
+  //     // "+=8.5"
+  //     .fromTo(
+  //       contentContainerRef.current,
+  //       {
+  //         opacity: 0,
+  //         y: 500,
+  //         duration: 10,
+  //         ease: "power2.out",
+  //       },
+  //       {
+  //         opacity: 1,
+  //         y: 10,
+  //         duration: 2800,
+  //         ease: "power2.out",
+  //         // ease: "back.out(1.7)",
+  //       }
+  //     )
+  //     .fromTo(
+  //       buttonRef.current,
+  //       {
+  //         opacity: 0,
+  //         y: 500,
+  //         duration: 10,
+  //         ease: "power2.out",
+  //       },
+  //       {
+  //         opacity: 1,
+  //         y: 10,
+  //         duration: 2800,
+  //         ease: "power2.out",
+  //         // ease: "back.out(1.7)",
+  //       }
+  //     );
+  //   // .to(
+  //   //   contentContainerRef.current,
+  //   //   {
+  //   //     opacity: 1,
+  //   //     y: 10,
+  //   //     duration: 80,
+  //   //     ease: "power2.out",
+  //   //     // ease: "back.out(1.7)",
+  //   //   },
+  //   //   "+=5.2"
+  //   // );
+
+  //   return () => {
+  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  //   };
+  // }, []);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    // gsap.to(cloudRef.current, {
+    //   x: -500,
+    //   duration: 60,
+    //   ease: "linear",
+    //   repeat: -1,
+    // });
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -86,97 +199,96 @@ export default function ScrollAnimation() {
       },
     });
 
+    // 1️⃣ Rocket animation
     tl.fromTo(
       rocketRef.current,
       {
-        y: 700,
+        y: -230,
         opacity: 0,
         duration: 2,
+        rotate: 180,
         scale: 3,
-      }, // from: start at 0 opacity and 100px below
+      },
       {
-        y: -230,
+        y: 900,
         opacity: 1,
-        duration: 9000,
+        duration: 2, // Adjust duration to real scroll speed
         scale: 3,
-        ease: "power3.out",
-      } // to: fully visible at original position
+        ease: "power3.in",
+      }
     )
 
-      // tl.from(
-      //   rocketRef.current,
-      //   {
-      //     y: 1700,
-      //     opacity: 0,
-      //     duration: 2,
-      //     scale: 3,
-      //   }
-      //   // "+=0.9"
-      // )
-      //   .to(rocketRef.current, {
-      //     y: -330,
-      //     opacity: 1,
-      //     duration: 6000,
-      //     scale: 3,
-      //     ease: "power3.out",
-      //   })
+      // 2️⃣ Animated heading appears AFTER rocket animation
       .fromTo(
         animatedTextRef.current,
         {
           opacity: 0,
-          y: 5000,
-          duration: 800,
+          y: 200,
         },
         {
           opacity: 1,
-          y: 0, // changed from y: 20 to y: 0
-          // scale: 1.5,
-          duration: 5000,
+          y: 0,
+          duration: 1.5,
           color: "#ffffff",
           ease: "power3.out",
-        },
-        // "+=8.7"
-        0.5
+        }
       )
 
-      // .to(contentContainerRef.current, {
-      //   color: "#ffffff",
-      //   duration: 0.3,
-      //   ease: "power2.inOut",
-      // })
-      // 👇 Explicitly sequence these
+      // 3️⃣ Content container appears AFTER heading
       .fromTo(
         contentContainerRef.current,
         {
           opacity: 0,
-          y: 500,
-          duration: 10,
-          ease: "power2.out",
+          y: 100,
         },
         {
           opacity: 1,
-          y: 10,
-          duration: 2800,
+          y: 0,
+          duration: 1.5,
           ease: "power2.out",
-          // ease: "back.out(1.7)",
         }
-        // "+=8.5"
+      )
+
+      // 4️⃣ Button appears AFTER content
+      .fromTo(
+        buttonRef.current,
+        {
+          opacity: 0,
+          y: 100,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
+          ease: "power2.out",
+        }
       );
-    // .to(
-    //   contentContainerRef.current,
-    //   {
-    //     opacity: 1,
-    //     y: 10,
-    //     duration: 80,
-    //     ease: "power2.out",
-    //     // ease: "back.out(1.7)",
-    //   },
-    //   "+=5.2"
-    // );
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
+  }, []);
+
+  useEffect(() => {
+    const element = cloudRef.current;
+
+    // Create a dummy object to track scroll progress
+    let proxy = { value: 0 };
+
+    // ScrollTrigger to drive the scroll-based sine animation
+    ScrollTrigger.create({
+      trigger: element,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      onUpdate: (self) => {
+        proxy.value = self.progress;
+
+        // Sine wave calculation based on scroll progress
+        const wave = Math.sin(proxy.value * Math.PI * 4) * 10; // 4 waves, 100px amplitude
+        gsap.set(element, { x: wave });
+      },
+    });
   }, []);
 
   return (
@@ -715,11 +827,11 @@ export default function ScrollAnimation() {
         </h2>
 
         {/* Content Container */}
-        <div
-          ref={contentContainerRef}
-          className="relative z-30 mt-4 pb-40 text-center max-w-2xl mx-auto"
-        >
-          <div className="text-md leading-relaxed font-medium text-white">
+        <div className="relative z-30 mt-4 pb-40 text-center max-w-2xl mx-auto">
+          <div
+            ref={contentContainerRef}
+            className="text-md leading-relaxed font-medium text-white"
+          >
             Think of Secure365 as your interstellar co-pilot, guiding you safely
             through the ever-expanding cosmos of modern technology. We blend
             visionary web development with rock-solid IT services, cloud
@@ -757,7 +869,7 @@ export default function ScrollAnimation() {
             </Link>
           </button>
         </div>
-        <div className={`cloud-inner-box cloudImage`}>
+        <div ref={cloudRef} className={`cloud-inner-box cloudImage flex gap-0`}>
           {/* <Image
             src="/images/Cloud-image.jpg"
             alt="Cloud background"
@@ -766,6 +878,7 @@ export default function ScrollAnimation() {
             className="absolute inset-0 object-cover z-10 opacity-1"
             priority
           /> */}
+          <img src="/images/Cloud-image.jpg" width={1920} height={1000} />
           <img src="/images/Cloud-image.jpg" width={1920} height={1000} />
         </div>
         <div className="fogContainerBox">

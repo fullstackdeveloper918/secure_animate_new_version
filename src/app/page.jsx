@@ -28,6 +28,7 @@ import ClientWrapper from "@/components/ClientWrapper";
 import ServicesSection from "@/components/service/services-section";
 import ProjectsCard from "@/components/projects-section/projects-cards";
 import ScrollAnimation from "@/components/about/about-ScrollAnimation";
+import RocketAnimation from "@/components/about/about-rocket";
 const businessesData = [
   {
     text: "We help businesses",
@@ -107,7 +108,8 @@ export default function Home() {
                 className="webgl-fitthumbs fx-one relative bg-white"
               >
                 {/* securesec */}
-                <ScrollAnimation />
+                {/* <ScrollAnimation /> */}
+                <RocketAnimation />
                 {/* <RealEstateSection data={data} /> */}
                 <SecureSection />
                 {/* securesec end*/}
