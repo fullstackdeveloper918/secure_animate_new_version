@@ -1,95 +1,86 @@
 'use client';
-
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import HeroSectionMain from '../hero-banner/HeroSectionMain';
 
 export default function BannerSection({ data }: any) {
-    console.log(data, "BannerSection")
+  const textRef = useRef(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+useEffect(() => {
+  gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from("header .logo, header .nav-links a, header .contact-button", {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      delay: 0.5,
-      stagger: 0.1,
-      ease: "power3.out"
-    });
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: ".wrapper",
-        start: "top top",
-        end: "+=150%",
-        pin: true,
-        scrub: true,
-        markers: false
+  // Timeline for scaling image and fading in text
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".wrapper",
+      start: "top top",
+      end: "+=150%", // You can adjust this for how long to pin
+      scrub: true,
+      pin: true,
+      markers: false,
+      onUpdate: (self) => {
+        if (self.progress >= 0.95) {
+          // Hide image near end
+          gsap.set(".banner-image", { display: "none" });
+        }
       }
-    })
-    .to("img", {
-      scale: 2,
-      z: 350,
-      transformOrigin: "center center",
-      ease: "power1.inOut"
-    })
-    .to(".section.hero", {
-      scale: 1.1,
-      transformOrigin: "center center",
-      ease: "power1.inOut"
-    }, "<")
-    .to(".star-container", {
-      opacity: 0,
-      duration: 0.5,
-      ease: "power1.inOut"
-    }, "<");
-
-    // Create stars
-    const starContainer = document.querySelector('.star-container');
-    const numberOfStars = 50;
-    for (let i = 0; i < numberOfStars; i++) {
-      const star = document.createElement('div');
-      star.classList.add('star');
-      gsap.set(star, {
-        x: gsap.utils.random(0, window.innerWidth),
-        y: gsap.utils.random(0, window.innerHeight),
-      });
-      starContainer?.appendChild(star);
-      gsap.to(star, {
-        x: "+=random(-100, 100)",
-        y: "+=random(-100, 100)",
-        duration: gsap.utils.random(5, 15),
-        repeat: -1,
-        yoyo: true,
-        ease: "none",
-        delay: gsap.utils.random(0, 5)
-      });
     }
-  }, []);
+  });
+
+  // Image scale and fade out
+  tl.to(".banner-image", {
+    scale: 15,
+    opacity: 0,
+    ease: "power2.inOut",
+    transformOrigin: "center center",
+    duration: 1
+  });
+
+  // Fade in hero text right after image fades
+  tl.to(textRef.current, {
+    opacity: 1,
+    duration: 1,
+    ease: "power2.out"
+  }, "-=0.5"); // overlap timing so text starts appearing before image is completely gone
+
+  // Stars effect (unchanged)
+  const starContainer = document.querySelector('.star-container');
+  const numberOfStars = 50;
+  for (let i = 0; i < numberOfStars; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    gsap.set(star, {
+      x: gsap.utils.random(0, window.innerWidth),
+      y: gsap.utils.random(0, window.innerHeight),
+    });
+    starContainer?.appendChild(star);
+    gsap.to(star, {
+      x: "+=random(-100, 100)",
+      y: "+=random(-100, 100)",
+      duration: gsap.utils.random(5, 15),
+      repeat: -1,
+      yoyo: true,
+      ease: "none",
+      delay: gsap.utils.random(0, 5)
+    });
+  }
+}, []);
+
 
   return (
     <div className="wrapper">
       <div className="content">
         <section className="section hero">
-          {/* <video
-            src="/banner-video.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="video-bg"
-          /> */}
-           <HeroSectionMain data={data} /> 
+          <video src="/banner-videonew.mp4" autoPlay loop playsInline />
+          <div className="hero-text" ref={textRef}>
+            <HeroSectionMain data={data} />
+          </div>
         </section>
-        {/* <section className="section gradient-purple"></section>
-        <section className="section gradient-blue"></section> */}
       </div>
       <div className="image-container">
-        <img src="/newBannerImage.webp" alt="Banner" />
-        <div className="star-container"></div>
+        <img src="/newBannerImage.webp" alt="Banner" className="banner-image" />
+        {/* <div className="star-container"></div> */}
       </div>
 
       <style jsx>{`
@@ -98,23 +89,30 @@ export default function BannerSection({ data }: any) {
           width: 100%;
           z-index: 1;
         }
-        .content {
-          overflow-x: hidden;
-        }
-        .section {
+        .section.hero {
           width: 100%;
           height: 100vh;
-        }
-        .hero {
           position: relative;
+          z-index: 3;
         }
-        .video-bg {
+        video {
           position: absolute;
-          top: 0;
-          left: 0;
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center;
+          z-index: 1;
+        }
+        .hero-text {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  text-align: center;
+  color: white;
+  transition: opacity 1s ease;
         }
         .image-container {
           width: 100%;
@@ -123,13 +121,15 @@ export default function BannerSection({ data }: any) {
           top: 0;
           left: 0;
           z-index: 2;
-          perspective: 200px;
           overflow: hidden;
+          perspective: 200px;
         }
-        .image-container img {
+        .banner-image {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center center;
+          will-change: transform, opacity;
         }
         .star-container {
           position: absolute;

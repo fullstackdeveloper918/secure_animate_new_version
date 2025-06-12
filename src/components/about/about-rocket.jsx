@@ -410,7 +410,7 @@ const RocketAnimation = () => {
             ref={img2Ref}
             src="/images/rocket1.png"
             alt="rocket 2"
-            className="w-80 h-auto object-contain"
+            className="w-100 h-auto object-contain"
           />
         </div>
       </div>

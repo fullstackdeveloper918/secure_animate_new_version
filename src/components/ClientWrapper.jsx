@@ -57,9 +57,9 @@ export default function ClientWrapper({ children }) {
     return <PreLoader onComplete={() => setShowPreloader(false)} />;
   }
 
-  if (showFullscreenVideo) {
-    return <FullscreenVideoSection />;
-  }
+  // if (showFullscreenVideo) {
+  //   return <FullscreenVideoSection />;
+  // }
 
   if (!isLoggedIn) {
     return <Login onSuccess={handleLoginSuccess} />;

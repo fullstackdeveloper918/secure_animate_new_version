@@ -49,13 +49,13 @@ export default function HeroSectionMain({ data }: any) {
     >
       <video
         autoPlay
-        muted
+        // muted
         loop
         className="banner-video"
         style={{ width: "100%", height: "100vh", objectFit: "cover" }}
       >
         <source 
-        src="/banner-video.mp4" 
+        src="/banner-videonew.mp4" 
 
         type="video/mp4" />
         Your browser does not support the video tag.
