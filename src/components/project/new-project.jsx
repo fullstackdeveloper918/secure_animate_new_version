@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Link from "next/link"
 
 // Register GSAP plugins
 if (typeof window !== "undefined") {
@@ -245,6 +246,7 @@ const HorizontalScrollSection = () => {
             {/* Cards Section */}
             {projects.map((project, index) => (
               <div key={index} className="card-wrapper">
+               <Link href="/project" >
                 <div className="card">
                   <div className="card-content">
                     <div className="card-icon">
@@ -253,6 +255,7 @@ const HorizontalScrollSection = () => {
                     <h2>{project.title}</h2>
                   </div>
                 </div>
+               </Link>
               </div>
             ))}
 
@@ -265,6 +268,7 @@ const HorizontalScrollSection = () => {
                   innovative solutions and exceptional craftsmanship. Get in touch and let's create something amazing
                   together.
                 </p>
+                <Link className="proj-btn" href="/contact-us" ><p>Contact Us</p></Link>
               </div>
             </div>
           </div>
@@ -312,7 +316,23 @@ const HorizontalScrollSection = () => {
             width: 200px;
           }
         }
-
+               a.proj-btn {
+                  border:2px solid #fff;
+                  background: transparent;
+                  padding: 12px 38px;
+                  border-radius: 30px;
+                  margin-top: 20px;
+                  font-weight: 800 !important;
+                  transition:.5s all ease
+              }
+                  a.proj-btn:hover{
+                  border:1px solid #fff;
+                  background: #fff;
+                 
+              }
+                   a.proj-btn:hover p{
+                    color:#000 !important;
+                   }
         .horizontal-scroll-section {
           padding: 200px 0;
           background: linear-gradient(135deg, 
