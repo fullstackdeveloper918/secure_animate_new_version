@@ -31,6 +31,7 @@ import ScrollAnimation from "@/components/about/about-ScrollAnimation";
 import RocketAnimation from "@/components/about/about-rocket";
 import dynamic from 'next/dynamic';
 import BannerSection from "@/components/newHero/newHero";
+import HorizontalScrollSection from '@/components/project/new-project'
 
 const CanvasScene = dynamic(() => import('../components/CanvasScene'), { ssr: false });
 
@@ -235,7 +236,8 @@ export default function Home() {
         
 
             {/* <ProjectsCard/> */}
-            <ProjectSix data={data} />
+            {/* <ProjectSix data={data} /> */}
+            <HorizontalScrollSection />
             {/* projectsec end */}
 
             <div className="container-fluid p-0">
