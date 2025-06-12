@@ -72,9 +72,18 @@ useEffect(() => {
     <div className="wrapper">
       <div className="content">
         <section className="section hero">
-          <video src="/banner-videonew.mp4" autoPlay loop playsInline />
+          {/* <video src="/banner-video.mp4" autoPlay loop playsInline /> */}
+            <video
+        src="/banner-videonew.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+      />
+
           <div className="hero-text" ref={textRef}>
-            <HeroSectionMain data={data} />
+            <HeroSectionMain data={data}  />
           </div>
         </section>
       </div>

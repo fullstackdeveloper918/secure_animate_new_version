@@ -47,9 +47,8 @@ export default function HeroSectionMain({ data }: any) {
         contain: "layout paint size", // Improve rendering performance
       }}
     >
-      <video
+      {/* <video
         autoPlay
-        // muted
         loop
         className="banner-video"
         style={{ width: "100%", height: "100vh", objectFit: "cover" }}
@@ -59,7 +58,7 @@ export default function HeroSectionMain({ data }: any) {
 
         type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
       <div
         className="absolute inset-0 z-0 bg-stars"
         style={{
