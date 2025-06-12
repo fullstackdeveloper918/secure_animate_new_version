@@ -372,16 +372,31 @@ const RocketAnimation = () => {
       ref={sectionRef}
       className="min-h-[100vh] bg-black relative overflow-hidden"
     >
-      <canvas
+      <div className="bannerBottom">
+              <video
+                                  className="play-video  absolute inset-0 w-full z-[1] "
+                                  loop={true}
+                                  muted={true}
+                                  autoPlay={true}
+                                  playsInline={true}
+                                >
+                                  <source 
+                                  src="/bannerBottom.mp4" 
+                    
+                                  type="video/mp4" />
+                                </video>
+      </div>
+
+      {/* <canvas
         id="starfield"
         ref={canvasRef}
         className="absolute inset-0 w-full h-full z-0"
         style={{ background: "radial-gradient(#04071f 0%, #04071e 70%)" }}
-      />
-      <div className="p-10">
+      /> */}
+      <div className="p-10 ">
         {/* <h1 className="text-white text-4xl font-bold">Rocket animation</h1> */}
 
-        <div className="absolute bottom-40 right-[-300px]">
+        <div className="absolute z-[9999] bottom-40 right-[-300px]">
           <img
             ref={imgRef}
             src="/images/rocket1.png"
@@ -390,7 +405,7 @@ const RocketAnimation = () => {
           />
         </div>
 
-        <div className="absolute bottom-0 right-[-400px]">
+        <div className="absolute z-[9999] bottom-0 right-[-400px]">
           <img
             ref={img2Ref}
             src="/images/rocket1.png"
@@ -401,7 +416,7 @@ const RocketAnimation = () => {
       </div>
       <h2
         ref={animatedTextRef}
-        className="relative z-30 text-4xl text-center max-w-4xl mx-auto text-white font-semibold"
+        className="relative z-30 text-3xl xl:text-5xl max-w-2xl xl:max-w-3xl text-white font-semibold text-left pl-10 xl:pl-20 uppercase"
       >
         Navigating Your Business Through the Stars.. and Safeguarding Every Step
       </h2>
@@ -409,7 +424,7 @@ const RocketAnimation = () => {
       {/* Content Container */}
       <div
         ref={contentContainerRef}
-        className="relative z-30 mt-4 pb-40 text-center max-w-2xl mx-auto"
+        className="relative z-30 mt-4 pb-40 text-left md:max-w-2xl pl-10 xl:pl-20"
       >
         <div className="text-md leading-relaxed font-medium text-white">
           Think of Secure365 as your interstellar co-pilot, guiding you safely
@@ -461,13 +476,13 @@ const RocketAnimation = () => {
         <img src="/images/Cloud-image.jpg" width={1920} height={1000} />
         {/* <img src="/images/Cloud-image.jpg" width={1920} height={1000} /> */}
       </div>
-      <div className="fogContainerBox">
+      {/* <div className="fogContainerBox">
         <img
           className="fog"
           src="https://64.media.tumblr.com/224f9198d5d88a5e92e43f5ef4f7a592/139ff9bb70edd708-66/s540x810/0edbf6d586b6b4c85c5bd61569992f036c21191b.png"
           alt="Fog"
         />
-      </div>
+      </div> */}
       <style jsx global>{`
         body {
           margin: 0;
@@ -478,10 +493,11 @@ const RocketAnimation = () => {
         }
         .cloudImage {
           position: absolute;
-          bottom: 0;
+          bottom: -60px;
           left: 0;
           right: 0;
           width: 100%;
+          z-index:9999;
         }
 
         .cloudImage img {

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+  
   "devDependencies": {
     "@types/imagesloaded": "^4.1.6",
     "@types/isotope-layout": "^3.0.14",
@@ -66,4 +67,7 @@
     "three": "^0.172.0",
     "yup": "^1.6.1"
   }
+  
 }
+
+

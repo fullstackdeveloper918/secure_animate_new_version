@@ -97,7 +97,8 @@ export default function ServicesSection({ data }: any) {
                 }`}
               >
                 <source
-                  src={service.projects_list_captions_image}
+                  // src={service.projects_list_captions_image}
+                  src='/Astronaut-space.mp4'
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.

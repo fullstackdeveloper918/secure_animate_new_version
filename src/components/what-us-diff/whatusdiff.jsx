@@ -113,11 +113,13 @@ function PainSection() {
             loop
             muted
             playsInline
-            src="/pain.mp4"
+            // src="/whatmakevideo.mp4"
+            src="/CyberSecurity-Banner-Video.mp4"
+            // src="/pain.mp4"
             // Or use source elements if needed
             // preload="auto"
           />
-          <div className="absolute top-0 left-0 w-full h-full bg-black/70  -z-10"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[#000000e0]  -z-10"></div>
           <h2 className="title-heading text-white font-bold text-center z-10 xl:mb-20 md:mb-12 mb-10 xxl:text-7xl xl:text-5xl text-3xl">
             What Makes Us Different?
           </h2>

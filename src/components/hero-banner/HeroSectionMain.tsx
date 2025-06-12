@@ -54,7 +54,10 @@ export default function HeroSectionMain({ data }: any) {
         className="banner-video"
         style={{ width: "100%", height: "100vh", objectFit: "cover" }}
       >
-        <source src="/banner-video.mp4" type="video/mp4" />
+        <source 
+        src="/banner-video.mp4" 
+
+        type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div
@@ -89,6 +92,8 @@ export default function HeroSectionMain({ data }: any) {
                
               >
                 {data.home_advanced_it_and_cyber_security_first_heading}
+                
+
               </motion.span>
 
               
@@ -156,7 +161,7 @@ export default function HeroSectionMain({ data }: any) {
           </motion.div>
         </motion.div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#040720] to-transparent z-1"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#030508] to-transparent z-1"></div>
     </section>
   );
 }

@@ -29,6 +29,12 @@ import ServicesSection from "@/components/service/services-section";
 import ProjectsCard from "@/components/projects-section/projects-cards";
 import ScrollAnimation from "@/components/about/about-ScrollAnimation";
 import RocketAnimation from "@/components/about/about-rocket";
+import dynamic from 'next/dynamic';
+import BannerSection from "@/components/newHero/newHero";
+
+const CanvasScene = dynamic(() => import('../components/CanvasScene'), { ssr: false });
+
+
 const businessesData = [
   {
     text: "We help businesses",
@@ -70,6 +76,8 @@ export default function Home() {
       }
     };
 
+
+
     fetchData();
   }, []);
 
@@ -97,7 +105,8 @@ export default function Home() {
       {/* <div id="content-scroll"> */}
       <div id="main">
         {/* <HeroSection data={data?.featured_section_heading} /> */}
-        <HeroSectionMain data={data} />
+        {/* <HeroSectionMain data={data} /> */}
+        <BannerSection data={data}/>
         {/* <BrandOne /> */}
 
         <div id="main-content">
@@ -120,7 +129,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+<div>
+      <CanvasScene />
+    </div>
       <footer className="clapat-footer hidden">
         <div id="footer-container">
           <div id="backtotop" className="button-wrap left">
@@ -221,6 +232,7 @@ export default function Home() {
               {/* <AwardOne data={data} /> */}
               <ServicesSection data={data} />
             </div>
+        
 
             {/* <ProjectsCard/> */}
             <ProjectSix data={data} />
