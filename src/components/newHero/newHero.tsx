@@ -57,7 +57,7 @@ export default function BannerSection({ data }: any) {
         x: gsap.utils.random(0, window.innerWidth),
         y: gsap.utils.random(0, window.innerHeight),
       });
-      starContainer.appendChild(star);
+      starContainer?.appendChild(star);
       gsap.to(star, {
         x: "+=random(-100, 100)",
         y: "+=random(-100, 100)",
