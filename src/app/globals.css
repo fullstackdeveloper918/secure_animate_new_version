@@ -7465,9 +7465,23 @@ h1.main-serv-head {
 }
 
 
+/* BAnner Section CSS Start Here */
 
-/* Latest Project Section CSS Start Here */
-
-
-
-/* Latest Project Section CSS end Here */
+section#hero {
+    background-color: #00000000 !important;
+}
+section#hero::before {
+    background: transparent;
+}
+.main_banner {
+    opacity: 1 !important;
+}
+.wrapper .hero-text{
+    z-index: 999 !important;
+}
+/* .wrapper .image-container{
+    z-index: inherit !important;
+}
+.wrapper .content {
+    z-index: inherit;
+} */

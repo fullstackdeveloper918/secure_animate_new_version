@@ -225,7 +225,7 @@ const HorizontalScrollSection = () => {
           <source src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4" type="video/mp4" />
         </video>
         <video className="space-background2" autoPlay muted loop playsInline>
-          <source src="Project-video2.mp4" type="video/mp4" />
+          <source src="/Project-video2.mp4" type="video/mp4" />
         </video>
         <div className="space-overlay"></div>
 
@@ -519,8 +519,8 @@ const HorizontalScrollSection = () => {
           justify-content: center;
           width: 540px;
           // min-height: 400px;
-          height: 540px;
-          padding: 30px;
+          // height: 540px;
+          padding: 0px;
           background: rgba(110, 76, 225, 0.25);
           backdrop-filter: blur(10px);
           border-radius: 24px;
