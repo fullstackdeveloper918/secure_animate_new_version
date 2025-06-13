@@ -14,6 +14,7 @@ const RocketAnimation = () => {
   const animatedTextRef = useRef(null);
   const contentContainerRef = useRef(null);
   const buttonRef = useRef(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -64,137 +65,6 @@ const RocketAnimation = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   // gsap.to(cloudRef.current, {
-  //   //   x: -500,
-  //   //   duration: 60,
-  //   //   ease: "linear",
-  //   //   repeat: -1,
-  //   // });
-
-  //   const tl = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: sectionRef.current,
-  //       start: "top top",
-  //       end: "+=200%",
-  //       scrub: true,
-  //       pin: true,
-  //       markers: false,
-  //     },
-  //   });
-
-  //   // 1️⃣ Rocket animation
-  //   // tl.fromTo(
-  //   //   rocketRef.current,
-  //   //   {
-  //   //     y: -230,
-  //   //     opacity: 0,
-  //   //     duration: 2,
-  //   //     rotate: 180,
-  //   //     scale: 3,
-  //   //   },
-  //   //   {
-  //   //     y: 900,
-  //   //     opacity: 1,
-  //   //     duration: 2, // Adjust duration to real scroll speed
-  //   //     scale: 3,
-  //   //     ease: "power3.in",
-  //   //   }
-  //   // )
-
-  //   // 2️⃣ Animated heading appears AFTER rocket animation
-  //   tl.fromTo(
-  //     animatedTextRef.current,
-  //     {
-  //       opacity: 0,
-  //       y: 200,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       duration: 1.5,
-  //       color: "#ffffff",
-  //       ease: "power3.out",
-  //     }
-  //   )
-
-  //     // 3️⃣ Content container appears AFTER heading
-  //     .fromTo(
-  //       contentContainerRef.current,
-  //       {
-  //         opacity: 0,
-  //         y: 100,
-  //       },
-  //       {
-  //         opacity: 1,
-  //         y: 0,
-  //         duration: 1.5,
-  //         ease: "power2.out",
-  //       }
-  //     )
-
-  //     // 4️⃣ Button appears AFTER content
-  //     .fromTo(
-  //       buttonRef.current,
-  //       {
-  //         opacity: 0,
-  //         y: 100,
-  //       },
-  //       {
-  //         opacity: 1,
-  //         y: 0,
-  //         duration: 1.5,
-  //         ease: "power2.out",
-  //       }
-  //     );
-
-  //   return () => {
-  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   const ctx = gsap.context(() => {
-  //     // ScrollTrigger with timeline
-  //     const tl = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: sectionRef.current,
-  //         start: "top top",
-  //         end: "+=3000",
-  //         pin: true,
-  //         scrub: true,
-  //         // markers: true, // Remove in production
-  //       },
-  //     });
-
-  //     // Rocket 1 Animation
-  //     tl.to(
-  //       imgRef.current,
-  //       {
-  //         x: "-40vw",
-  //         y: "-40vh",
-  //         ease: "power2.inOut",
-  //       },
-  //       0
-  //     ) // start at the beginning
-
-  //       // Rocket 2 Animation - delayed start using timeline position
-  //       .to(
-  //         img2Ref.current,
-  //         {
-  //           x: "-50vw",
-  //           y: "-30vh",
-  //           // rotation: 360,
-  //           // scale: 2.5,
-  //           ease: "power2.inOut",
-  //         },
-  //         0.5
-  //       ); // start halfway through the timeline
-  //   }, sectionRef);
-
-  //   return () => ctx.revert();
-  // }, []);
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -207,13 +77,12 @@ const RocketAnimation = () => {
       },
     });
 
-    // Rocket animations
     tl.to(
       imgRef.current,
       {
         x: "-30vw",
         y: "-50vh",
-        ease: "power1.out", // lighter easing
+        ease: "power1.out",
       },
       0
     );
@@ -228,28 +97,11 @@ const RocketAnimation = () => {
       0.5
     );
 
-    // Heading animation with smaller y-offset and gentler ease
     tl.fromTo(
       animatedTextRef.current,
       {
         opacity: 0,
-        y: 700, // smaller starting y offset
-      },
-      {
-        opacity: 1,
-        y: 100, // animate to original position
-        duration: 1.5,
-        ease: "power1.out",
-      },
-      1
-    );
-
-    // Content
-    tl.fromTo(
-      contentContainerRef.current,
-      {
-        opacity: 0,
-        y: 700, // smaller y-offset
+        y: 700,
       },
       {
         opacity: 1,
@@ -257,134 +109,85 @@ const RocketAnimation = () => {
         duration: 1.5,
         ease: "power1.out",
       },
-      ">" // start immediately after heading animation
+      1
     );
 
-    // Uncomment and use if button animation needed, same easing & smaller y-offset
-    // tl.fromTo(
-    //   buttonRef.current,
-    //   {
-    //     opacity: 0,
-    //     y: 200,
-    //   },
-    //   {
-    //     opacity: 1,
-    //     y: 0,
-    //     duration: 1.5,
-    //     ease: "power1.out",
-    //   },
-    //   ">"
-    // );
+    tl.fromTo(
+      contentContainerRef.current,
+      {
+        opacity: 0,
+        y: 700,
+      },
+      {
+        opacity: 1,
+        y: 100,
+        duration: 1.5,
+        ease: "power1.out",
+      },
+      ">"
+    );
+
+    tl.fromTo(
+      buttonRef.current,
+      {
+        opacity: 0,
+        y: 200,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power1.out",
+      },
+      ">"
+    );
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
-  // useEffect(() => {
-  //   const tl = gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: sectionRef.current,
-  //       start: "top top",
-  //       end: "+=3000", // Long scroll
-  //       pin: true,
-  //       scrub: true,
-  //       markers: false, // enable for debugging
-  //     },
-  //   });
+  useEffect(() => {
+    const video = videoRef.current;
+    const section = sectionRef.current;
 
-  //   // Rocket animations
-  //   tl.to(
-  //     imgRef.current,
-  //     {
-  //       x: "-30vw",
-  //       y: "-50vh",
-  //       ease: "power2.inOut",
-  //     },
-  //     0
-  //   );
+    const handleMouseEnter = () => {
+      if (video) video.pause();
+    };
 
-  //   tl.to(
-  //     img2Ref.current,
-  //     {
-  //       x: "-35vw",
-  //       y: "-40vh",
-  //       ease: "power2.inOut",
-  //     },
-  //     0.5
-  //   );
+    const handleMouseLeave = () => {
+      if (video) video.play();
+    };
 
-  //   // Heading
-  //   tl.fromTo(
-  //     animatedTextRef.current,
-  //     {
-  //       opacity: 0,
-  //       y: 700,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       y: 100,
-  //       duration: 1.5,
-  //       ease: "power3.out",
-  //     },
-  //     1
-  //   ); // Slight delay after rockets
+    if (section) {
+      section.addEventListener("mouseenter", handleMouseEnter);
+      section.addEventListener("mouseleave", handleMouseLeave);
+    }
 
-  //   // Content
-  //   tl.fromTo(
-  //     contentContainerRef.current,
-  //     {
-  //       opacity: 0,
-  //       y: 700,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       y: 100,
-  //       duration: 1.5,
-  //       ease: "power2.out",
-  //     },
-  //     ">"
-  //   );
-
-  //   // Button
-  //   // tl.fromTo(
-  //   //   buttonRef.current,
-  //   //   {
-  //   //     opacity: 0,
-  //   //     y: 700,
-  //   //   },
-  //   //   {
-  //   //     opacity: 1,
-  //   //     y: 100,
-  //   //     duration: 1.5,
-  //   //     ease: "power2.out",
-  //   //   },
-  //   //   ">"
-  //   // );
-
-  //   return () => {
-  //     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  //   };
-  // }, []);
+    return () => {
+      if (section) {
+        section.removeEventListener("mouseenter", handleMouseEnter);
+        section.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, []);
 
   return (
     <div
       ref={sectionRef}
-      className="min-h-[100vh] bg-black relative overflow-hidden"
+      className="min-h-[100vh] bg-black relative overflow-hidden bottomContent"
     >
       <div className="bannerBottom">
-              <video
-                                  className="play-video  absolute inset-0 w-full z-[1] "
-                                  loop={true}
-                                  muted={true}
-                                  autoPlay={true}
-                                  playsInline={true}
-                                >
-                                  <source 
-                                  src="/bannerBottom.mp4" 
-                    
-                                  type="video/mp4" />
-                                </video>
+        <video
+          ref={videoRef}
+          className="play-video absolute inset-0 w-full z-[1]"
+          loop={true}
+          muted={true}
+          autoPlay={true}
+          playsInline={true}
+        >
+          <source src="/bannerBottom.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* <canvas
@@ -394,8 +197,6 @@ const RocketAnimation = () => {
         style={{ background: "radial-gradient(#04071f 0%, #04071e 70%)" }}
       /> */}
       <div className="p-10 ">
-        {/* <h1 className="text-white text-4xl font-bold">Rocket animation</h1> */}
-
         <div className="absolute z-[9999] bottom-40 right-[-300px]">
           <img
             ref={imgRef}
@@ -416,12 +217,11 @@ const RocketAnimation = () => {
       </div>
       <h2
         ref={animatedTextRef}
-        className="relative z-30 text-3xl xl:text-5xl max-w-2xl xl:max-w-3xl text-white font-semibold text-left pl-10 xl:pl-20 uppercase"
+        className="relative z-30 text-3xl xl:text-5xl max-w-2xl xl:max-w-3xl text-white font-semibold text-left pl-10 xl:pl-20 uppercase paragrpahContent"
       >
         Navigating Your Business Through the Stars.. and Safeguarding Every Step
       </h2>
 
-      {/* Content Container */}
       <div
         ref={contentContainerRef}
         className="relative z-30 mt-4 pb-40 text-left md:max-w-2xl pl-10 xl:pl-20"
@@ -435,12 +235,6 @@ const RocketAnimation = () => {
           Simple: to help your brand thrive and remain secure, from initial
           launch to the far reaches of tomorrow.
         </div>
-        {/* <button
-                  ref={buttonRef}
-                  className="mt-12 px-10 py-4 text-lg font-semibold text-white bg-transparent border-2 border-white rounded-full cursor-pointer relative overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/40 hover:bg-gradient-to-r hover:from-blue-800 hover:to-blue-600 before:content-[''] before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:transition-all before:duration-500 hover:before:left-full"
-                >
-                  GET STARTED
-                </button> */}
         <button
           ref={buttonRef}
           className="relative mt-4 z-[9999] bannerbtn"
@@ -451,13 +245,11 @@ const RocketAnimation = () => {
               <div className="icon-wrap-scale">
                 <div className="icon-wrap parallax-wrap">
                   <div className="button-icon parallax-element">
-                    {/* <i className="fa-solid fa-arrow-right"></i> */}
                     <Rocket className="ml-2 h-5 w-5" />
                   </div>
                 </div>
               </div>
               <div className="button-text sticky right">
-                {/* <span data-hover="Let's Talk">Start Your Mission <Rocket className="ml-2 h-5 w-5" /></span> */}
                 <span data-hover="Let's Talk">About us</span>
               </div>
             </div>
@@ -465,24 +257,8 @@ const RocketAnimation = () => {
         </button>
       </div>
       <div className={`cloud-inner-box cloudImage`}>
-        {/* <Image
-                  src="/images/Cloud-image.jpg"
-                  alt="Cloud background"
-                  width={1920}
-                  height={1080}
-                  className="absolute inset-0 object-cover z-10 opacity-1"
-                  priority
-                /> */}
         <img src="/images/Cloud-image.jpg" width={1920} height={1000} />
-        {/* <img src="/images/Cloud-image.jpg" width={1920} height={1000} /> */}
       </div>
-      {/* <div className="fogContainerBox">
-        <img
-          className="fog"
-          src="https://64.media.tumblr.com/224f9198d5d88a5e92e43f5ef4f7a592/139ff9bb70edd708-66/s540x810/0edbf6d586b6b4c85c5bd61569992f036c21191b.png"
-          alt="Fog"
-        />
-      </div> */}
       <style jsx global>{`
         body {
           margin: 0;
@@ -497,7 +273,7 @@ const RocketAnimation = () => {
           left: 0;
           right: 0;
           width: 100%;
-          z-index:9999;
+          z-index: 9999;
         }
 
         .cloudImage img {
