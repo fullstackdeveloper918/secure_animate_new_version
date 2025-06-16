@@ -30,7 +30,7 @@ const FullscreenVideoSection = () => {
       {/* Fullscreen Video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        src="/homeLoader.mp4"
+        src="/preloadedvideo.mp4"
         autoPlay
         muted
         loop

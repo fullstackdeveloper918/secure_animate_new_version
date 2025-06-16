@@ -113,7 +113,7 @@ export default function BannerSection({ data }: any) {
       </div>
       <div className="image-container">
         <img src="/newBannerImage-smm.webp" alt="Banner" className="banner-image" />
-        <div className="star-container"></div>
+        {/* <div className="star-container"></div> */}
       </div>
 
       <style jsx>{`
