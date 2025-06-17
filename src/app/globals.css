@@ -5687,7 +5687,8 @@ p.benfits_content {
 }
 #header-container {
   padding: 20px 40px;
-  max-width: 1536px;
+  /* max-width: 1536px; */
+  max-width: 100% !important;
 }
 .sv-service-content-wrap .sv-service-space-wrap .tp-btn-zikzak .zikzak-content {
   position: relative;
@@ -6299,7 +6300,7 @@ div#why-choose-bg::before {
     right: 0;
 }
 
-.section.hero video {position: relative;transform: scale(1.1);}
+.section.hero video {position: relative;transform: scale(1.2);}
 .bannerBottom::before {
     position: absolute;
     inset: 0;

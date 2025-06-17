@@ -8,18 +8,18 @@ import HeroSectionMain from "../hero-banner/HeroSectionMain"
 export default function BannerSection({ data }: any) {
   const textRef = useRef(null)
   const wrapperRef = useRef(null)
+  const contentRef = useRef<HTMLDivElement>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
-    // Set initial state - hero text hidden initially
     gsap.set(textRef.current, {
-      opacity: 0, // Start with text hidden
-      y: 100, // Position below its final position
+      opacity: 0,
+      y: 100,
       zIndex: 10,
-    })
+    });
 
-    // Timeline for scaling image and managing text
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: wrapperRef.current,
@@ -28,73 +28,56 @@ export default function BannerSection({ data }: any) {
         scrub: true,
         pin: true,
         markers: false,
-      },
-    })
+        onUpdate: (self) => {
+          if (!contentRef.current || !imageContainerRef.current) return;
 
-    // Image scale animation
+          if (self.progress > 0.4) {
+            contentRef.current.style.zIndex = "2";
+            imageContainerRef.current.style.zIndex = "1";
+          } else {
+            contentRef.current.style.zIndex = "1";
+            imageContainerRef.current.style.zIndex = "2";
+          }
+        },
+      },
+    });
+
     tl.to(".banner-image", {
       scale: 15,
       opacity: 0,
       ease: "power2.inOut",
       transformOrigin: "center center",
-      duration: 0.5, // Shorter duration to reach full screen faster
-    })
+      duration: 0.5,
+    });
 
-    // Only after image scales up, animate the text from bottom to top
     tl.to(
       textRef.current,
       {
-        opacity: 1, // Fade in
-        y: 0, // Move up to final position
+        opacity: 1,
+        y: 0,
         duration: 0.3,
         ease: "power2.out",
       },
-      ">-0.1", // Start slightly before the previous animation ends
-    )
+      ">-0.1"
+    );
 
-    // Hide image near end of scroll
     tl.to(
       ".banner-image",
       {
         display: "none",
         duration: 0.01,
       },
-      ">0.8", // After text is fully visible
-    )
+      ">0.8"
+    );
 
-    // Stars effect
-    const starContainer = document.querySelector(".star-container")
-    if (starContainer) {
-      const numberOfStars = 50
-      for (let i = 0; i < numberOfStars; i++) {
-        const star = document.createElement("div")
-        star.classList.add("star")
-        gsap.set(star, {
-          x: gsap.utils.random(0, window.innerWidth),
-          y: gsap.utils.random(0, window.innerHeight),
-        })
-        starContainer.appendChild(star)
-        gsap.to(star, {
-          x: "+=random(-100, 100)",
-          y: "+=random(-100, 100)",
-          duration: gsap.utils.random(5, 15),
-          repeat: -1,
-          yoyo: true,
-          ease: "none",
-          delay: gsap.utils.random(0, 5),
-        })
-      }
-    }
-
-    // Cleanup function
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
     <div className="wrapper" ref={wrapperRef}>
-      <div className="content">
+      <div className="content" ref={contentRef}>
         <section className="section hero">
           <video
             src="/banner-videonew.mp4"
@@ -111,8 +94,8 @@ export default function BannerSection({ data }: any) {
           </div>
         </section>
       </div>
-      <div className="image-container">
-        <img src="/newBannerImage-smm.webp" alt="Banner" className="banner-image" />
+      <div className="image-container" ref={imageContainerRef}>
+        <img src="/Final-Banner2.webp" alt="Banner" className="banner-image" />
         {/* <div className="star-container"></div> */}
       </div>
 
