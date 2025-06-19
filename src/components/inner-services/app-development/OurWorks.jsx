@@ -15,7 +15,7 @@ export default function WorkShowcase() {
     cardsRef.current.forEach((card, index) => {
       gsap.fromTo(
         card,
-        { opacity: 0, y: 100 },
+        { opacity: 1, y: 0 },
         {
           opacity: 1,
           y: 0,

@@ -39,7 +39,7 @@ const useCases = [
 const UseCaseCard = ({ icon, title, pain, gain, roi, innerRef }) => (
   <div
     ref={innerRef}
-    style={{ opacity: 0, transform: "translateY(32px)" }} // ← inline styles here
+    style={{ opacity: 1, transform: "translateY(32px)" }} // ← inline styles here
     className="border border-[#009DD6]/20 rounded-lg p-6 shadow-sm bg-white use-card-inner"
   >
     <div className="bg-[#009DD6]/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">

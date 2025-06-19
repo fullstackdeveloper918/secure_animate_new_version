@@ -21,6 +21,7 @@ import ComplianceExpertise from "../inner-services/cybersecurity/ComplianceExper
 import ThreatIntelligence from "../inner-services/cybersecurity/ThreatIntelligence";
 import SecurityStakeholders from "../inner-services/cybersecurity/SecurityStakeholders";
 import CardStackingSection from "@/components/service/CardStackingSection";
+import ThreeStepBuildSprint from "@/components/inner-services/marketing/ThreeStep"
 
 export default function ServiceDetailsArea({ serviceBannerData }) {
   //   const backgroundImageUrl = serviceBannerData?.banner?.backgroundImage || '/assets/img/inner-service/service/Ai-Automtion.webp';
@@ -64,7 +65,7 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
       };
 
   return (
-    <div className="service-details__area service-details__space bann-p-block">
+    <div className="service-details__area service-details__space bann-p-block relative"  >
       {/* <div className="serv-detail-ban app-dev">
         <div className="container z-10">
           <div className="row">
@@ -287,8 +288,9 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
 
       {serviceBannerData?.slug === "marketing" && (
         <>
-          <FiveStepBuildSprint />
           <CardStackingSection />
+          <FiveStepBuildSprint />
+          {/* <ThreeStepBuildSprint /> */}
         </>
       )}
 
