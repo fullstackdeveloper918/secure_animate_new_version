@@ -22,8 +22,8 @@ const services = [
     ],
   },
   {
-    icon: <Lock className="h-6 w-6 text-emerald-700" />,
-    iconBg: "bg-emerald-100",
+    icon: <Lock className="h-6 w-6 text-[#01abeb]" />,
+    iconBg: "bg-slate-100",
     cardStyle: "border-emerald-200 shadow-lg",
     title: "24/7 Security Operations",
     desc: "Continuous protection for growing businesses",
@@ -61,30 +61,39 @@ export default function CybersecurityServices() {
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
 
+  // Properly assign each card to its ref
+  const setCardRef = (el, index) => {
+    if (el) cardRefs.current[index] = el;
+  };
+
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      });
+    const timeout = setTimeout(() => {
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
 
-      tl.from(cardRefs.current, {
-        opacity: 0,
-        y: 60,
-        duration: 0.7,
-        ease: "power2.out",
-        stagger: 0.3,
-      });
-    }, sectionRef);
+        tl.from(cardRefs.current, {
+          opacity: 0,
+          y: 60,
+          duration: 0.7,
+          ease: "power2.out",
+          stagger: 0.3,
+        });
+      }, sectionRef);
 
-    return () => ctx.revert();
+      return () => ctx.revert();
+    }, 100); // Small delay ensures refs are set
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
-    <section className="cyber-serv-sec relative bg-white" ref={sectionRef}>
+    <section className="cyber-serv-sec relative bg-white py-20" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Cybersecurity Services
@@ -94,7 +103,7 @@ export default function CybersecurityServices() {
           {services.map((service, index) => (
             <div
               key={index}
-              ref={(el) => (cardRefs.current[index] = el)}
+              ref={(el) => setCardRef(el, index)}
               className={`bg-white rounded-lg shadow-md border p-6 flex flex-col justify-between cb-card-box ${
                 service.cardStyle || ""
               }`}

@@ -64,7 +64,7 @@ export default function WebVitalsBenchmarks() {
 
   return (
     <section
-      className="py-20 relative bg-white core-web-vit-sec"
+      className="py-20 relative bg-white core-web-vit-sec pt-5"
       ref={sectionRef}
     >
       <div className="container mx-auto px-4">
@@ -96,7 +96,7 @@ export default function WebVitalsBenchmarks() {
           <div className="inline-block bg-white px-6 py-3 rounded-lg shadow-md">
             <div className="flex items-center justify-center">
               <Search className="h-5 w-5 text-emerald-600 mr-2" />
-              <p className="font-medium">
+              <p className="font-medium mb-0">
                 Google now uses Core Web Vitals as a ranking factor for search
                 results
               </p>

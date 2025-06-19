@@ -8,7 +8,7 @@ export default function WorkCard({ title, description, href, image }) {
         className="h-48 bg-cover bg-center"
         style={{ backgroundImage: `url('${image}')` }}
       ></div>
-      <div className="p-6">
+      <div className="p-6 border">
         <h3 className="font-bold text-lg mb-2 text-[#00aceb]">{title}</h3>
         <p className="text-slate-600 mb-4">{description}</p>
         <button variant="outline" size="sm" asChild>

@@ -63,7 +63,7 @@ export default function WorkShowcase() {
           Our Work
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 our-work-sec-inner">
           {projects.map((project, index) => (
             <div key={index} ref={(el) => (cardsRef.current[index] = el)}>
               <WorkCard {...project} />
@@ -73,7 +73,7 @@ export default function WorkShowcase() {
 
         <div className="text-center">
           <butonn asChild>
-            <Link href="/case-studies">
+            <Link href="/case-studies" className="text-[#393939] fw-semibold fs-6 px-4 py-3 border rounded-pill inline-block hover:text-black">
               View All Case Studies
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

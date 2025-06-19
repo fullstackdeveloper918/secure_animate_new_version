@@ -51,19 +51,19 @@ const ServiceDetailsMain = ({ serviceBannerData }) => {
           <main>
             <ServiceDetailsArea serviceBannerData={serviceBannerData} />
              <div
-              className="bg-[#000019] mt-[-50px] relative z-10 px-6 "
+              className="bg-[#000019] mt-[0px] relative z-10 px-6 "
             >
                <ServiceThree serviceBannerData={serviceBannerData} />
                </div>
             <div
-              className="bg-[#009dd610] singleSerivce mt-[-50px]"
+              className="bg-[#009dd610] singleSerivce mt-[0px]"
               id="singleSerivce"
             >
               <ContactTwo />
             </div>
          
                   <div
-              className="bg-[#fff] mt-[-50px] relative z-10"
+              className="bg-[#fff] mt-[0px] relative z-10"
             ><FourthSection />
             </div>
           </main>

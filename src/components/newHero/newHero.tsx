@@ -94,10 +94,10 @@ export default function BannerSection({ data }: any) {
           </div>
         </section>
       </div>
-      <div className="image-container" ref={imageContainerRef}>
+      {/* <div className="image-container" ref={imageContainerRef}>
         <img src="/Final-Banner2.webp" alt="Banner" className="banner-image" />
-        {/* <div className="star-container"></div> */}
-      </div>
+        <div className="star-container"></div>
+      </div> */}
 
       <style jsx>{`
         .wrapper, .content {

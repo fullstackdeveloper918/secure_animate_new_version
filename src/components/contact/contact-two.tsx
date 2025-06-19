@@ -9,7 +9,7 @@ import timing from "../../../public/images/timing.svg";
 
 export default function ContactTwo() {
   return (
-    <div className="cn-contactform-area cn-contactform-style relative pt-50 lg:pb-50 pb-100 bg-white">
+    <div className="cn-contactform-style relative pt-35 lg:pb-35 pb-35 bg-white reach-cont">
       <div className="ab-2-hero-social-wrap d-none d-xxl-block">
         <div className="ab-2-hero-social">
           <Social />
@@ -34,7 +34,7 @@ export default function ContactTwo() {
                 <span>
                   <Image className="PhoeIcon" src={Phone} alt="shape" />
                 </span>
-                <div className="Inndericon">
+                <div className="Inndericon text-center text-lg-start">
                   <h2 className="h5-title">+(800) 311-5990</h2>
                   <p>Call Now and Get a FREE Consultation</p>
                 </div>

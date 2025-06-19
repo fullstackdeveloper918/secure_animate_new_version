@@ -56,7 +56,7 @@ export const FourthSection = () => {
           variants={container}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center sm:text-4xl text-white z-[99] font-semibold tracking-tighter md:text-6xl md:leading-[4rem] flex flex-wrap justify-center xl:px-64"
+          className=" ready-head-txt text-center sm:text-4xl text-white z-[99] font-semibold tracking-tighter md:text-6xl md:leading-[4rem] flex flex-wrap justify-center xl:px-64"
         >
          {text}
         </h2>

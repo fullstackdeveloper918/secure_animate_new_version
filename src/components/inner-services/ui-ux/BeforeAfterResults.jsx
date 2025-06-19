@@ -8,26 +8,37 @@ export default function BeforeAfterResults() {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
 
+  // Helper function to safely assign refs
+  const setCardRef = (el, index) => {
+    if (el) {
+      cardsRef.current[index] = el;
+    }
+  };
+
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      });
+    const timeout = setTimeout(() => {
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
 
-      tl.from(cardsRef.current, {
-        opacity: 0,
-        y: 50,
-        duration: 0.6,
-        stagger: 0.3,
-        ease: "power2.out",
-      });
-    }, sectionRef);
+        tl.from(cardsRef.current, {
+          opacity: 0,
+          y: 50,
+          duration: 0.6,
+          stagger: 0.3,
+          ease: "power2.out",
+        });
+      }, sectionRef);
 
-    return () => ctx.revert();
+      return () => ctx.revert();
+    }, 100); // wait for DOM to fully mount
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
@@ -41,7 +52,7 @@ export default function BeforeAfterResults() {
           {/* BEFORE Card */}
           <div
             className="bg-white rounded-lg shadow-lg overflow-hidden"
-            ref={(el) => (cardsRef.current[0] = el)}
+            ref={(el) => setCardRef(el, 0)}
           >
             <div className="bg-red-100 p-4 text-center">
               <h3 className="font-bold text-lg text-red-800 mb-0">BEFORE</h3>
@@ -72,7 +83,7 @@ export default function BeforeAfterResults() {
           {/* AFTER Card */}
           <div
             className="bg-white rounded-lg shadow-lg overflow-hidden"
-            ref={(el) => (cardsRef.current[1] = el)}
+            ref={(el) => setCardRef(el, 1)}
           >
             <div className="bg-emerald-100 p-4 text-center">
               <h3 className="font-bold text-lg text-emerald-800 mb-0">AFTER</h3>
@@ -104,10 +115,10 @@ export default function BeforeAfterResults() {
         {/* Summary Section */}
         <div
           className="mt-12 text-center"
-          ref={(el) => (cardsRef.current[2] = el)}
+          ref={(el) => setCardRef(el, 2)}
         >
           <div className="inline-block bg-emerald-100 px-6 py-3 rounded-lg">
-            <p className="text-lg font-medium text-emerald-800">
+            <p className="text-lg font-medium text-emerald-800 mb-0">
               Average improvement across all clients:{" "}
               <span className="font-bold">+187%</span> in key metrics
             </p>

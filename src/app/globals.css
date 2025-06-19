@@ -6315,7 +6315,7 @@ div#why-choose-bg::before {
 section.cyber-serv-sec {
   background: #f5f5f5;
   padding: 90px 0;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 section.cyber-serv-sec .cb-card-box .cb-price-txt {
   color: #000;
@@ -6469,6 +6469,12 @@ section.cyber-serv-sec .cb-btn-prc {
   }
 }
 @media screen and (max-width: 991px) {
+  .reach-cont .contactHeading {
+    text-align: center;
+  }
+  .reach-cont .contactHeading h2 {
+    margin-bottom: 15px;
+}
   section.cyber-serv-sec {
     padding: 60px 0;
     margin-top: 50px;
@@ -6696,9 +6702,6 @@ section.cyber-serv-sec .cb-btn-prc {
     font-size: 32px !important;
     margin-bottom: 40px;
   }
-  .our-work-serv-sec {
-    padding: 0px !important;
-  }
   .core-web-head {
     margin-bottom: 40px !important;
   }
@@ -6723,6 +6726,52 @@ section.cyber-serv-sec .cb-btn-prc {
   }
 }
 @media screen and (max-width: 767px) {
+  .ready-head-txt{
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 5px;
+  }
+  .our-service-outer-box {
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
+  .our-service-outer-box .container {
+    padding: 0 0px !important;
+  }
+  .our-service-outer-box .container h2 {
+    font-size: 32px;
+    margin-bottom: 0;
+}
+  .reach-cont {
+    padding: 60px 0;
+  }
+  .reach-cont .conatct-col.ab-about-category-title-box{
+      margin-bottom: 0px;
+      order: 1;
+      padding: 0px 15px 35px 15px;
+  }
+  .reach-cont .conatct-col.col-xl-7.contactForm{
+     order: 2;
+     padding: 0 12px !important;
+      text-align: center;
+  }
+  .reach-cont .conatct-col.col-xl-7.contactForm .cn-contactform-btn {
+    text-align: center;
+    margin-top: 12px;
+  }
+  .reach-cont .conatct-col.col-xl-7.contactForm .cn-contactform-btn {
+    text-align: center;
+    margin-top: 12px;
+  }
+  .cn-contactform-btn .tp-btn-black-md {
+    font-weight: 600;
+    max-width: 160px;
+    border-radius: 30px;
+    border: 1px solid #04adec;
+    background: #04adec;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
   .classic-menu .flexnav .header-link .sub-menu {
     min-width: 100%;
     top: 60px !important;
@@ -7056,6 +7105,13 @@ section.cyber-serv-sec .cb-btn-prc {
     align-items: end;
   }
 }
+
+@media screen and (max-width: 575px) {
+.reach-cont .contactHeading h2 {
+    margin-bottom: 12px;
+    font-size: 32px;
+}
+}
 @media screen and (max-width: 480px) {
   div#header-container a.ajax-link {
     font-size: 18px !important;
@@ -7125,7 +7181,11 @@ section.cyber-serv-sec .cb-btn-prc {
 }
 
 .our-work-serv-sec {
-  padding: 40px 0;
+  padding: 80px 0;
+}
+.our-work-sec-inner{
+    max-width: 1400px;
+    margin: 0px auto 50px;
 }
 
 /* Fog CSS start here */
@@ -7439,26 +7499,55 @@ h1.main-serv-head {
 } */
 
 .project-top-heading{
-    font-size: clamp(48px, 8.5vw, 100px) !important;
-    line-height: clamp(48px, 8.5vw, 120px) !important;
+    font-size: clamp(48px, 8.5vw, 54px) !important;
+    line-height: clamp(48px, 8.5vw, 64px) !important;
     font-weight: 600 !important;
     letter-spacing: -0.1vw !important;
-    color: #3eaced !important;
+    color: #fff !important;
+    text-transform: uppercase;
+}
+.project-top-heading span{
+  align-items: start !important;
+  justify-content: start !important;
 }
 .project-top-para{
-    font-size: 20px !important;
-    line-height: 32px !important;
-    max-width: 52%;
-    margin: auto;
+    font-size: 18px !important;
+    line-height: 28px !important;
+    max-width: 56%;
+    margin-right: auto;
     opacity: .8 !important;
-    /* color: #fff !important; */
+    color: #fff !important;
+}
+.project-top-para span{
+  text-align: start !important;
 }
 .proj-full-image div#hero-bg-image {
     background-size: cover !important;
 }
 
+.project-top-bg .inner::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #00000090;
+}
+.project-top-bg {
+    height: 720px !important;
+    padding-bottom: 80px !important;
+    align-items: end !important;
+}
+/* .project-big-img{
+  margin-top: 40px;
+} */
+
 
 /* Project Page CSS Start end Here */
+
+
+
 @media (max-width:991px){
   .benifitsec::after{
     display:none;

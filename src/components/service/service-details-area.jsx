@@ -268,17 +268,17 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
 
       {serviceBannerData?.slug === "app-development" && (
         <>
+          <OurWorks />
           <CardStackingSection />
           <FiveStepBuildSprint />
-          <OurWorks />
-          <TrustedBy />
+          {/* <TrustedBy /> */}
         </>
       )}
 
       {serviceBannerData?.slug === "site-design" && (
         <>
-          <CardStackingSection />
           <BeforeAfterResults />
+          <CardStackingSection />
           {/* <ServiceTiers /> */}
           <OurWorks />
           <WebVitalsBenchmarks />
@@ -287,18 +287,18 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
 
       {serviceBannerData?.slug === "marketing" && (
         <>
-          <CardStackingSection />
           <FiveStepBuildSprint />
+          <CardStackingSection />
         </>
       )}
 
       {serviceBannerData?.slug === "cybersecurity" && (
         <>
-          <CardStackingSection />
           <CybersecurityServices />
-          <ThreatIntelligence />
+          <CardStackingSection />
           <SecurityStakeholders />
-          <ComplianceExpertise />
+          <ThreatIntelligence />
+          {/* <ComplianceExpertise /> */}
         </>
       )}
 

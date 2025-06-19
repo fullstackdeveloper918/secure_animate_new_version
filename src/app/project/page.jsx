@@ -78,7 +78,7 @@ const Page = () => {
       );
 
 
-        // Parallax fade/move on scroll for hero texts
+    // Parallax fade/move on scroll for hero texts
     gsap.to(".hero-title", {
       scrollTrigger: {
         trigger: "#hero",
@@ -204,19 +204,32 @@ const Page = () => {
                       id="hero-caption"
                       className="content-full-width parallax-scroll-caption project-top-bg"
                     >
+                      {/* <video src="/Futuristic_Tech.mp4" className="Project-ban-vd"></video> */}
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute top-0 left-0 w-full h-full object-cover object-top z-0"
+                      >
+                        <source src="/Futuristic_Tech.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
                       <div id="space-animation"></div> {/* Space Animation Here */}
+                      <div className="container">
                       <div className="inner">
                         <h1 className="hero-title caption-timeline project-top-heading">
                           <span>Transforming a Vision</span>{" "}
-                          <span>into Reality</span>
+                          <span className="text-[#04aced]">into Reality</span>
                         </h1>
                         <div className="hero-subtitle caption-timeline onload-shuffle project-top-para">
                           <span>
-                           Techable aimed to ouid a high-performance platform for tech enthusiasts, and <strong>Secure965</strong> took on the challenge to transform this a dynamic and engaging website.
+                           At Secure365, we turn your digital ideas into secure, high-performing websites. From concept to launch, our expert team ensures every line of code aligns with your goals—built to protect, scale, and succeed in today’s online landscape.
                           </span>
                         </div>
+                        </div>
                       </div>
-                      <div id="hero-footer">
+                      {/* <div id="hero-footer">
                         <div className="hero-footer-left">
                           <div className="button-wrap left scroll-down">
                             <div className="icon-wrap parallax-wrap">
@@ -247,12 +260,12 @@ const Page = () => {
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
 
-                <div
+                {/* <div
                   id="hero-image-wrapper"
                   className="change-header-color hero-pixels-cover parallax-scroll-image flex flex-col justify-center items-center proj-full-image"
                 >
@@ -267,12 +280,12 @@ const Page = () => {
                         backgroundImage:
                           "url('../images/projects/Astronaut-flag-hand.jpg')",
                       }}
-                      
+
                     >
-                      {/* <img src={('../images/projects/Project-Main-full.jpg')} /> */}
+                      <img src={('../images/projects/Project-Main-full.jpg')} />
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Your existing content here */}
                 <div id="main-content">

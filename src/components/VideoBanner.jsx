@@ -14,7 +14,7 @@ const FullscreenVideoSection = () => {
       setTimeout(() => {
         setHideVideoSection(true);
       }, 1000);
-    }, 8000); // 9 seconds delay
+    }, 6500); // 9 seconds delay
 
     return () => clearTimeout(timer);
   }, []);
