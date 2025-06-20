@@ -3,6 +3,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { Rocket } from "lucide-react";
 import Link from "next/link";
+import PlanetAnimation from "@/components/hero-banner/PlanetAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,7 +106,7 @@ const RocketAnimation = () => {
       },
       {
         opacity: 1,
-        y: 100,
+        y: -700,
         duration: 1.5,
         ease: "power1.out",
       },
@@ -120,7 +121,7 @@ const RocketAnimation = () => {
       },
       {
         opacity: 1,
-        y: 100,
+        y: -650,
         duration: 1.5,
         ease: "power1.out",
       },
@@ -177,7 +178,7 @@ const RocketAnimation = () => {
       ref={sectionRef}
       className="min-h-[100vh] bg-black relative overflow-hidden bottomContent"
     >
-      <div className="bannerBottom">
+      {/* <div className="bannerBottom">
         <video
           ref={videoRef}
           className="play-video absolute inset-0 w-full z-[1]"
@@ -188,7 +189,11 @@ const RocketAnimation = () => {
         >
           <source src="/bannerBottom.mp4" type="video/mp4" />
         </video>
-      </div>
+      </div> */}
+
+      {/* <div className="bannerBottom"> */}
+      <PlanetAnimation />
+      {/* </div> */}
 
       {/* <canvas
         id="starfield"
@@ -197,7 +202,7 @@ const RocketAnimation = () => {
         style={{ background: "radial-gradient(#04071f 0%, #04071e 70%)" }}
       /> */}
       <div className="p-10 ">
-        <div className="absolute z-[9999] bottom-40 right-[-300px]">
+        <div className="absolute z-[9999] bottom-[700px] right-[-300px]">
           <img
             ref={imgRef}
             src="/images/rocket1.png"
@@ -206,7 +211,7 @@ const RocketAnimation = () => {
           />
         </div>
 
-        <div className="absolute z-[9999] bottom-0 right-[-400px]">
+        <div className="absolute z-[9999] bottom-[500px] right-[-400px]">
           <img
             ref={img2Ref}
             src="/images/rocket1.png"
