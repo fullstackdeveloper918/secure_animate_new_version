@@ -131,8 +131,14 @@ export default function Home() {
         </div>
       </div>
 <div>
-      <CanvasScene />
+      {/* <CanvasScene /> */}
     </div>
+  
+
+
+
+
+
       <footer className="clapat-footer hidden">
         <div id="footer-container">
           <div id="backtotop" className="button-wrap left">
@@ -230,16 +236,7 @@ export default function Home() {
         <div id="smooth-content">
           <main className="bg-white">
             <div className="awardsSec">
-              {/* <AwardOne data={data} /> */}
-              <ServicesSection data={data} />
-            </div>
-        
-
-            {/* <ProjectsCard/> */}
-            {/* <ProjectSix data={data} /> */}
-            <HorizontalScrollSection />
-            {/* projectsec end */}
-
+            {/* <BrandOne />
             <div className="container-fluid p-0">
               <div className="row g-0">
                 <div className="col-xl-12">
@@ -247,12 +244,28 @@ export default function Home() {
                 </div>
               </div>
             </div>
+                        <HorizontalScrollSection />
+            <TestimonialOne data={data}  className="bg-white"/>
+              <ServicesSection data={data} /> */}
+            </div>
 
-            {/* <TeamOne data={data} /> */}
-            {/* <TestimonialOne data={data} /> */}
+              {/* <BrandOne /> */}
+            <div className="container-fluid p-0 h-screen flex items-center">
+              <div className="row g-0">
+                <div className="col-xl-12">
+                  <ProjectTextLine data={data} />
+                </div>
+              </div>
+            </div>
+                    <ServicesSection data={data} />
+
+                    
             <div className="awardsSec">
               <BlogOne />
             </div>
+                        <HorizontalScrollSection />
+        
+    
           </main>
           <FooterFour />
         </div>

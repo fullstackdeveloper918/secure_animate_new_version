@@ -27,11 +27,13 @@ const ProjectTextLine = ({ data }) => {
   const renderText = () => (
     <>
       <span className="mr-10 inline-block whitespace-nowrap">
-        {data?.home_page_project_colest_section_heading_second}{" "}
-        {data?.home_page_project_coles_section_heading_third}
+        Solutions 
+        {/* {data?.home_page_project_colest_section_heading_second}{" "}
+        {data?.home_page_project_coles_section_heading_third} */}
       </span>
       <span className="mr-10 inline-block whitespace-nowrap">
-        {data?.home_page_project_colest_section_heading_first}
+        {/* {data?.home_page_project_colest_section_heading_first} */}
+        We Provide
       </span>
     </>
   );

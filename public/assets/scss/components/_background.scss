@@ -19,7 +19,8 @@
 	background-color: var(--tp-common-black-3);
 }
 .dark-bg {
-	background-color: var(--tp-common-dark);
+	// background-color: var(--tp-common-dark);
+	    background: linear-gradient(90deg, #000000, #040410) !important;
 }
 .grey-bg {
 	background-color: var(--tp-grey-1);

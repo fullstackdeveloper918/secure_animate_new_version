@@ -222,10 +222,10 @@ const HorizontalScrollSection = () => {
     <>
       <section ref={sectionRef} className="horizontal-scroll-section">
         <video className="space-background" autoPlay muted loop playsInline>
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4" type="video/mp4" />
+          <source src="/Dark-blue-sky.mp4" type="video/mp4" />
         </video>
         <video className="space-background2" autoPlay muted loop playsInline>
-          <source src="/Project-video2.mp4" type="video/mp4" />
+          <source src="/Dark-blue-sky.mp4" type="video/mp4" />
         </video>
         <div className="space-overlay"></div>
 
@@ -382,20 +382,22 @@ const HorizontalScrollSection = () => {
           z-index: 1;
         }
 
-        .space-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            180deg,
-            rgba(22, 33, 62, 0.7) 0%,
-            rgba(15, 52, 96, 0.8) 50%,
-            rgba(10, 25, 47, 0.7) 100%
-          );
-          z-index: 1;
-        }
+        // .space-overlay {
+        //   position: absolute;
+        //   top: 0;
+        //   left: 0;
+        //   width: 100%;
+        //   height: 100%;
+        //   background: linear-gradient(
+        //     180deg,
+        //     rgba(22, 33, 62, 0.7) 0%,
+        //     rgba(15, 52, 96, 0.8) 50%,
+        //     rgba(10, 25, 47, 0.7) 100%
+        //   );
+        //   z-index: 1;
+        // }
+
+
 
         .horizontal-scroll-wrapper {
           overflow: hidden;
