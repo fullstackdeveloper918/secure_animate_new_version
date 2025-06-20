@@ -1,78 +1,68 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import ScrollTrigger from "gsap/ScrollTrigger"
-import HeroSectionMain from "../hero-banner/HeroSectionMain"
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import HeroSectionMain from "../hero-banner/HeroSectionMain";
 
 export default function BannerSection({ data }: any) {
-  const textRef = useRef(null)
-  const wrapperRef = useRef(null)
+  const textRef = useRef(null);
+  const wrapperRef = useRef(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const imageContainerRef = useRef<HTMLDivElement>(null);
 
-   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
+  useEffect(() => {
+    // Initially hide hero-text container
     gsap.set(textRef.current, {
       opacity: 0,
       y: 100,
       zIndex: 10,
     });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: wrapperRef.current,
-        start: "top top",
-        end: "+=150%",
-        scrub: true,
-        pin: true,
-        markers: false,
-        onUpdate: (self) => {
-          if (!contentRef.current || !imageContainerRef.current) return;
+    // Select h1 and other text elements (e.g., p) inside HeroSectionMain
+    // Adjust selectors based on the actual structure of HeroSectionMain
+    const textElements = contentRef.current?.querySelectorAll(
+      "h1, p" // Target h1 and p elements; update if HeroSectionMain uses different tags or classes
+    );
 
-          if (self.progress > 0.4) {
-            contentRef.current.style.zIndex = "2";
-            imageContainerRef.current.style.zIndex = "1";
-          } else {
-            contentRef.current.style.zIndex = "1";
-            imageContainerRef.current.style.zIndex = "2";
-          }
-        },
-      },
+    // Initially hide text elements
+    if (textElements) {
+      gsap.set(textElements, { opacity: 0, y: 50 });
+    }
+
+    // Create GSAP timeline for automatic sequential animation
+    const tl = gsap.timeline({
+      defaults: { ease: "power2.out" }, // Default easing for all animations
     });
 
-    tl.to(".banner-image", {
-      scale: 15,
-      opacity: 0,
-      ease: "power2.inOut",
-      transformOrigin: "center center",
+    // Optional: Animate video slightly (e.g., subtle scale or fade)
+    tl.to("video", {
+      scale: 1.1, // Subtle zoom effect
+      opacity: 0.9,
+      duration: 1,
+    });
+
+    // Animate hero-text container (fades and slides up)
+    tl.to(textRef.current, {
+      opacity: 1,
+      y: 0,
       duration: 0.5,
     });
 
-    tl.to(
-      textRef.current,
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.3,
-        ease: "power2.out",
-      },
-      ">-0.1"
-    );
+    // Animate h1 and text elements one by one
+    if (textElements) {
+      textElements.forEach((element, index) => {
+        tl.to(
+          element,
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+          },
+          `>-0.3` // Stagger each element by 0.3s for overlap
+        );
+      });
+    }
 
-    tl.to(
-      ".banner-image",
-      {
-        display: "none",
-        duration: 0.01,
-      },
-      ">0.8"
-    );
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+    // No ScrollTrigger cleanup needed
   }, []);
 
   return (
@@ -88,19 +78,16 @@ export default function BannerSection({ data }: any) {
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
 
-          {/* Hero text container - now positioned at bottom initially */}
+          {/* Hero text container */}
           <div className="hero-text" ref={textRef}>
             <HeroSectionMain data={data} />
           </div>
         </section>
       </div>
-      {/* <div className="image-container" ref={imageContainerRef}>
-        <img src="/Final-Banner2.webp" alt="Banner" className="banner-image" />
-        <div className="star-container"></div>
-      </div> */}
 
       <style jsx>{`
-        .wrapper, .content {
+        .wrapper,
+        .content {
           position: relative;
           width: 100%;
           z-index: 1;
@@ -112,10 +99,10 @@ export default function BannerSection({ data }: any) {
           z-index: 3;
         }
         section#hero {
-            background-color: #00000000 !important;
+          background-color: #00000000 !important;
         }
         section#hero::before {
-            background: transparent;
+          background: transparent;
         }
         .main_banner {
           opacity: 1 !important;
@@ -132,50 +119,17 @@ export default function BannerSection({ data }: any) {
           position: absolute;
           z-index: 10;
           top: 50%;
-          left: 0; /* Left aligned */
-          transform: translateY(-50%); /* Only center vertically */
-          opacity: 0; /* Start hidden */
-          text-align: left; /* Left aligned text */
+          left: 0;
+          transform: translateY(-50%);
+          opacity: 0;
+          text-align: left;
           color: white;
           width: 100%;
           max-width: 1200px;
-          padding-left: 5%; /* Add some padding from the left edge */
+          // padding-left: 5%;
           pointer-events: auto;
-        }
-        .image-container {
-          width: 100%;
-          height: 100vh;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 2;
-          overflow: hidden;
-          perspective: 200px;
-        }
-        .banner-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center center;
-          will-change: transform, opacity;
-        }
-        .star-container {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 5;
-        }
-        .star {
-          position: absolute;
-          width: 4px;
-          height: 4px;
-          background-color: white;
-          border-radius: 50%;
         }
       `}</style>
     </div>
-  )
+  );
 }

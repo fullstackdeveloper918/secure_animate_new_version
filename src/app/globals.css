@@ -6289,7 +6289,7 @@ div#why-choose-bg::before {
 
 /* Our Core Strength section css start here end*/
 /* banenrcss */
-.section.hero::after {
+/* .section.hero::after {
     position: absolute;
     content: '';
     bottom: 0px;
@@ -6299,9 +6299,12 @@ div#why-choose-bg::before {
     z-index: 99;
     left: 0;
     right: 0;
-}
+} */
 
-.section.hero video {position: relative;transform: scale(1.2);}
+.section.hero video {
+  position: relative;
+  transform: scale(1.2) !important;
+}
 .bannerBottom::before {
     position: absolute;
     inset: 0;
@@ -7664,3 +7667,5 @@ section#hero::before {
 .wrapper .content {
     z-index: inherit;
 } */
+
+

@@ -32,6 +32,9 @@ import RocketAnimation from "@/components/about/about-rocket";
 import dynamic from 'next/dynamic';
 import BannerSection from "@/components/newHero/newHero";
 import HorizontalScrollSection from '@/components/project/new-project'
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const CanvasScene = dynamic(() => import('../components/CanvasScene'), { ssr: false });
 
@@ -51,6 +54,33 @@ const businessesData = [
 
 export default function Home() {
   const [data, setData] = useState([]);
+  useEffect(() => {
+    // GSAP animation for ServicesSection
+    gsap.fromTo(
+      '.services-section',
+      { opacity: 0, y: 50 }, // Initial state
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.services-section',
+          start: 'top 80%', // Start animation when top of ServicesSection hits 80% of viewport height
+          end: 'bottom 20%', // End when bottom hits 20% of viewport
+          toggleActions: 'play none none reverse', // Play on enter, reverse on leave
+        },
+      }
+    );
+
+    // Refresh ScrollTrigger to ensure proper calculations
+    ScrollTrigger.refresh();
+
+    return () => {
+      // Cleanup ScrollTrigger instances on component unmount
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -264,6 +294,9 @@ export default function Home() {
               <BlogOne />
             </div>
                         <HorizontalScrollSection />
+
+
+                    
         
     
           </main>

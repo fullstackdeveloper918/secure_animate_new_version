@@ -168,7 +168,8 @@ export default function SolarSystem() {
           playsInline
         >
           <source
-            src="/planet/224143.mp4?height=1080&width=1920"
+            // src="/planet/newsecond.mp4"
+            src="/newsecond.mp4"
             type="video/mp4"
           />
         </video>
