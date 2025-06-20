@@ -13,6 +13,11 @@ import TextScrollAnimation from "@/components/ProjectTextaniamtion/TextScrollAni
 import Component from "@/components/ProjectTextaniamtion/TextScrollAnimation";
 import WhyTechable from "@/components/projectSlider/whyTechable";
 import UniqueSolution from "@/components/projectSlider/uniqueSolution";
+import MoreDesign from "@/components/projectSlider/MoreDesign";
+import ImagesSlider from "@/components/projectSlider/ImagesSlider";
+import SecureWay from "@/components/projectSlider/SecureWay";
+import GallerySection from "@/components/projectSlider/GallerySection";
+import CtaSection from "@/components/projectSlider/CtaSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -296,11 +301,17 @@ const Page = () => {
               </div>
             </div>
             <WhyTechable />
+            <MoreDesign />
+            <ImagesSlider />
+             <SecureWay />
+             {/* <CardStackingSection /> */}
             <TextScrollAnimation />
-            <UniqueSolution />
+            <GallerySection />
+            <CtaSection />
+            {/* <UniqueSolution />
             <ProjectSlider />
             <TechableProject />
-            <AppleTech />
+            <AppleTech /> */}
           </div>
         </div>
       </main>

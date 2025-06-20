@@ -145,6 +145,15 @@ export default function TextScrollAnimation() {
           ref={canvasRef}
           className="absolute top-0 left-0 w-full h-full"
         ></canvas>
+        <video
+          src="/Dark-blue-sky.mp4"
+          className="absolute top-0 left-0 w-full h-full object-cover object-top"
+          autoPlay
+          muted
+          loop
+          playsInline
+        ></video>
+        <div className="overlay-box absolute top-0 left-0 w-full h-full"></div>
 
         <h1 className="text-white text-2xl font-medium relative z-10 mb-4">
           RESULT THAT MATTER

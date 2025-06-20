@@ -7540,6 +7540,94 @@ h1.main-serv-head {
     padding-bottom: 80px !important;
     align-items: end !important;
 }
+.more-design-sec{
+  padding: 100px 0;
+  min-height: 100vh;
+}
+.more-design-sec::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.50);
+}
+.more-design-content h2{
+  font-size: 44px;
+  line-height:56px;
+}
+.more-design-content p{
+  max-width: 600px;
+  font-size: 20px;
+}
+.visual-sec{
+  padding: 80px 40px;
+  height: 75vh;
+}
+.visual-sec h2{
+  font-size: 44px;
+  line-height: 56px;
+  margin-bottom: 50px;
+}
+/* styles.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.secureway-sec{
+  padding: 0 0 80px 0;
+}
+.overlay-box{
+  background: rgba(0, 0, 0, 0.26);
+}
+.gallery-sec{
+  padding: 80px 0;
+}
+.gallery-sec h2{
+  font-size: 44px;
+  line-height: 56px;
+  margin-bottom: 60px;
+}
+.gallery-sec h2::after{
+  position: absolute;
+  content: '';
+  left: 50%;
+  bottom: -10px;
+  width: 150px;
+  height: 3px;
+  transform: translate(-50%,-50%);
+  background: #00aced;
+  border-radius: 10px;
+}
+.cta-sec{
+  padding: 100px 0;
+}
+.cta-sec h2{
+  font-size: 48px;
+  line-height: 58px;
+  margin-bottom: 25px;
+}
+.cta-sec p{
+  font-size: 20px;
+  max-width: 680px;
+}
+.overlay-proj{
+      background: linear-gradient(180deg, #1212126b, #121212);
+}
+.cta-sec button {
+    padding: 18px 38px;
+    font-size: 18px;
+    font-weight: 500;
+    border: 2px solid #fff;
+}
+.cta-sec button:hover{
+  background: #fff !important;
+  color: #000 !important;
+}
 /* .project-big-img{
   margin-top: 40px;
 } */
