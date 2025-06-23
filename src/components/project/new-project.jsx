@@ -245,10 +245,10 @@ const HorizontalScrollSection = () => {
 
             {/* Cards Section */}
             {projects.map((project, index) => (
-              <div key={index} className="card-wrapper">
+              <div key={index} className="project-card-container">
                <Link href="/project" >
-                <div className="card">
-                  <div className="card-content">
+                <div className="project-card">
+                  <div className="project-card-content">
                     <div className="card-icon">
                       <img src={project.image || "/placeholder.svg?height=300&width=400"} alt={project.title} />
                     </div>
@@ -498,241 +498,171 @@ const HorizontalScrollSection = () => {
           animation: lineReveal 1s ease-out 0.6s forwards;
         }
 
-        .card-wrapper {
+        .project-card-container {
           display: flex;
           flex-shrink: 0;
           padding: 0 5px;
-          // height: auto;
           height: 100%;
           align-items: center;
         }
 
-        .card-wrapper:first-of-type {
+        .project-card-container:first-of-type {
           padding: 0 5px 0 15px;
         }
 
-        .card-wrapper:last-of-type {
+        .project-card-container:last-of-type {
           padding: 0 15px 0 5px;
         }
 
-        /* Card styles with proper border-radius */
-        .card {
-          align-items: center;
-          justify-content: center;
-          width: 540px;
-          // min-height: 400px;
-          // height: 540px;
-          padding: 0px;
-          background: rgba(110, 76, 225, 0.25);
-          backdrop-filter: blur(10px);
-          border-radius: 24px;
-          color: #f6f2e8;
-          border: 2px solid transparent;
-          position: relative;
+        .project-card {
           display: flex;
           flex-direction: column;
-          text-align: center;
-          z-index: 3;
-          background: rgba( 255, 255, 255, 0.20 );
-          box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-          backdrop-filter: blur( 4px );
-          -webkit-backdrop-filter: blur( 4px );
-          border-radius: 10px;
-          border: 1px solid rgba( 255, 255, 255, 0.18 );
-          transition: border-color 0.3s ease;
+          align-items: center;
+          justify-content: center;
+          width: 480px;
+          min-height: 440px;
+          padding: 0px;
+          background: linear-gradient(135deg, rgb(0, 179, 241, .4) 0%, rgba(253, 187, 45, 0.10) 100%);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+          border-radius: 20px;
+          border: 2px solid rgba(255, 255, 255, 0.18);
+          transition: box-shadow 0.3s, border-color 0.3s;
+          color: #fff;
+          position: relative;
+          overflow: hidden;
         }
 
-        /* Simple border hover effect */
-        .card:hover {
-          border-color: #03afef;
-          box-shadow: 
-            0 0 20px rgba(110, 76, 225, 0.3),
-            inset 0 0 20px rgba(110, 76, 225, 0.1);
+        .project-card:hover {
+          box-shadow: 0 0 24px 0 rgba(34, 193, 195, 0.25), 0 8px 32px 0 rgba(31, 38, 135, 0.22);
+          border-color: rgb(5 174 236);
         }
 
-        .card-content {
+        .project-card-content {
           position: relative;
           z-index: 2;
           width: 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 20px;
-          padding: 20px;
+          gap: 18px;
+          padding: 28px 20px 24px 20px;
         }
 
         .card-icon {
           width: 100%;
-          height: auto;
-          margin-bottom: 10px;
-          filter: drop-shadow(0 0 10px rgba(110, 76, 225, 0.3));
+          height: 320px;
+          margin-bottom: 8px;
+          filter: drop-shadow(0 0 10px rgba(34, 193, 195, 0.15));
           position: relative;
           overflow: hidden;
           border-radius: 16px;
+          background: #181c2f;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .card-icon img {
           width: 100%;
-          height: auto;
+          height: 100%;
           object-fit: cover;
           border-radius: 16px;
           display: block;
-          transform: unset !important;
         }
 
-        .card h2 {
+        .project-card h2 {
           font-size: 2rem;
-          text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
           color: #fff;
+          font-weight: 700;
+          margin: 0;
+          letter-spacing: 1px;
+          text-shadow: 0 2px 8px rgba(34, 193, 195, 0.08);
         }
 
-        /* Responsive Design */
         @media (max-width: 1200px) {
-          .card {
-            width: 480px;
-            min-height: 360px;
+          .project-card {
+            width: 400px;
+            min-height: 280px;
+          }
+          .card-icon {
+            height: 160px;
           }
         }
 
         @media (max-width: 992px) {
-          .card {
-            width: 420px;
-            min-height: 320px;
-            padding: 25px;
-            border-radius: 20px;
+          .project-card {
+            width: 340px;
+            min-height: 220px;
+            border-radius: 16px;
           }
-
-          .card-content {
-            gap: 15px;
-            padding: 15px;
+          .project-card-content {
+            gap: 12px;
+            padding: 16px 10px 14px 10px;
           }
-
           .card-icon {
-            margin-bottom: 8px;
-            border-radius: 14px;
+            height: 120px;
+            border-radius: 12px;
           }
-
           .card-icon img {
-            border-radius: 14px;
-          }
-
-          .horizontal {
-            gap: 15px;
+            border-radius: 12px;
           }
         }
 
         @media (max-width: 768px) {
-          .intro2 h1,
-          .intro3 h1 {
-            font-size: 2.5rem;
-            padding: 0 20px;
+          .project-card {
+            width: 260px;
+            min-height: 160px;
+            border-radius: 12px;
           }
-          
-          .intro2 p,
-          .intro3 p {
-            font-size: 1rem;
-            padding: 0 20px;
+          .project-card-content {
+            gap: 8px;
+            padding: 10px 4px 10px 4px;
           }
-
-          .card {
-            width: 360px;
-            min-height: 280px;
-            padding: 20px;
-            border-radius: 18px;
-          }
-
-          .card h2 {
-            font-size: 1.5rem;
-          }
-
           .card-icon {
-            border-radius: 12px;
+            height: 80px;
+            border-radius: 8px;
           }
-
           .card-icon img {
-            border-radius: 12px;
+            border-radius: 8px;
           }
-
           .horizontal {
-            gap: 12px;
-          }
-
-          .horizontal-scroll-section {
-            padding: 150px 0;
-          }
-
-          .intro-section,
-          .outro-section {
-            padding: 0 30px;
+            gap: 8px;
           }
         }
 
         @media (max-width: 576px) {
-          .intro2 h1,
-          .intro3 h1 {
-            font-size: 2rem;
+          .project-card {
+            width: 180px;
+            min-height: 120px;
+            border-radius: 8px;
           }
-
-          .card {
-            width: 300px;
-            min-height: 240px;
-            padding: 15px;
-            border-radius: 16px;
+          .project-card-content {
+            gap: 4px;
+            padding: 6px 2px 6px 2px;
           }
-
-          .card-content {
-            gap: 10px;
-            padding: 10px;
-          }
-
-          .card h2 {
-            font-size: 1.3rem;
-          }
-
           .card-icon {
-            border-radius: 10px;
+            height: 50px;
+            border-radius: 6px;
           }
-
           .card-icon img {
-            border-radius: 10px;
-          }
-
-          .horizontal {
-            gap: 10px;
-          }
-
-          .horizontal-scroll-section {
-            padding: 120px 0;
-          }
-
-          .space-background,
-          .space-background2 {
-            opacity: 0.2;
-          }
-
-          .intro-section,
-          .outro-section {
-            padding: 0 20px;
+            border-radius: 6px;
           }
         }
 
         @media (max-width: 400px) {
-          .card {
-            width: 260px;
-            min-height: 220px;
-            border-radius: 14px;
+          .project-card {
+            width: 140px;
+            min-height: 80px;
+            border-radius: 6px;
           }
-
-          .card h2 {
-            font-size: 1.2rem;
+          .project-card h2 {
+            font-size: 1rem;
           }
-
           .card-icon {
-            border-radius: 8px;
+            border-radius: 4px;
           }
-
           .card-icon img {
-            border-radius: 8px;
+            border-radius: 4px;
           }
         }
 
