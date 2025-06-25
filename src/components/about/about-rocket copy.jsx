@@ -286,6 +286,13 @@ const RocketAnimation = () => {
         .pin-section {
           overflow: hidden;
         }
+
+
+        @media (max-width:1366px){
+             .cloudImage {
+          bottom: -30px;
+        }
+          }
       `}</style>
     </div>
   );

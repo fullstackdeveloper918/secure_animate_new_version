@@ -97,8 +97,8 @@ export default function ServicesSection({ data }: any) {
                 }`}
               >
                 <source
-                  // src={service.projects_list_captions_image}
-                  src='/whatmakevideoOne.mp4'
+                  src={service.projects_list_captions_image}
+                  // src='/whatmakevideoOne.mp4'
                   // src='/Project-video.mp4'
                   type="video/mp4"
                 />

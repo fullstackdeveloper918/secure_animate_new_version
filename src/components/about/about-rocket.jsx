@@ -187,8 +187,8 @@ const RocketAnimation = () => {
           playsInline={true}
         >
           <source 
-          // src="/bannerBottom.mp4" 
-          src="/navigateVideoOne.mp4" 
+          src="/bannerBottom.mp4" 
+          // src="/navigateVideoOne.mp4" 
           type="video/mp4" />
         </video>
       </div>
@@ -220,14 +220,14 @@ const RocketAnimation = () => {
       </div>
       <h2
         ref={animatedTextRef}
-        className="relative z-30 text-3xl xl:text-5xl max-w-2xl xl:max-w-3xl text-white font-semibold text-left pl-10 xl:pl-20 uppercase paragrpahContent"
+        className="relative z-30 text-3xl 2xl:text-5xl max-w-xl xl:max-w-3xl text-white font-semibold text-left pl-10 xl:pl-20 uppercase paragrpahContent"
       >
         Navigating Your Business Through the Stars.. and Safeguarding Every Step
       </h2>
 
       <div
         ref={contentContainerRef}
-        className="relative z-30 mt-4 pb-40 text-left md:max-w-2xl pl-10 xl:pl-20"
+        className="relative z-30 mt-4 pb-40 text-left xl:max-w-2xl md:max-w-xl max-w-full  pl-10 xl:pl-20"
       >
         <div className="text-md leading-relaxed font-medium text-white">
           Think of Secure365 as your interstellar co-pilot, guiding you safely

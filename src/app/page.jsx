@@ -26,7 +26,7 @@ import HeroSectionMain from "@/components/hero-banner/HeroSectionMain";
 import RealEstateSection from "@/components/about/about-six";
 import ClientWrapper from "@/components/ClientWrapper";
 import ServicesSection from "@/components/service/services-section";
-import ProjectsCard from "@/components/projects-section/projects-cards";
+import NewCardStack from "@/components/service/NewCardStack";
 import ScrollAnimation from "@/components/about/about-ScrollAnimation";
 import RocketAnimation from "@/components/about/about-rocket";
 import dynamic from 'next/dynamic';
@@ -152,16 +152,20 @@ export default function Home() {
                 <RocketAnimation />
                 {/* <RealEstateSection data={data} /> */}
                 <SecureSection />
+                {/* <ProjectsCard /> */}
                 {/* securesec end*/}
 
                 <PainSection />
+        
+
+
               </div>
             </div>
           </div>
         </div>
       </div>
 <div>
-      {/* <CanvasScene /> */}
+                   <HorizontalScrollSection />
     </div>
   
 
@@ -265,35 +269,17 @@ export default function Home() {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main className="bg-white">
-            <div className="awardsSec">
-            {/* <BrandOne />
-            <div className="container-fluid p-0">
-              <div className="row g-0">
-                <div className="col-xl-12">
-                  <ProjectTextLine data={data} />
-                </div>
-              </div>
-            </div>
-                        <HorizontalScrollSection />
-            <TestimonialOne data={data}  className="bg-white"/>
-              <ServicesSection data={data} /> */}
-            </div>
 
-              {/* <BrandOne /> */}
-            <div className="container-fluid p-0 h-screen flex items-center">
-              <div className="row g-0">
-                <div className="col-xl-12">
-                  <ProjectTextLine data={data} />
-                </div>
-              </div>
-            </div>
+            
                     <ServicesSection data={data} />
+                            {/* <NewCardStack /> */}
+                       
+                                  
 
                     
             <div className="awardsSec">
               <BlogOne />
             </div>
-                        <HorizontalScrollSection />
 
 
                     
@@ -303,6 +289,8 @@ export default function Home() {
           <FooterFour />
         </div>
       </div>
+
+
 
       <div className="cd-cover-layer"></div>
       <div id="magic-cursor">
