@@ -186,16 +186,19 @@ const RocketAnimation = () => {
           autoPlay={true}
           playsInline={true}
         >
-          <source src="/bannerBottom.mp4" type="video/mp4" />
+          <source 
+          // src="/bannerBottom.mp4" 
+          src="/navigateVideoOne.mp4" 
+          type="video/mp4" />
         </video>
       </div>
 
-      {/* <canvas
+      <canvas
         id="starfield"
         ref={canvasRef}
         className="absolute inset-0 w-full h-full z-0"
         style={{ background: "radial-gradient(#04071f 0%, #04071e 70%)" }}
-      /> */}
+      />
       <div className="p-10 ">
         <div className="absolute z-[9999] bottom-40 right-[-300px]">
           <img
