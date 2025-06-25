@@ -97,7 +97,7 @@ export default function Home() {
         }
 
         const data = await response.json();
-        console.log("data of home page", data);
+        // console.log("data of home page", data);
 
         if (data?.home_advanced_it_and_cyber_security_first_heading) {
           setData(data);
