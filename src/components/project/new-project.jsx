@@ -1,690 +1,265 @@
-"use client"
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import 'remixicon/fonts/remixicon.css';
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Link from "next/link"
+gsap.registerPlugin(ScrollTrigger);
 
-// Register GSAP plugins
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger)
-}
-
-const HorizontalScrollSection = () => {
-  const sectionRef = useRef(null)
-  const horizontalRef = useRef(null)
+const WorksSection = () => {
+  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
 
   useEffect(() => {
-    if (!sectionRef.current || !horizontalRef.current) return
+    const cards = cardsRef.current;
+    gsap.set(cards, { y: 920 });
 
-    const section = sectionRef.current
-    const horizontalContent = horizontalRef.current
-
-    // Create multiple star layers for parallax effect - INSIDE SECTION ONLY
-    const createStarLayers = () => {
-      const container = section
-      const layers = 3
-
-      for (let layer = 0; layer < layers; layer++) {
-        const starLayer = document.createElement("div")
-        starLayer.className = "star-layer"
-        starLayer.style.cssText = `
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 1;
-        `
-        container.appendChild(starLayer)
-
-        const starCount = layer === 0 ? 30 : layer === 1 ? 20 : 15
-        const sizeMultiplier = layer === 0 ? 1 : layer === 1 ? 1.5 : 2
-        const speedMultiplier = layer === 0 ? 1 : layer === 1 ? 0.7 : 0.4
-
-        for (let i = 0; i < starCount; i++) {
-          const star = document.createElement("div")
-          star.className = "star"
-          const size = Math.random() * 2 * sizeMultiplier + 1
-          star.style.cssText = `
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            width: ${size}px;
-            height: ${size}px;
-            left: ${Math.random() * 100}%;
-            top: ${Math.random() * 100}%;
-            animation: twinkle ${(Math.random() * 3 + 2) * speedMultiplier}s infinite;
-            box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
-          `
-          starLayer.appendChild(star)
-        }
-      }
-    }
-
-    // Create nebula effect - INSIDE SECTION ONLY
-    const createNebula = () => {
-      const container = section
-      const nebula = document.createElement("div")
-      nebula.className = "nebula"
-      nebula.style.cssText = `
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at 50% 50%, 
-          rgba(110, 76, 225, 0.1) 0%,
-          rgba(25, 25, 112, 0.1) 25%,
-          rgba(0, 0, 0, 0) 70%);
-        pointer-events: none;
-        z-index: 0;
-        animation: nebulaPulse 20s infinite alternate;
-      `
-      container.appendChild(nebula)
-    }
-
-    // Create shooting stars with random intervals - INSIDE SECTION ONLY
-    const createShootingStars = () => {
-      const container = section
-      const interval = setInterval(
-        () => {
-          const shootingStar = document.createElement("div")
-          shootingStar.className = "shooting-star"
-          const duration = Math.random() * 2 + 1
-          shootingStar.style.cssText = `
-          position: absolute;
-          width: 150px;
-          height: 2px;
-          top: ${Math.random() * 50}%;
-          left: -150px;
-          background: linear-gradient(90deg, 
-            rgba(255,255,255,0) 0%, 
-            rgba(255,255,255,1) 50%, 
-            rgba(255,255,255,0) 100%);
-          animation: shoot ${duration}s linear infinite;
-          filter: blur(1px);
-          z-index: 1;
-        `
-          container.appendChild(shootingStar)
-
-          setTimeout(() => {
-            if (shootingStar.parentNode) {
-              shootingStar.remove()
-            }
-          }, 3000)
-        },
-        Math.random() * 5000 + 3000,
-      )
-
-      return interval
-    }
-
-    createStarLayers()
-    createNebula()
-    const shootingStarInterval = createShootingStars()
-
-    // Add parallax effect to stars on mouse move - ONLY WITHIN SECTION
-    const handleMouseMove = (e) => {
-      const rect = section.getBoundingClientRect()
-      const mouseX = (e.clientX - rect.left) / rect.width
-      const mouseY = (e.clientY - rect.top) / rect.height
-
-      if (mouseX >= 0 && mouseX <= 1 && mouseY >= 0 && mouseY <= 1) {
-        section.querySelectorAll(".star-layer").forEach((layer, index) => {
-          const speed = (index + 1) * 0.3
-          const x = (mouseX - 0.5) * speed * 50
-          const y = (mouseY - 0.5) * speed * 50
-          layer.style.transform = `translate(${x}px, ${y}px)`
-        })
-      }
-    }
-
-    // Video parallax effect - ONLY WITHIN SECTION
-    const handleVideoMouseMove = (e) => {
-      const video = section.querySelector(".space-background")
-      const video2 = section.querySelector(".space-background2")
-      if (!video) return
-
-      const rect = section.getBoundingClientRect()
-      const mouseX = (e.clientX - rect.left) / rect.width
-      const mouseY = (e.clientY - rect.top) / rect.height
-
-      if (mouseX >= 0 && mouseX <= 1 && mouseY >= 0 && mouseY <= 1) {
-        const moveX = (mouseX - 0.5) * 20
-        const moveY = (mouseY - 0.5) * 20
-        video.style.transform = `translate(${moveX}px, ${moveY}px)`
-        if (video2) {
-          video2.style.transform = `translate(${moveX * 0.7}px, ${moveY * 0.7}px)`
-        }
-      }
-    }
-
-    section.addEventListener("mousemove", handleMouseMove)
-    section.addEventListener("mousemove", handleVideoMouseMove)
-
-    // GSAP horizontal scroll animation
-    const scrollAnimation = gsap.to(horizontalContent, {
-      x: () => -(horizontalContent.scrollWidth - window.innerWidth),
-      ease: "none",
+    gsap.timeline({
       scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: "+=3000px", // Increased to accommodate the outro section
+        trigger: sectionRef.current,
         pin: true,
+        start: 'top top',
+        end: `+=${cards.length * 400}`,
         scrub: 1,
-        invalidateOnRefresh: true,
         anticipatePin: 1,
       },
-    })
+    }).to(cards, {
+      y: 0,
+      stagger: 0.5,
+      ease: 'power2.out',
+    });
+  }, []);
 
-    // Initialize videos
-    const video = section.querySelector(".space-background")
-    const video2 = section.querySelector(".space-background2")
-
-    if (video) {
-      video.play().catch((error) => {
-        console.log("Video autoplay failed:", error)
-      })
-    }
-
-    if (video2) {
-      video2.play().catch((error) => {
-        console.log("Video2 autoplay failed:", error)
-      })
-    }
-
-    // Cleanup function
-    return () => {
-      section.removeEventListener("mousemove", handleMouseMove)
-      section.removeEventListener("mousemove", handleVideoMouseMove)
-      clearInterval(shootingStarInterval)
-      scrollAnimation.kill()
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-
-      section.querySelectorAll(".star-layer, .nebula, .shooting-star").forEach((el) => {
-        el.remove()
-      })
-    }
-  }, [])
-
-  const projects = [
-    { title: "Techable", image: "ipad-pro-mockup.png" },
-    { title: "Sellmac", image: "Sellmac.png" },
-    { title: "Apple Tech", image: "ipad-pro-mockup (2).png" },
-    { title: "Techable", image: "ipad-pro-mockup.png" },
-    { title: "Sellmac", image: "Sellmac.png" },
-    { title: "Apple Tech", image: "ipad-pro-mockup (2).png" },
-  ]
+  const cards = [
+    {
+      title: 'Techable',
+      description: 'Specialized in providing high-quality refurbished Apple products at competitive prices.',
+      image: '/Sellmac-Project.webp',
+    },
+    {
+      title: 'Sellmac',
+      description: 'Innovating sustainable solutions to power the future responsibly and efficiently.',
+      image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2475&auto=format&fit=crop',
+    },
+    {
+      title: 'Apple Tech',
+      description: 'A full-stack marketing agency delivering engaging digital experiences.',
+      image: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=2670&auto=format&fit=crop',
+    },
+    {
+      title: 'Techable',
+      description: 'Specialized in providing high-quality refurbished Apple products at competitive prices.',
+      image: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=2670&auto=format&fit=crop',
+    },
+  ];
 
   return (
     <>
-      <section ref={sectionRef} className="horizontal-scroll-section">
-        <video className="space-background" autoPlay muted loop playsInline>
-          <source src="/Dark-blue-sky.mp4" type="video/mp4" />
-        </video>
-        <video className="space-background2" autoPlay muted loop playsInline>
-          <source src="/Dark-blue-sky.mp4" type="video/mp4" />
-        </video>
-        <div className="space-overlay"></div>
-
-        <div className="horizontal-scroll-wrapper">
-          <div ref={horizontalRef} className="horizontal">
-            {/* Intro Section */}
-            <div className="intro-section">
-              <div className="intro intro2">
-                <h1>Recent Work That Speaks for Itself</h1>
-                <p>
-                  Take a closer look at some of our recent work—each project reflects our commitment to purposeful
-                  design and precise execution. These creations are a testament to our capabilities, vision, and passion
-                  for building solutions that matter.
-                </p>
-              </div>
-            </div>
-
-            {/* Cards Section */}
-            {projects.map((project, index) => (
-              <div key={index} className="project-card-container">
-               <Link href="/project" >
-                <div className="project-card">
-                  <div className="project-card-content">
-                    <div className="card-icon">
-                      <img src={project.image || "/placeholder.svg?height=300&width=400"} alt={project.title} />
-                    </div>
-                    <h2>{project.title}</h2>
-                  </div>
-                </div>
-               </Link>
-              </div>
-            ))}
-
-            {/* Outro Section */}
-            <div className="outro-section">
-              <div className="intro intro3">
-                <h1>Ready to Start Your Project?</h1>
-                <p>
-                  Let's collaborate to bring your vision to life. Our team is ready to tackle your next challenge with
-                  innovative solutions and exceptional craftsmanship. Get in touch and let's create something amazing
-                  together.
-                </p>
-                <Link className="proj-btn" href="/contact-us" ><p>Contact Us</p></Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <style jsx global>{`
-        @keyframes twinkle {
-          0%, 100% { 
-            opacity: 0.3;
-            transform: scale(1);
-          }
-          50% { 
-            opacity: 1;
-            transform: scale(1.2);
-          }
+      <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+        rel="stylesheet"
+      />
+      <style>{`
+        body {
+          font-family: 'Poppins', sans-serif;
+          background-color: #EAE9E5;
+          background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          overflow-x: hidden;
         }
 
-        @keyframes nebulaPulse {
-          0% { transform: scale(1); opacity: 0.5; }
-          100% { transform: scale(1.2); opacity: 0.8; }
+        .my-works {
+          width: 100%;
+          padding: 60px 0;
         }
 
-        @keyframes shoot {
-          0% { 
-            transform: translateX(0) translateY(0) rotate(45deg);
-            opacity: 1;
-          }
-          100% { 
-            transform: translateX(calc(100vw + 150px)) translateY(50px) rotate(45deg);
-            opacity: 0;
-          }
+        .project-container {
+          max-width: 1680px;
+          margin: 0 auto;
+          padding: 0 20px;
         }
 
-        @keyframes fadeInUp {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        .works-header {
+          text-align: center;
+          margin-bottom: 20px;
         }
 
-        @keyframes lineReveal {
-          to {
-            opacity: 1;
-            width: 200px;
-          }
+        .works-header-title h2 {
+          font-size: 3.5rem;
+          margin: 0 0 15px 0;
+          font-weight: 700;
         }
-               a.proj-btn {
-                  border:2px solid #fff;
-                  background: transparent;
-                  padding: 12px 38px;
-                  border-radius: 30px;
-                  margin-top: 20px;
-                  font-weight: 800 !important;
-                  transition:.5s all ease
-              }
-                  a.proj-btn:hover{
-                  border:1px solid #fff;
-                  background: #fff;
-                 
-              }
-                   a.proj-btn:hover p{
-                    color:#000 !important;
-                   }
-        .horizontal-scroll-section {
-          padding: 200px 0;
-          background: linear-gradient(135deg, 
-            rgba(22, 33, 62, 0.95) 0%,
-            rgba(15, 52, 96, 0.95) 50%,
-            rgba(10, 25, 47, 0.95) 100%);
-          position: relative;
-          overflow: hidden;
-          height: 100vh;
+
+        .works-header-subtitle p {
+          margin: auto;
+          font-size: 1.1rem;
+          line-height: 1.6;
+          color: #555;
+          max-width: 38%;
+        }
+
+        .card-row {
           display: flex;
-          align-items: center;
+          flex-direction: row;
+          align-items: flex-end;
+          justify-content: center;
+          gap: 30px;
+          height: 600px;
+          position: relative;
         }
 
-        .space-background,
-        .space-background2 {
-          position: absolute;
-          top: 0;
-          left: 0;
+        .work-item {
+          width: 480px;
+          min-width: 220px;
+          height: 550px;
+          border-radius: 25px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          background: #fff;
+          position: relative;
+          will-change: transform;
+        }
+
+        .work-item img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          z-index: 0;
+          display: block;
+          transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+          z-index: 1;
+          position: relative;
         }
 
-        .space-background {
-          opacity: 0.3;
-          filter: brightness(0.7) contrast(1.2) saturate(1.2);
+        .work-item:hover img {
+          transform: scale(1.05);
         }
 
-        // .space-background2 {
-        //   opacity: 0.4;
-        //   filter: brightness(0.8) contrast(1.1) saturate(1.1);
-        //   z-index: 0;
-        // }
+        .dark-card {
+          background-color: #1a2a2a;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
 
-        .horizontal-scroll-section::before {
-          content: '';
+        .dark-card img {
+          opacity: 0.5;
           position: absolute;
           top: 0;
           left: 0;
-          right: 0;
-          bottom: 0;
-          background: 
-            radial-gradient(circle at 20% 20%, rgba(110, 76, 225, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(25, 25, 112, 0.15) 0%, transparent 50%);
-          pointer-events: none;
           z-index: 1;
         }
 
-        // .space-overlay {
-        //   position: absolute;
-        //   top: 0;
-        //   left: 0;
-        //   width: 100%;
-        //   height: 100%;
-        //   background: linear-gradient(
-        //     180deg,
-        //     rgba(22, 33, 62, 0.7) 0%,
-        //     rgba(15, 52, 96, 0.8) 50%,
-        //     rgba(10, 25, 47, 0.7) 100%
-        //   );
-        //   z-index: 1;
-        // }
-
-
-
-        .horizontal-scroll-wrapper {
-          overflow: hidden;
-          height: 100%;
-          width: 100%;
-          position: relative;
-          display: flex;
-          align-items: center;
-          z-index: 2;
-        }
-
-        .horizontal {
-          display: flex;
-          height: 100%;
-          position: relative;
-          gap: 20px;
-          align-items: center;
-          padding: 20px 0;
-        }
-
-        .intro-section,
-        .outro-section {
-          flex-shrink: 0;
-          width: 100vw;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 50px;
-        }
-
-        .intro {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          color: #f6f2e8;
-          overflow: hidden;
-          padding: 0 20px;
-          text-align: center;
-          flex-direction: column;
-          gap: 30px;
-          max-width: 800px;
-          margin: 0 auto;
-        }
-
-        .intro2,
-        .intro3 {
-          background: unset;
-        }
-
-        .intro2 h1,
-        .intro3 h1 {
-          text-align: center;
-          font-size: 4rem;
-          font-weight: 600;
-          text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        .card-content {
+          padding: 40px;
           z-index: 2;
           opacity: 0;
-          transform: translateY(20px);
-          animation: fadeInUp 1s ease-out forwards;
-          line-height: 1.2;
-          margin-bottom: 0px;
-          background: linear-gradient(45deg, #fff, #dfdfdf);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          position: relative;
-        }
-
-        .intro2 p,
-        .intro3 p {
-          text-align: center;
-          color: #ffffffb5;
-          opacity: 0.8;
-          z-index: 2;
-          font-size: 1.2rem;
-          line-height: 1.8;
-          max-width: 800px;
-          margin: 0 auto;
-          transform: translateY(20px);
-          animation: fadeInUp 1s ease-out 0.3s forwards;
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-          position: relative;
-        }
-
-        .intro2 p::after,
-        .intro3 p::after {
-          content: '';
-          position: absolute;
-          bottom: -20px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 100px;
-          height: 3px;
-          background: linear-gradient(90deg, transparent, #03afef, transparent);
-          opacity: 0;
-          animation: lineReveal 1s ease-out 0.6s forwards;
-        }
-
-        .project-card-container {
-          display: flex;
-          flex-shrink: 0;
-          padding: 0 5px;
+          transform: translateY(-60px);
+          transition: .9s all ease;
           height: 100%;
-          align-items: center;
-        }
-
-        .project-card-container:first-of-type {
-          padding: 0 5px 0 15px;
-        }
-
-        .project-card-container:last-of-type {
-          padding: 0 15px 0 5px;
-        }
-
-        .project-card {
           display: flex;
           flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 480px;
-          min-height: 440px;
-          padding: 0px;
-          background: linear-gradient(135deg, rgb(0, 179, 241, .4) 0%, rgba(253, 187, 45, 0.10) 100%);
-          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
-          border-radius: 20px;
-          border: 2px solid rgba(255, 255, 255, 0.18);
-          transition: box-shadow 0.3s, border-color 0.3s;
-          color: #fff;
-          position: relative;
-          overflow: hidden;
+          justify-content: end;
         }
 
-        .project-card:hover {
-          box-shadow: 0 0 24px 0 rgba(34, 193, 195, 0.25), 0 8px 32px 0 rgba(31, 38, 135, 0.22);
-          border-color: rgb(5 174 236);
+        .work-item.dark-card:hover .card-content {
+          opacity: 1;
+          transform: translateY(0px);
         }
 
-        .project-card-content {
-          position: relative;
-          z-index: 2;
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 18px;
-          padding: 28px 20px 24px 20px;
-        }
-
-        .card-icon {
-          width: 100%;
-          height: 320px;
-          margin-bottom: 8px;
-          filter: drop-shadow(0 0 10px rgba(34, 193, 195, 0.15));
-          position: relative;
-          overflow: hidden;
-          border-radius: 16px;
-          background: #181c2f;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .card-icon img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 16px;
-          display: block;
-        }
-
-        .project-card h2 {
-          font-size: 2rem;
+        .dark-card h3 {
+          font-size: 2.5rem;
+          margin: 0 0 10px 0;
           color: #fff;
           font-weight: 700;
-          margin: 0;
-          letter-spacing: 1px;
-          text-shadow: 0 2px 8px rgba(34, 193, 195, 0.08);
+        }
+
+        .dark-card p {
+          font-size: 1rem;
+          line-height: 1.6;
+          max-width: 80%;
+          color: #fff;
+        }
+
+        .card-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 40px;
+          z-index: 2;
+        }
+
+        .card-arrow {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          border: 3px solid #ccc;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 30px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          position: absolute;
+          bottom: 30px;
+          right: 40px;
+          transform: rotate(45deg);
+        }
+
+        .card-arrow:hover {
+          background-color: #fff;
+          color: #111;
+          transform: rotate(0deg);
         }
 
         @media (max-width: 1200px) {
-          .project-card {
-            width: 400px;
-            min-height: 280px;
-          }
-          .card-icon {
-            height: 160px;
-          }
+          .work-item { width: 260px; }
         }
 
-        @media (max-width: 992px) {
-          .project-card {
-            width: 340px;
-            min-height: 220px;
-            border-radius: 16px;
-          }
-          .project-card-content {
-            gap: 12px;
-            padding: 16px 10px 14px 10px;
-          }
-          .card-icon {
-            height: 120px;
-            border-radius: 12px;
-          }
-          .card-icon img {
-            border-radius: 12px;
-          }
+        @media (max-width: 900px) {
+          .work-item { width: 180px; }
         }
 
-        @media (max-width: 768px) {
-          .project-card {
-            width: 260px;
-            min-height: 160px;
-            border-radius: 12px;
-          }
-          .project-card-content {
-            gap: 8px;
-            padding: 10px 4px 10px 4px;
-          }
-          .card-icon {
-            height: 80px;
-            border-radius: 8px;
-          }
-          .card-icon img {
-            border-radius: 8px;
-          }
-          .horizontal {
-            gap: 8px;
-          }
-        }
-
-        @media (max-width: 576px) {
-          .project-card {
-            width: 180px;
-            min-height: 120px;
-            border-radius: 8px;
-          }
-          .project-card-content {
-            gap: 4px;
-            padding: 6px 2px 6px 2px;
-          }
-          .card-icon {
-            height: 50px;
-            border-radius: 6px;
-          }
-          .card-icon img {
-            border-radius: 6px;
-          }
-        }
-
-        @media (max-width: 400px) {
-          .project-card {
-            width: 140px;
-            min-height: 80px;
-            border-radius: 6px;
-          }
-          .project-card h2 {
-            font-size: 1rem;
-          }
-          .card-icon {
-            border-radius: 4px;
-          }
-          .card-icon img {
-            border-radius: 4px;
-          }
-        }
-
-        @media (max-height: 600px) {
-          .horizontal-scroll-section {
-            height: auto;
-            min-height: 100vh;
-          }
-
-          .horizontal {
-            padding: 40px 0;
-          }
-        }
-
-        @media (hover: none) {
-          .horizontal {
-            -webkit-overflow-scrolling: touch;
-          }
+        @media (max-width: 700px) {
+          .work-item { width: 90vw; height: 300px; margin-bottom: 20px; }
         }
       `}</style>
-    </>
-  )
-}
 
-export default HorizontalScrollSection
+      <section className="my-works" ref={sectionRef}>
+        <div className="works-header">
+          <div className="works-header-title">
+            <h2>Our Projects</h2>
+          </div>
+          <div className="works-header-subtitle">
+            <p>
+              Take a closer look at some of our recent work—each project reflects our commitment to
+              purposeful design and precise execution.
+            </p>
+          </div>
+        </div>
+        <div className="project-container">
+          <div className="card-row">
+            {cards.map((card, i) => (
+              <div
+                className="work-item dark-card"
+                key={i}
+                ref={(el) => (cardsRef.current[i] = el)}
+              >
+                <img src={card.image} alt={`Work ${i + 1}`} />
+                <div className="card-content">
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                  <div className="card-footer">
+                    <div className="card-arrow">
+                      <i className="ri-arrow-right-line"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default WorksSection;

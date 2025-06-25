@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  
   "devDependencies": {
     "@types/imagesloaded": "^4.1.6",
     "@types/isotope-layout": "^3.0.14",
@@ -59,6 +58,7 @@
     "react-text-transition": "^3.1.0",
     "react-toastify": "^11.0.5",
     "react-use": "^17.6.0",
+    "remixicon": "^4.6.0",
     "sass": "^1.89.0",
     "sharp": "^0.34.1",
     "slick-carousel": "^1.8.1",
@@ -67,7 +67,4 @@
     "three": "^0.172.0",
     "yup": "^1.6.1"
   }
-  
 }
-
-
