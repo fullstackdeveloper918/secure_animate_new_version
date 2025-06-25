@@ -31,24 +31,26 @@ const WorksSection = () => {
 
   const cards = [
     {
-      title: 'Techable',
-      description: 'Specialized in providing high-quality refurbished Apple products at competitive prices.',
-      image: '/Sellmac-Project.webp',
+      title: 'Recent Work Highlights',
+      description: 'Recently completed AI and app projects, driving growth through innovation, security, and smart design solutions.',
+      image: 'Astronaut-galaxy.jpg',
     },
     {
       title: 'Sellmac',
       description: 'Innovating sustainable solutions to power the future responsibly and efficiently.',
-      image: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=2475&auto=format&fit=crop',
+      // image: 'ipad-pro-mockup.png',
+      // image: 'sellamc01banner.png',
+      image: 'Sellmac.png',
     },
     {
       title: 'Apple Tech',
       description: 'A full-stack marketing agency delivering engaging digital experiences.',
-      image: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=2670&auto=format&fit=crop',
+      image: 'ipad-pro-mockup (2).png',
     },
     {
       title: 'Techable',
       description: 'Specialized in providing high-quality refurbished Apple products at competitive prices.',
-      image: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=2670&auto=format&fit=crop',
+      image: 'techableP2.png',
     },
   ];
 
@@ -97,17 +99,23 @@ const WorksSection = () => {
         }
 
         .card-row {
-          display: flex;
-          flex-direction: row;
-          align-items: flex-end;
-          justify-content: center;
-          gap: 30px;
-          height: 600px;
-          position: relative;
+      display: grid;
+    grid-template-columns: 3.5fr 2.5fr 2.5fr 2.5fr;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 30px;
+    height: 600px;
+    position: relative;
         }
-
+.card-row>div:first-child.work-item.dark-card .card-content {
+    transform: unset;
+    opacity: 1;
+}
+    .card-row>div:first-child.work-item.dark-card img{
+    opacity: 1 !important;
+    }
         .work-item {
-          width: 480px;
+          width: 100%;
           min-width: 220px;
           height: 550px;
           border-radius: 25px;
@@ -129,7 +137,8 @@ const WorksSection = () => {
         }
 
         .work-item:hover img {
-          transform: scale(1.05);
+           transform: scale(1.05);
+    opacity: .4;
         }
 
         .dark-card {
@@ -141,7 +150,6 @@ const WorksSection = () => {
         }
 
         .dark-card img {
-          opacity: 0.5;
           position: absolute;
           top: 0;
           left: 0;
@@ -166,8 +174,9 @@ const WorksSection = () => {
         }
 
         .dark-card h3 {
-          font-size: 2.5rem;
+          font-size: 1.7rem;
           margin: 0 0 10px 0;
+          line-height:32px;
           color: #fff;
           font-weight: 700;
         }
@@ -209,6 +218,15 @@ const WorksSection = () => {
           color: #111;
           transform: rotate(0deg);
         }
+          @media (max-width:1536px){
+                  .work-item {
+          height: 450px;
+          border-radius: 20px;
+        }
+          .card-row {
+    height: 460px;
+}
+          }
 
         @media (max-width: 1200px) {
           .work-item { width: 260px; }
