@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import 'remixicon/fonts/remixicon.css';
+import { Rocket } from 'lucide-react';
+import Link from 'next/link';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,25 +11,90 @@ const WorksSection = () => {
   const sectionRef = useRef(null);
   const cardsRef = useRef([]);
 
+  // useEffect(() => {
+  //   const cards = cardsRef.current;
+  //   gsap.set(cards, { y: 920 });
+
+  //   gsap.timeline({
+  //     scrollTrigger: {
+  //       trigger: sectionRef.current,
+  //       pin: true,
+  //       start: 'top top',
+  //       end: `+=${cards.length * 400}`,
+  //       scrub: 1,
+  //       anticipatePin: 1,
+  //     },
+  //   }).to(cards, {
+  //     y: 0,
+  //     stagger: 0.5,
+  //     ease: 'power2.out',
+  //   });
+  // }, []);
+
+  // const sectionRef = useRef(null);
+  //   const cardsRef = useRef([]);
+  const headerRef = useRef(null);
+  // useEffect(() => {
+  //   const cards = cardsRef.current;
+  //   // Set all cards off-screen initially
+  //   gsap.set(cards, { y: 200, opacity: 0 });
+  //   cards.forEach((card, i) => {
+  //     gsap.to(card, {
+  //       scrollTrigger: {
+  //         trigger: card,
+  //         start: 'top 90%', // When card hits 70% from top of viewport
+  //         toggleActions: 'play none none none',
+  //       },
+  //       y: 0,
+  //       opacity: 1,
+  //       duration: 1.3,
+  //       ease: 'power2.out',
+  //       delay: i * 0.5, // Optional stagger effect via delay
+  //     });
+  //   });
+  // }, []);
   useEffect(() => {
     const cards = cardsRef.current;
-    gsap.set(cards, { y: 920 });
-
-    gsap.timeline({
+    // :white_tick: Animate the works-header
+    gsap.set(headerRef.current, { y: 200, opacity: 0 });
+    gsap.to(headerRef.current, {
       scrollTrigger: {
-        trigger: sectionRef.current,
-        pin: true,
-        start: 'top top',
-        end: `+=${cards.length * 400}`,
-        scrub: 1,
-        anticipatePin: 1,
+        trigger: headerRef.current,
+        start: 'top 90%', // When top of header hits 90% of viewport
+        toggleActions: 'play none none none',
       },
-    }).to(cards, {
       y: 0,
-      stagger: 0.5,
+      opacity: 1,
+      duration: 1.2,
       ease: 'power2.out',
     });
+    // :white_tick: Animate each card individually
+    gsap.set(cards, { y: 200, opacity: 0 });
+    cards.forEach((card, i) => {
+      gsap.to(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1.3,
+        ease: 'power2.out',
+        delay: i * 0.5,
+      });
+    });
   }, []);
+
+
+
+
+
+
+
+
+
+
 
   const cards = [
     {
@@ -50,7 +117,7 @@ const WorksSection = () => {
     {
       title: 'Techable',
       description: 'Specialized in providing high-quality refurbished Apple products at competitive prices.',
-      image: 'techableP2.png',
+      image: '/images/techable.png',
     },
   ];
 
@@ -62,15 +129,15 @@ const WorksSection = () => {
       />
       <style>{`
         body {
-          font-family: 'Poppins', sans-serif;
-          background-color: #EAE9E5;
-          background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+          // background-color: #EAE9E5;
+          // background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
           overflow-x: hidden;
         }
 
         .my-works {
           width: 100%;
-          padding: 60px 0;
+          padding: 100px 0;
+          background:#fff;
         }
 
         .project-container {
@@ -80,7 +147,7 @@ const WorksSection = () => {
         }
 
         .works-header {
-          text-align: center;
+          text-align: left;
           margin-bottom: 20px;
         }
 
@@ -91,11 +158,11 @@ const WorksSection = () => {
         }
 
         .works-header-subtitle p {
-          margin: auto;
+          // margin: auto;
           font-size: 1.1rem;
           line-height: 1.6;
           color: #555;
-          max-width: 38%;
+          max-width: 100%;
         }
 
         .card-row {
@@ -104,8 +171,9 @@ const WorksSection = () => {
     align-items: flex-end;
     justify-content: center;
     gap: 30px;
-    height: 600px;
+    // height: 500px;
     position: relative;
+    margin-top:60px;
         }
 .card-row>div:first-child.work-item.dark-card .card-content {
     transform: unset;
@@ -117,7 +185,7 @@ const WorksSection = () => {
         .work-item {
           width: 100%;
           min-width: 220px;
-          height: 550px;
+          height: 460px;
           border-radius: 25px;
           overflow: hidden;
           box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -138,7 +206,7 @@ const WorksSection = () => {
 
         .work-item:hover img {
            transform: scale(1.05);
-    opacity: .4;
+            opacity: .4;
         }
 
         .dark-card {
@@ -212,6 +280,22 @@ const WorksSection = () => {
           right: 40px;
           transform: rotate(45deg);
         }
+          .allProjectbtn{
+            border-color: #62d2fd !important;
+            color: #62d2fd !important;
+            background-color: transparent !important;
+            box-shadow: unset !important;
+          }
+            .allProjectbtn:hover{
+                background-color: #62d2fd !important;
+            }
+             .allProjectbtn:hover .button-text.sticky.right span {
+                color: #fff !important;
+                filter: none !important;
+            }
+           .allProjectbtn:hover .icon-wrap-scale {
+                top: 10px !important;
+            }
 
         .card-arrow:hover {
           background-color: #fff;
@@ -242,15 +326,46 @@ const WorksSection = () => {
       `}</style>
 
       <section className="my-works" ref={sectionRef}>
-        <div className="works-header">
-          <div className="works-header-title">
-            <h2>Our Projects</h2>
+        <div className="project-container">
+          <div className="head-btn-wrap flex justify-between">
+          <div className="works-header text-left" ref={headerRef}>
+            <div className="works-header-title">
+              <h2>Our Projects</h2>
+            </div>
+            <div className="works-header-subtitle">
+              <p>
+                Take a closer look at some of our recent work—each <br /> project reflects our commitment to
+                purposeful design and precise execution.
+              </p>
+            </div>
           </div>
-          <div className="works-header-subtitle">
-            <p>
-              Take a closer look at some of our recent work—each project reflects our commitment to
-              purposeful design and precise execution.
-            </p>
+          <div className="cta-project-btn" ref={headerRef}>
+            <button className="relative z-[99] bannerbtn mt-14 mx-auto flex items-center justify-center">
+              <Link className="header-button ajax-link" href="/contact-us">
+                <div className="button-icon-link right allProjectbtn">
+                  <div className="icon-wrap-scale">
+                    <div className="icon-wrap parallax-wrap">
+                      <div className="button-icon parallax-element">
+                        {/* <i className="fa-solid fa-arrow-right"></i> */}
+                        <Rocket className="ml-2 h-5 w-5" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="button-text sticky right">
+                    {/* <span data-hover="Let's Talk">Start Your Mission <Rocket className="ml-2 h-5 w-5" /></span> */}
+                    <span data-hover="Let's Talk">All Projects</span>
+                  </div>
+                </div>
+              </Link>
+              {/* <Link
+                      href="/contact-us"
+                      id="btnTwo"
+                      className="BtnTwo btnWrapper rounded-[50px] text-white px-6 py-3 flex items-center justify-center"
+                    >
+                      Start Your Mission <Rocket className="ml-2 h-5 w-5" />
+                    </Link> */}
+            </button>
+          </div>
           </div>
         </div>
         <div className="project-container">

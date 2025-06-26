@@ -22,6 +22,8 @@ import ThreatIntelligence from "../inner-services/cybersecurity/ThreatIntelligen
 import SecurityStakeholders from "../inner-services/cybersecurity/SecurityStakeholders";
 import CardStackingSection from "@/components/service/CardStackingSection";
 import ThreeStepBuildSprint from "@/components/inner-services/marketing/ThreeStep"
+import { Rocket } from "lucide-react";
+import Link from "next/link";
 
 export default function ServiceDetailsArea({ serviceBannerData }) {
   //   const backgroundImageUrl = serviceBannerData?.banner?.backgroundImage || '/assets/img/inner-service/service/Ai-Automtion.webp';
@@ -164,12 +166,40 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
                   {serviceBannerData?.description1}
                 </span>
                 <div className="d-block py-3 md:mt-3">
-                  <a
+                  {/* <a
                     href="#singleSerivce"
                     className="serv-in-ban-btn text-white border-2 rounded-pill"
                   >
                     {serviceBannerData?.banner?.button1}
-                  </a>
+                  </a> */}
+
+                   <div className="cta-project-btn">
+                            <button className="relative z-[99] bannerbtn flex items-center">
+                              <Link className="header-button ajax-link" href="/contact-us">
+                                <div className="button-icon-link right allProjectbtn">
+                                  <div className="icon-wrap-scale">
+                                    <div className="icon-wrap parallax-wrap">
+                                      <div className="button-icon parallax-element">
+                                        {/* <i className="fa-solid fa-arrow-right"></i> */}
+                                        <Rocket className="ml-2 h-5 w-5" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="button-text sticky right">
+                                    {/* <span data-hover="Let's Talk">Start Your Mission <Rocket className="ml-2 h-5 w-5" /></span> */}
+                                    <span data-hover="Let's Talk">{serviceBannerData?.banner?.button1}</span>
+                                  </div>
+                                </div>
+                              </Link>
+                              {/* <Link
+                                      href="/contact-us"
+                                      id="btnTwo"
+                                      className="BtnTwo btnWrapper rounded-[50px] text-white px-6 py-3 flex items-center justify-center"
+                                    >
+                                      Start Your Mission <Rocket className="ml-2 h-5 w-5" />
+                                    </Link> */}
+                            </button>
+                          </div>
                 </div>
               </div>
             </div>

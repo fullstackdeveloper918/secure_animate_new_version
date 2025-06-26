@@ -1,176 +1,112 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { UilCheck } from "@iconscout/react-unicons";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const PricingCards = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 150,
+    });
+  }, []);
+
   return (
     <div className="bg-white relative pb-20">
-      <h2 className="price-top-head text-center text-uppercase fw-bold">
+      <h2
+        className="price-top-head text-center text-uppercase fw-bold"
+        data-aos="fade-up"
+      >
         Pricing tiers
       </h2>
+
       <section className="container mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 md:gap-8 pricing-serv-tier">
-        {/* CARD 1 */}
-        <article className="bg-white rounded-lg shadow-md flex flex-col items-center text-center price-serv-card">
-          <div class="card__pricing">
-            <div class="card__pricing-number">
-              <span class="card__pricing-symbol">$</span>0
-            </div>
-            <span class="card__pricing-month">/month</span>
-          </div>
-          <div className="price-wrap-content w-full h-full">
-            <header className="card__header d-block w-100 text-start">
-              <div className="mb-3 w-20 h-20 rounded-full grid place-items-center bg-gray-100">
-                <img
-                  src="../../assets/img/inner-service/service/Basic-plan-icon-main.png"
-                  alt="Free plan"
-                  className="w-14 h-14"
-                />
+        {[
+          {
+            price: "0",
+            label: "Free plan",
+            title: "Basic",
+            icon: "/assets/img/inner-service/service/Basic-plan-icon-main.png",
+            features: [
+              "3 user request",
+              "10 downloads per day",
+              "Daily content updates",
+              "Fully editable files",
+            ],
+          },
+          {
+            price: "19",
+            label: "Most popular",
+            title: "Professional",
+            icon: "/assets/img/inner-service/service/Professional-icon.png",
+            features: [
+              "100 user reques",
+              "Unlimited downloads",
+              "Unlock all features from our site",
+              "Daily content updates",
+              "Fully editable files",
+            ],
+          },
+          {
+            price: "49",
+            label: "For agencies",
+            title: "Enterprise",
+            icon: "/assets/img/inner-service/service/Enterprise-icon.png",
+            features: [
+              "Unlimited user request",
+              "Unlimited downloads",
+              "Unlock all features from our site",
+              "Daily content updates",
+              "Fully editable files",
+            ],
+          },
+        ].map((card, index) => (
+          <article
+            key={index}
+            className="bg-white rounded-lg shadow-md flex flex-col items-center text-center price-serv-card"
+            data-aos="fade-up"
+            data-aos-delay={index * 150}
+          >
+            <div className="card__pricing">
+              <div className="card__pricing-number">
+                <span className="card__pricing-symbol">$</span>
+                {card.price}
               </div>
-              <span className="block text-sm text-[#9ba6b0] font-medium mb-1 text-uppercase">
-                Free plan
-              </span>
-              <h1 className="text-2xl font-bold mb-2">Basic</h1>
-            </header>
-
-            <ul className="space-y-3 text-left w-full mx-0">
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">3 user request</p>
-              </li>
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">10 downloads per day</p>
-              </li>
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">Daily content updates</p>
-              </li>
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">Fully editable files</p>
-              </li>
-            </ul>
-          </div>
-
-          <button className="text-white px-6 py-3 rounded-pill transition w-full price-btn">
-            Choose this plan
-          </button>
-        </article>
-
-        {/* CARD 2 */}
-        <article className="bg-white rounded-lg shadow-md flex flex-col items-center text-center price-serv-card">
-          <div class="card__pricing">
-            <div class="card__pricing-number">
-              <span class="card__pricing-symbol">$</span>0
+              <span className="card__pricing-month">/month</span>
             </div>
-            <span class="card__pricing-month">/month</span>
-          </div>
-          <div className="price-wrap-content w-full h-full">
-            <header className="card__header d-block w-100 text-start">
-              <div className="mb-3 w-20 h-20 rounded-full grid place-items-center bg-gray-100">
-                <img
-                  src="../../assets/img/inner-service/service/Professional-icon.png"
-                  alt="Professional plan"
-                  className="w-14 h-14"
-                />
-              </div>
-              <span className="block text-sm text-[#9ba6b0] font-medium mb-1 text-uppercase">
-                Most popular
-              </span>
-              <h1 className="text-2xl font-bold mb-2">Professional</h1>
-            </header>
 
-            <ul className="space-y-3 text-left w-full mx-0">
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">100 user reques</p>
-              </li>
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">Unlimited downloads</p>
-              </li>
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">Unlock all features from our site</p>
-              </li>
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">Daily content updates</p>
-              </li>
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">Fully editable files</p>
-              </li>
-            </ul>
-          </div>
-          <button className="text-white px-6 py-3 rounded-pill transition w-full price-btn">
-            Choose this plan
-          </button>
-        </article>
+            <div className="price-wrap-content w-full h-full">
+              <header className="card__header d-block w-100 text-start">
+                <div className="mb-3 w-20 h-20 rounded-full grid place-items-center bg-gray-100">
+                  <img
+                    src={card.icon}
+                    alt={card.title}
+                    className="w-14 h-14"
+                  />
+                </div>
+                <span className="block text-sm text-[#9ba6b0] font-medium mb-1 text-uppercase">
+                  {card.label}
+                </span>
+                <h1 className="text-2xl font-bold mb-2">{card.title}</h1>
+              </header>
 
-        {/* CARD 3 */}
-        <article className="bg-white rounded-lg shadow-md flex flex-col items-center text-center price-serv-card">
-          <div class="card__pricing">
-            <div class="card__pricing-number">
-              <span class="card__pricing-symbol">$</span>0
+              <ul className="space-y-3 text-left w-full mx-0">
+                {card.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center space-x-3 mb-2">
+                    <UilCheck className="text-green-500 text-xl" />
+                    <p className="m-0 ms-2">{feature}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <span class="card__pricing-month">/month</span>
-          </div>
-          <div className="price-wrap-content w-full h-full">
-            <header className="card__header d-block w-100 text-start">
-              <div className="mb-3 w-20 h-20 rounded-full grid place-items-center bg-gray-100">
-                <img
-                  src="../../assets/img/inner-service/service/Enterprise-icon.png"
-                  alt="Enterprise plan"
-                  className="w-14 h-14"
-                />
-              </div>
-              <span className="block text-sm text-[#9ba6b0] font-medium mb-1 text-uppercase">
-                For agencies
-              </span>
-              <h1 className="text-2xl font-bold mb-2">Enterprise</h1>
-            </header>
 
-            <ul className="space-y-3 text-left w-full mx-0">
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">Unlimited user request</p>
-              </li>
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">Unlimited downloads</p>
-              </li>
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">Unlock all features from our site</p>
-              </li>
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">Daily content updates</p>
-              </li>
-              <li className="flex items-center space-x-3 mb-2">
-                {/* <i className="uil uil-check text-green-500 text-xl"></i> */}
-                <UilCheck className="text-green-500 text-xl" />
-                <p className="m-0 ms-2">Fully editable files</p>
-              </li>
-            </ul>
-          </div>
-          <button className="text-white px-6 py-3 rounded-pill transition w-full price-btn">
-            Choose this plan
-          </button>
-        </article>
+            <button className="text-white px-6 py-3 rounded-pill transition w-full price-btn">
+              Choose this plan
+            </button>
+          </article>
+        ))}
       </section>
     </div>
   );

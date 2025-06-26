@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { BallRound } from "../svg";
+import { Rocket } from "lucide-react";
 
 export default function AboutFour({ aboutResponse }) {
   return (
@@ -52,12 +53,33 @@ export default function AboutFour({ aboutResponse }) {
             </p>
             {/* CTA Button */}
         <div className="mt-12">
-          <Link
-            href="/contact-us"
-            className="our-serv-btn inline-block px-8 py-3 border border-white rounded-full text-white fs-6 hover:bg-white transition-colors text-sm font-semibold"
-          >
-            Get Started
-          </Link>
+          <div className="cta-project-btn">
+                            <button className="relative z-[99] bannerbtn mt-14 flex items-center">
+                              <Link className="header-button ajax-link" href="/contact-us">
+                                <div className="button-icon-link right allProjectbtn">
+                                  <div className="icon-wrap-scale">
+                                    <div className="icon-wrap parallax-wrap">
+                                      <div className="button-icon parallax-element">
+                                        {/* <i className="fa-solid fa-arrow-right"></i> */}
+                                        <Rocket className="ml-2 h-5 w-5" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="button-text sticky right">
+                                    {/* <span data-hover="Let's Talk">Start Your Mission <Rocket className="ml-2 h-5 w-5" /></span> */}
+                                    <span className="m-0" data-hover="">Get Started</span>
+                                  </div>
+                                </div>
+                              </Link>
+                              {/* <Link
+                                      href="/contact-us"
+                                      id="btnTwo"
+                                      className="BtnTwo btnWrapper rounded-[50px] text-white px-6 py-3 flex items-center justify-center"
+                                    >
+                                      Start Your Mission <Rocket className="ml-2 h-5 w-5" />
+                                    </Link> */}
+                            </button>
+                </div>
         </div>
           </div>
         </div>

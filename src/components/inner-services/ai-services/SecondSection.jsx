@@ -1,9 +1,8 @@
-import { useEffect, useRef } from "react";
-import { MessageSquare, TrendingUp, Workflow, Brain } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+"use client";
+import { useEffect } from "react";
+import { MessageSquare, TrendingUp, Workflow } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const useCases = [
   {
@@ -27,20 +26,14 @@ const useCases = [
     gain: "Automated workflows that reduce errors by 95%",
     roi: "400%",
   },
-  // {
-  //   icon: <Brain className="h-6 w-6 text-[#009DD6]" />,
-  //   title: "Document Intelligence",
-  //   pain: "Hours spent processing and extracting data",
-  //   gain: "Instant extraction and analysis of key information",
-  //   roi: "350%",
-  // },
 ];
 
-const UseCaseCard = ({ icon, title, pain, gain, roi, innerRef }) => (
+const UseCaseCard = ({ icon, title, pain, gain, roi, index }) => (
   <div
-    ref={innerRef}
-    style={{ opacity: 1, transform: "translateY(32px)" }} // ← inline styles here
     className="border border-[#009DD6]/20 rounded-lg p-6 shadow-sm bg-white use-card-inner"
+    data-aos="fade-up"
+    data-aos-delay={index * 150}
+    data-aos-duration="600"
   >
     <div className="bg-[#009DD6]/10 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
       {icon}
@@ -67,46 +60,26 @@ const UseCaseCard = ({ icon, title, pain, gain, roi, innerRef }) => (
 );
 
 export default function HighROIUseCases() {
-  const cardRefs = useRef([]);
-
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".use-case-section",
-        start: "top 80%",
-      },
-    });
-
-    cardRefs.current.forEach((card, i) => {
-      tl.to(
-        card,
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.5,
-          ease: "power3.out",
-        },
-        i * 0.2
-      ); // delay each card
+    AOS.init({
+      duration: 600,
+      offset: 200, // triggers at ~20% of viewport
+      once: true,
     });
   }, []);
 
   return (
-    <section className="bg-white use-case-section">
+    <section className="bg-white use-case-section" data-aos="fade-up">
       <div className="container mx-auto px-4">
-        {/* <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#009DD6]">
-          High-ROI AI Use Cases
-        </h2> */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-black use-head">
+        <h2
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-black use-head"
+          data-aos="fade-up"
+        >
           High-ROI AI Use Cases
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
           {useCases.map((useCase, index) => (
-            <UseCaseCard
-              key={index}
-              {...useCase}
-              innerRef={(el) => (cardRefs.current[index] = el)}
-            />
+            <UseCaseCard key={index} {...useCase} index={index} />
           ))}
         </div>
       </div>

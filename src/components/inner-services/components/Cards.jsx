@@ -1,9 +1,11 @@
-// import { Button } from "@/components/ui/button";
-import Link from "next/link"; // or use react-router-dom's Link if needed
+import Link from "next/link";
 
-export default function WorkCard({ title, description, href, image }) {
+export default function WorkCard({ title, description, href, image, className = "", ...rest }) {
   return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-md">
+    <div
+      className={`bg-white rounded-lg overflow-hidden shadow-md ${className}`}
+      {...rest} // spread aos attributes
+    >
       <div
         className="h-48 bg-cover bg-center"
         style={{ backgroundImage: `url('${image}')` }}
@@ -11,9 +13,11 @@ export default function WorkCard({ title, description, href, image }) {
       <div className="p-6 border">
         <h3 className="font-bold text-lg mb-2 text-[#00aceb]">{title}</h3>
         <p className="text-slate-600 mb-4">{description}</p>
-        <button variant="outline" size="sm" asChild>
-          <Link href={href}>View Project</Link>
-        </button>
+        <Link href={href}>
+          <button className="border border-[#00aceb] text-[#00aceb] px-4 py-2 rounded-md hover:bg-[#00aceb] hover:text-white transition">
+            View Project
+          </button>
+        </Link>
       </div>
     </div>
   );

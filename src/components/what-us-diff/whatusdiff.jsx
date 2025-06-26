@@ -40,6 +40,7 @@ function PainSection() {
         "Secure365 provides innovative approaches to combat cyber threats, ensuring the highest security standards.",
     },
   ];
+  
   const duplicatedCards = [...cards, ...cards];
   //   useEffect(() => {
   //   if (showSecondSection) {
@@ -64,13 +65,37 @@ function PainSection() {
   //   }
   // }, [showSecondSection]);
 
+  const cardRefs = useRef([]);
+
+  const handleMouseMove = (e, index) => {
+    const card = cardRefs.current[index];
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    card.style.background = `radial-gradient(
+      600px circle at ${x}px ${y}px,
+rgba(3, 176, 239, 0.39),
+      transparent 40%
+    )`;
+  };
+
+  const handleMouseLeave = (index) => {
+    const card = cardRefs.current[index];
+    if (card) {
+      card.style.background = "rgba(0, 0, 0, 0.1)";
+    }
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=100%",
+          end: "+=70%",
           scrub: 1,
           pin: true,
           onUpdate: (self) => {
@@ -107,7 +132,8 @@ function PainSection() {
           data-aos="zoom-out-up"
           className="absolute top-[576px] inset-0 flex flex-col items-center justify-center bg-black text-white md:p-10 p-2 overflow-hidden"
         >
-          <video
+          <img src="/Navigate-Bg.png" className="absolute top-0 left-0 w-full h-full object-cover -z-10" alt="" srcset="" />
+          {/* <video
             className="absolute top-0 left-0 w-full h-full object-cover -z-10"
             autoPlay
             loop
@@ -118,13 +144,13 @@ function PainSection() {
             // src="/pain.mp4"
             // Or use source elements if needed
             // preload="auto"
-          />
+          /> */}
           <div className="absolute top-0 left-0 w-full h-full bg-[#0000005e]  -z-10"></div>
           <h2 className="title-heading text-white font-bold text-center z-10 xl:mb-20 md:mb-12 mb-10 xxl:text-7xl xl:text-5xl text-3xl">
             What Makes Us Different?
           </h2>
           <div className="w-full sliderSec">
-            <div
+            {/* <div
               className="flex space-x-8 w-max animate-scroll-x"
               style={{ animation: "scrollLeft 50s linear infinite" }}
             >
@@ -145,7 +171,33 @@ function PainSection() {
                   </p>
                 </div>
               ))}
-            </div>
+            </div> */}
+
+             <div
+      className="flex space-x-8 w-max animate-scroll-x"
+      style={{ animation: "scrollLeft 50s linear infinite" }}
+    >
+      {duplicatedCards?.map((card, index) => (
+        <div
+          key={index}
+          ref={(el) => (cardRefs.current[index] = el)}
+          className="card-item flex-shrink-0 w-[400px] h-96 bg-black/10 backdrop-blur-md rounded-2xl p-8 transition-all duration-300 slidecol"
+          style={{ border: "1px solid #dddddd38" }}
+          onMouseMove={(e) => handleMouseMove(e, index)}
+          onMouseLeave={() => handleMouseLeave(index)}
+        >
+          <div className="flex items-center mb-6">
+            <Image src={card.icon} width={60} height={60} alt="icon" />
+          </div>
+          <h3 className="text-white md:mb-4 mb-2 cardtitile">
+            {card.title}
+          </h3>
+          <p className="text-gray-300 cardDecription">
+            {card.description}
+          </p>
+        </div>
+      ))}
+    </div>
             <button className="relative z-[9999] bannerbtn mt-14 mx-auto flex items-center justify-center">
               <Link className="header-button ajax-link" href="/contact-us">
                 <div className="button-icon-link right">

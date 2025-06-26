@@ -2,6 +2,7 @@ import React from "react";
 import { scroller } from "react-scroll";
 import { ScrollDown } from "../svg";
 import Link from "next/link";
+import { Rocket } from "lucide-react";
 
 export default function AboutUsHero({bannerResponse}) {
   const scrollTo = () => {
@@ -12,6 +13,18 @@ export default function AboutUsHero({bannerResponse}) {
     });
   };
   return (
+<>
+    <style>{`
+    .button-text span::before {
+        border: transparent;
+    }
+    .button-text span::after {
+        background: transparent;
+    }
+    .allProjectbtn:hover .icon-wrap-scale {
+        top: 11px !important;
+    }
+      `}</style>
     <div
       className="ab-inner-hero-area ab-inner-hero-bg p-relative"
       // style={{backgroundImage: "url(/assets/img/inner-about/hero/about-galaxy-night.jpg)"}}
@@ -57,11 +70,39 @@ export default function AboutUsHero({bannerResponse}) {
               <p>
               {bannerResponse?.pages?.banner_data?.banner_heading_all_in}
               </p>
-               <Link className="tp-btn-white-sm border-style rounded-pill" href="#">{bannerResponse?.pages?.banner_data?.book_demo}</Link>
+               <div className="cta-project-btn">
+                            <button className="relative z-[99] bannerbtn mt-14 flex items-center">
+                              <Link className="header-button ajax-link" href="/contact-us">
+                                <div className="button-icon-link right allProjectbtn">
+                                  <div className="icon-wrap-scale">
+                                    <div className="icon-wrap parallax-wrap">
+                                      <div className="button-icon parallax-element">
+                                        {/* <i className="fa-solid fa-arrow-right"></i> */}
+                                        <Rocket className="ml-2 h-5 w-5" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="button-text sticky right">
+                                    {/* <span data-hover="Let's Talk">Start Your Mission <Rocket className="ml-2 h-5 w-5" /></span> */}
+                                    <span className="m-0" data-hover="">{bannerResponse?.pages?.banner_data?.book_demo}</span>
+                                  </div>
+                                </div>
+                              </Link>
+                              {/* <Link
+                                      href="/contact-us"
+                                      id="btnTwo"
+                                      className="BtnTwo btnWrapper rounded-[50px] text-white px-6 py-3 flex items-center justify-center"
+                                    >
+                                      Start Your Mission <Rocket className="ml-2 h-5 w-5" />
+                                    </Link> */}
+                            </button>
+                </div>
+               {/* <Link className="tp-btn-white-sm border-style rounded-pill" href="#">{bannerResponse?.pages?.banner_data?.book_demo}</Link> */}
             </div>
           </div>
         </div>
       </div>
     </div>
+    </>
   );
 }

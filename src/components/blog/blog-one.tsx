@@ -1,8 +1,11 @@
-import React from "react";
-import { blog_home_five } from "@/data/blog-data";
-import BlogItemTwo from "./blog-item/blog-item-2";
-import { useEffect, useState } from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Rocket } from "lucide-react";
+
 interface NewsProps {
   id: number;
   title: string;
@@ -10,12 +13,22 @@ interface NewsProps {
   content: string;
   external_link: string;
   featured_image: string;
-  link:string;
+  link: string;
 }
+
 export default function BlogOne() {
   const [newsData, setNewsData] = useState<NewsProps[]>([]);
-  const [newsLink, setNewsLink] = useState<any>("");
+  const [newsLink, setNewsLink] = useState<string>("");
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+    });
+  }, []);
+
   useEffect(() => {
     const fetchBlogData = async () => {
       try {
@@ -26,89 +39,91 @@ export default function BlogOne() {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        console.log("fetchBlogData", data);
         setNewsData(data.news);
-        setNewsLink(data.link) // Ensure API response structure is correct
+        setNewsLink(data.link);
       } catch (error) {
         console.error("Error fetching blog data:", error);
       } finally {
-        setLoading(false); // Stop loading when fetch is complete
+        setLoading(false);
       }
     };
     fetchBlogData();
   }, []);
-  console.log("fetchBlogDatasss", newsData);
-  const blog_items = [...blog_home_five];
+
   return (
     <>
-        <div id="canvas-container-new"></div>
-        <section className="blog-main-new">
+      <section className="blog-main-new ">
         <div className="blog-container">
-            <div className="blog-header blog-head-box">
-                <h1 className="blog-home-head">Our Blog</h1>
-                <p className="blog-home-para">Check the best marketing resources and the latest blogs about our company.</p>
-            </div>
+          {/* Blog Header with AOS */}
+          <div className="blog-header p-0 blog-head-box" data-aos="fade-up">
+            <h1 className="blog-home-head">Our Blog</h1>
+            <p className="blog-home-para">
+              Check the best marketing resources and the latest blogs about our company.
+            </p>
+          </div>
 
-            <div className="blog-grid">
-                <article className="blog-card">
-                    <div className="blog-image">
-                        <img src="/images/Chat-live-Apple-Support.jpg" alt="App Support"/>
-                        <div className="blog-date">24 Feb 2025</div>
-                    </div>
-                    <div className="blog-content">
-                        <h2>Apple's Software Support for iPhones – How Long?</h2>
-                        <p>Apple is renowned for its exceptional software support for older iPhones, setting it apart
-                            from competitors in the smartphone market...</p>
-                        <a href="https://news.techable.com/apples-software-support-for-iphones-how-long" className="read-more">Read More <i className="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
+          {/* Blog Cards */}
+          <div className="blog-grid">
+            {newsData.slice(0, 4).map((item, index) => (
+              <article
+                key={item.id}
+                className="blog-card"
+                data-aos="fade-up"
+                data-aos-delay={index * 150}
+              >
+                <div className="blog-image">
+                  <img src={item.featured_image} alt={item.title} />
+                  <div className="blog-date">{item.date}</div>
+                </div>
+                <div className="blog-content">
+                  <h2>{item.title}</h2>
+                  <p>{item.content.slice(0, 150)}...</p>
+                  <a href={item.external_link} className="read-more" target="_blank" rel="noopener noreferrer">
+                    Read More <i className="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
 
-                <article className="blog-card">
-                    <div className="blog-image">
-                        <img src="/images/wwdc.jpg" alt="WWDC 2024"/>
-                        <div className="blog-date">24 Feb 2025</div>
-                    </div>
-                    <div className="blog-content">
-                        <h2>WWDC 2024: The Most Exciting Announcements from Apple</h2>
-                        <p>Apple's annual Worldwide Developers Conference (WWDC) on June 10, 2024, was an absolute treat
-                            for tech enthusiasts like myself...</p>
-                        <a href="https://news.techable.com/wwdc-2024-the-most-exciting-announcements-from-apple" className="read-more">Read More <i className="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
+          {/* Read All Button */}
+          {/* <div className="load-more" data-aos="fade-up" data-aos-delay="600">
+            <button className="connect-btn">
+              <a href="https://news.techable.com/" target="_blank" rel="noopener noreferrer">
+                Read All Articles <i className="fas fa-arrow-right"></i>
+              </a>
+            </button>
+          </div> */}
 
-                <article className="blog-card">
-                    <div className="blog-image">
-                        <img src="/images/ios-18-concept.webp" alt="iOS 18"/>
-                        <div className="blog-date">24 Feb 2025</div>
+          <div className="cta-project-btn">
+                      <button className="relative z-[99] bannerbtn mt-14 mx-auto flex items-center justify-center">
+                        <Link className="header-button ajax-link" href="/contact-us">
+                          <div className="button-icon-link right allProjectbtn">
+                            <div className="icon-wrap-scale">
+                              <div className="icon-wrap parallax-wrap">
+                                <div className="button-icon parallax-element">
+                                  {/* <i className="fa-solid fa-arrow-right"></i> */}
+                                  <Rocket className="ml-2 h-5 w-5" />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="button-text sticky right">
+                              {/* <span data-hover="Let's Talk">Start Your Mission <Rocket className="ml-2 h-5 w-5" /></span> */}
+                              <span data-hover="Let's Talk">Read all article</span>
+                            </div>
+                          </div>
+                        </Link>
+                        {/* <Link
+                                href="/contact-us"
+                                id="btnTwo"
+                                className="BtnTwo btnWrapper rounded-[50px] text-white px-6 py-3 flex items-center justify-center"
+                              >
+                                Start Your Mission <Rocket className="ml-2 h-5 w-5" />
+                              </Link> */}
+                      </button>
                     </div>
-                    <div className="blog-content">
-                        <h2>Which iPhones Will Get iOS 18? Here's What I Found Out!</h2>
-                        <p>With the excitement building around Apple's upcoming iOS 18, many of us are wondering if our
-                            trusty iPhones will cut this next big update...</p>
-                        <a href="https://news.techable.com/which-iphones-will-get-ios-18-heres-what-i-found-out" className="read-more">Read More <i className="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <article className="blog-card">
-                    <div className="blog-image">
-                        <img src="/images/macOS-Sequoia-iPhone-Mirroring.webp" alt="macOS Sequoia"/>
-                        <div className="blog-date">24 Feb 2025</div>
-                    </div>
-                    <div className="blog-content">
-                        <h2>Breaking Ground: What's in Store with macOS Sequoia</h2>
-                        <p>Hey there, Apple aficionados! Get ready to dive into the lush forest of innovation because
-                            Apple has just unveiled its newest gem: macOS...</p>
-                        <a href="https://news.techable.com/breaking-ground-whats-in-store-with-macos-sequoia" className="read-more">Read More <i className="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            </div>
-
-            <div className="load-more">
-                <button className="connect-btn"><a href="https://news.techable.com/">Read All Articles <i className="fas fa-arrow-right"></i></a></button>
-            </div>
         </div>
-    </section>
-
+      </section>
     </>
   );
 }
