@@ -45,6 +45,7 @@ export default function BlogOne() {
         console.error("Error fetching blog data:", error);
       } finally {
         setLoading(false);
+        console.log("new changes")
       }
     };
     fetchBlogData();
