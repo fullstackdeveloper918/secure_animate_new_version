@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/imagesloaded": "^4.1.6",
     "@types/isotope-layout": "^3.0.14",
     "@types/jquery": "^3.5.32",
