@@ -138,7 +138,7 @@ export default function Home() {
         {/* <HeroSection data={data?.featured_section_heading} /> */}
         {/* <HeroSectionMain data={data} /> */}
         <BannerSection data={data}/>
-        {/* <BrandOne /> */}
+        <BrandOne />
 
         <div id="main-content">
           <div id="main-page-content">

@@ -281,16 +281,18 @@ const WorksSection = () => {
           transform: rotate(45deg);
         }
           .allProjectbtn{
-            border-color: #62d2fd !important;
-            color: #62d2fd !important;
-            background-color: transparent !important;
+            border-color: #06b2f2 !important;
+            color: #fff !important;
+            background-color: #06b2f2 !important;
             box-shadow: unset !important;
           }
             .allProjectbtn:hover{
-                background-color: #62d2fd !important;
+                background-color: transparent !important;
+                border-color: #06b2f2 !important;
+                color: #06b2f2 !important;
             }
              .allProjectbtn:hover .button-text.sticky.right span {
-                color: #fff !important;
+                color: #06b2f2 !important;
                 filter: none !important;
             }
            .allProjectbtn:hover .icon-wrap-scale {

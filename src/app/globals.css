@@ -2707,7 +2707,7 @@ scale-up .link,
 
 .button-icon-link {
   pointer-events: initial;
-  background-color: transparent;
+  background-color: #01aaeb;
   display: block;
   width: auto;
   height: 35px;
@@ -2716,9 +2716,9 @@ scale-up .link,
   position: relative;
   cursor: pointer;
   color: #fff !important;
-  border: 2px solid currentColor !important;
+  border: 2px solid #01aaeb !important;
   box-sizing: border-box;
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3) !important;
+  /* box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3) !important; */
 }
 
 .colorblue {
@@ -2743,7 +2743,8 @@ scale-up .link,
 }
 
 .button-icon-link:hover {
-  background-color: currentColor;
+  background-color: #fff;
+  border-color: #fff !important;
 }
 
 .button-icon-link .icon-wrap-scale {
@@ -2785,11 +2786,11 @@ scale-up .link,
 .button-icon-link .button-icon {
   height: 36px;
   width: 36px;
-  color: #000;
+  color: #ffffff;
   text-align: center;
   line-height: 36px;
   font-size: 14px;
-  background-color: #ffba00;
+  background-color: #02aeec;
   border-radius: 36px;
 }
 
@@ -7668,4 +7669,19 @@ section#hero::before {
     z-index: inherit;
 } */
 
-
+.brandOne {
+    position: absolute;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+}
+.brandOne .tp-brand-item, .tp-brand-4-item {
+    text-align: center;
+    object-fit: contain;
+    filter: gray;
+    /* -webkit-filter: unset;
+    filter: unset; */
+    opacity: 1;
+    transition: All 0.5s;
+    height: auto !important;
+}

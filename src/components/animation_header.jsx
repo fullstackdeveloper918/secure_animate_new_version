@@ -233,7 +233,7 @@ const AnimationHeader = () => {
                   </div>
                 </div>
               </div>
-              <div className="button-text sticky right">
+              <div className="button-text sticky right ">
                 <span data-hover="Let's Talk">Let's Talk</span>
               </div>
             </div>

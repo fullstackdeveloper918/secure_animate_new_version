@@ -25,7 +25,7 @@ export default function BrandSlider() {
         className="brand-wrapper"
       >
         {brand_images.map((b, i) => (
-          <div key={i} className="tp-brand-item" style={{ height: "auto",width: "200px" }}>
+          <div key={i} className="tp-brand-item" style={{ height: "auto",width: "250px" }}>
             <Image src={b} alt="" />
           </div>
         ))}
