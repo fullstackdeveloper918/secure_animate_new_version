@@ -105,10 +105,14 @@ export default function BannerSection({ data }: any) {
               onClick={scrollToNext}
               aria-label="Scroll to next section"
             >
-              <Rocket className="rocket-icon" style={{transform : 'rotate(135deg) !important'}}/>
+              {/* <Rocket className="rocket-icon" style={{transform : 'rotate(135deg) !important'}}/> */}
+              <div className="arrowdown">
+  <a href="#" className="bounce">&#8595;</a> 
+</div>
+{/* 
               <span ref={rocketTextRef} className="rocket-text">
                 Click to Explore More
-              </span>
+              </span> */}
             </button>
           </section>
         </div>
@@ -143,7 +147,7 @@ export default function BannerSection({ data }: any) {
           position: absolute;
           z-index: 10;
           top: 50%;
-          left: 5%;
+          left: 0%;
           transform: translateY(-50%);
           opacity: 0;
           color: white;
