@@ -32,6 +32,8 @@ import RocketAnimation from "@/components/about/about-rocket";
 import dynamic from 'next/dynamic';
 import BannerSection from "@/components/newHero/newHero";
 import HorizontalScrollSection from '@/components/project/new-project'
+import CtaSection from '@/components/CtaSection'
+import CanvasGame from '@/components/GameSection'
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -138,7 +140,7 @@ export default function Home() {
         {/* <HeroSection data={data?.featured_section_heading} /> */}
         {/* <HeroSectionMain data={data} /> */}
         <BannerSection data={data}/>
-        <BrandOne />
+        {/* <BrandOne /> */}
 
         <div id="main-content">
           <div id="main-page-content">
@@ -281,8 +283,12 @@ export default function Home() {
               <BlogOne />
             </div>
 
-
-                    
+            <div className="ctamain-Sec">
+              <CtaSection />
+            </div>
+            <div className="Game-Sec">
+              {/* <CanvasGame /> */}
+            </div>
         
     
           </main>

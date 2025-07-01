@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import AOS from "aos";
@@ -13,17 +15,13 @@ const RocketAnimation = () => {
   const imgRef = useRef(null);
   const img2Ref = useRef(null);
   const canvasRef = useRef(null);
-  const [countIndex, setCountIndex] = useState(0);
-  const [countdownDone, setCountdownDone] = useState(false);
-
-  const countdownTexts = ["3", "2", "1", "Ready to Launch"];
 
   // AOS Init
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
-  // Starfield
+  // Starfield Background
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -68,38 +66,17 @@ const RocketAnimation = () => {
     return () => window.removeEventListener("resize", resize);
   }, []);
 
-  // Scroll Countdown (scroll triggers text index)
+  // Rocket + Text Animation Trigger
   useEffect(() => {
-    const section = sectionRef.current;
-    const steps = countdownTexts.length;
-
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top top",
-      end: `+=${steps * 100}vh`,
-      pin: true,
-      scrub: true,
-      onUpdate: (self) => {
-        const index = Math.min(
-          steps - 1,
-          Math.floor(self.progress * steps)
-        );
-        setCountIndex(index);
-      },
-      onLeave: () => {
-        setCountdownDone(true);
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 50%", // Animation starts when 30% of section is visible
+        once: true,
       },
     });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
-  }, []);
-
-  // Rocket animation after countdown
-  useEffect(() => {
-    if (!countdownDone) return;
-    const tl = gsap.timeline();
+    // Rocket Animation
     tl.to(
       imgRef.current,
       {
@@ -119,14 +96,15 @@ const RocketAnimation = () => {
       },
       "<"
     );
-  }, [countdownDone]);
+  }, []);
 
   return (
     <div
+      id="RocketSecond"
       ref={sectionRef}
       className="min-h-screen bg-black relative overflow-hidden"
     >
-      {/* Starfield */}
+      {/* Background Overlay */}
       <div className="bannerBottom">
         <div className="overlay-navigate"></div>
         <img
@@ -135,22 +113,15 @@ const RocketAnimation = () => {
           className="navigate-bg"
         />
       </div>
+
+      {/* Starfield Canvas */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full z-0"
         style={{ background: "radial-gradient(#04071F 0%, #04071E 70%)" }}
       />
 
-      {/* Countdown */}
-      {!countdownDone && (
-        <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none">
-          <div className="text-white text-[100px] font-bold transition-all duration-500 ease-in-out">
-            {countdownTexts[countIndex]}
-          </div>
-        </div>
-      )}
-
-      {/* Rockets */}
+      {/* Rocket Images */}
       <div className="p-10">
         <div className="absolute z-[9999] bottom-40 right-[-300px]">
           <img
@@ -170,60 +141,58 @@ const RocketAnimation = () => {
         </div>
       </div>
 
-      {/* Content */}
-      {countdownDone && (
-        <>
-          <h2
-            className="relative z-30 text-white font-semibold text-left pl-10 xl:pl-20 paragrpahContent"
-            style={{
-              fontSize: "54px",
-              lineHeight: "66px",
-              paddingTop: "150px",
-              maxWidth: "55%",
-            }}
-            data-aos="fade-up"
-          >
-            Navigating Your Business Through the Stars.. and Safeguarding <br />
-            Every Step
-          </h2>
-          <div
-            className="relative z-30 mt-4 pb-40 text-left xl:max-w-2xl md:max-w-xl max-w-full pl-10 xl:pl-20"
-            style={{ fontSize: "16px" }}
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div className="text-md leading-relaxed font-medium text-white">
-              Think of Secure365 as your interstellar co-pilot, guiding you safely
-              through the ever-expanding cosmos of modern technology. We blend
-              visionary web development with rock-solid IT services, cloud solutions,
-              and cybersecurity—ensuring that no matter which galaxy (or market)
-              you're aiming for, you'll arrive unscathed. Our mission? Simple: to
-              help your brand thrive and remain secure, from initial launch to the far
-              reaches of tomorrow.
-            </div>
-            <button
-              className="relative z-[9999] mt-6 bannerbtn"
-              data-aos="fade-up"
-              data-aos-delay="400"
-            >
-              <Link className="header-button ajax-link" href="/contact-us">
-                <div className="button-icon-link right">
-                  <div className="icon-wrap-scale">
-                    <div className="icon-wrap parallax-wrap">
-                      <div className="button-icon parallax-element">
-                        <Rocket className="ml-2 h-5 w-5" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="button-text sticky right">
-                    <span data-hover="Let's Talk">Contact Us</span>
+      {/* Content After Launch */}
+      <h2
+        className="relative z-30 text-white font-semibold text-left pl-10 xl:pl-20 paragrpahContent"
+        style={{
+          fontSize: "54px",
+          lineHeight: "66px",
+          paddingTop: "150px",
+          maxWidth: "55%",
+        }}
+        data-aos="fade-up"
+      >
+        Navigating Your Business Through the Stars... and Safeguarding <br />
+        Every Step
+      </h2>
+
+      <div
+        className="relative z-30 mt-4 pb-40 text-left xl:max-w-2xl md:max-w-xl max-w-full pl-10 xl:pl-20"
+        style={{ fontSize: "16px" }}
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div className="text-md leading-relaxed font-medium text-white">
+          Think of Secure365 as your interstellar co-pilot, guiding you safely
+          through the ever-expanding cosmos of modern technology. We blend
+          visionary web development with rock-solid IT services, cloud solutions,
+          and cybersecurity—ensuring that no matter which galaxy (or market)
+          you're aiming for, you'll arrive unscathed. Our mission? Simple: to
+          help your brand thrive and remain secure, from initial launch to the far
+          reaches of tomorrow.
+        </div>
+
+        <button
+          className="relative z-[9999] mt-6 bannerbtn"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <Link className="header-button ajax-link" href="/contact-us">
+            <div className="button-icon-link right">
+              <div className="icon-wrap-scale">
+                <div className="icon-wrap parallax-wrap">
+                  <div className="button-icon parallax-element">
+                    <Rocket className="ml-2 h-5 w-5" />
                   </div>
                 </div>
-              </Link>
-            </button>
-          </div>
-        </>
-      )}
+              </div>
+              <div className="button-text sticky right">
+                <span data-hover="Let's Talk">Contact Us</span>
+              </div>
+            </div>
+          </Link>
+        </button>
+      </div>
 
       {/* Cloud Image */}
       <div className="cloud-inner-box cloudImage">

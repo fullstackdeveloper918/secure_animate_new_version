@@ -2716,7 +2716,7 @@ scale-up .link,
   position: relative;
   cursor: pointer;
   color: #fff !important;
-  border: 2px solid #01aaeb !important;
+  border: 2px solid #01aaeb;
   box-sizing: border-box;
   /* box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3) !important; */
 }
@@ -2773,8 +2773,8 @@ scale-up .link,
 }
 
 .button-icon-link .icon-wrap {
-  width: 36px;
-  height: 36px;
+  width: 60px;
+  height: 60px;
   display: flex;
   position: relative;
   justify-content: center;
@@ -7685,3 +7685,86 @@ section#hero::before {
     transition: All 0.5s;
     height: auto !important;
 }
+
+
+
+/* cta button css  */
+
+.bannerbtn .button-icon-link .icon-wrap-scale {
+    transform: unset;
+    transform-origin: unset;
+    display: block;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: auto;
+    transition: all 0.3s ease-out;
+    height: auto;
+    opacity: 1 !important;
+    background: #fff;
+    border-radius: 30px;
+}
+.bannerbtn .button-icon-link .icon-wrap {
+    top: 0px;
+    left: 0px;
+    border-radius: 30px;
+}
+.bannerbtn .button-icon-link.right {
+    height: 60px;
+    display: flex;
+    flex-direction: row-reverse;
+     transition: all 0.3s ease-out;
+    align-items: center;
+}
+.bannerbtn .button-icon-link .button-icon {
+    height: 36px;
+    width: 36px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 36px;
+    font-size: 16px;
+    background-color: #ffffff;
+    border-radius: 36px;
+    transition: all 0.3s ease-out;
+}
+.bannerbtn .button-icon-link .button-icon svg {
+    margin-left: 0px !important;
+    color: #01aaeb;
+    width: 24px;
+    height: 24px;
+}
+.bannerbtn .button-icon-link:hover .button-text.sticky.right {
+    padding-right: 25px !important;
+}
+.bannerbtn .button-icon-link:hover .button-icon.parallax-element {
+    left: 0px;
+    top: unset;
+    transform: translateY(0%) !important;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    background: #01aaeb;
+    transform: rotate(45deg) !important;
+    transition: all 0.3s ease-out;
+}
+.bannerbtn .button-icon-link:hover .button-icon.parallax-element svg {
+    position: relative;
+    left: 0px;
+    width: 24px !important;
+    color: #fff !important;
+}
+.bannerbtn .button-icon-link:hover .icon-wrap {
+    background: #01aaeb;
+}
+.bannerbtn .button-icon-link:hover .button-text span {
+    filter: unset;
+    color: #01aaeb;
+    font-weight: 500;
+}
+.bannerbtn  .button-icon-link {
+    border: 0px solid #01aaeb;
+}
+
+/* cta button css  end*/
+

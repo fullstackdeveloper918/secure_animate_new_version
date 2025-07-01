@@ -174,10 +174,10 @@ const RocketAnimation = () => {
 
   return (
     <div
-      ref={sectionRef}
-      className="min-h-[100vh] bg-black relative overflow-hidden bottomContent"
+      ref={sectionRef} id="RokcetSecond"
+      className="min-h-[100vh] bg-black relative overflow-hidden bottomContent" 
     >
-      <div className="bannerBottom">
+      <div className="bannerBottom" id="RokcetSecond">
         <video
           ref={videoRef}
           className="play-video absolute inset-0 w-full z-[1]"

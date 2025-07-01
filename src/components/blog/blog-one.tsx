@@ -99,7 +99,7 @@ export default function BlogOne() {
           <div className="cta-project-btn">
                       <button className="relative z-[99] bannerbtn mt-14 mx-auto flex items-center justify-center">
                         <Link className="header-button ajax-link" href="/contact-us">
-                          <div className="button-icon-link right allProjectbtn">
+                          <div className="button-icon-link right">
                             <div className="icon-wrap-scale">
                               <div className="icon-wrap parallax-wrap">
                                 <div className="button-icon parallax-element">
