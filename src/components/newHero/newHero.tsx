@@ -105,7 +105,7 @@ export default function BannerSection({ data }: any) {
               onClick={scrollToNext}
               aria-label="Scroll to next section"
             >
-              <Rocket className="rocket-icon" />
+              <Rocket className="rocket-icon" style={{transform : 'rotate(135deg) !important'}}/>
               <span ref={rocketTextRef} className="rocket-text">
                 Click to Explore More
               </span>
@@ -168,6 +168,7 @@ export default function BannerSection({ data }: any) {
         .rocket-icon {
           width: 26px !important;
           height: 26px !important;
+    transform: rotate(135deg) !important;
         }
 
         .rocket-text {

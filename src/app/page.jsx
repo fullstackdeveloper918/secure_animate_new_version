@@ -26,6 +26,7 @@ import HeroSectionMain from "@/components/hero-banner/HeroSectionMain";
 import RealEstateSection from "@/components/about/about-six";
 import ClientWrapper from "@/components/ClientWrapper";
 import ServicesSection from "@/components/service/services-section";
+import ServicescardSection from "@/components/service/cardscroll";
 import NewCardStack from "@/components/service/NewCardStack";
 import ScrollAnimation from "@/components/about/about-ScrollAnimation";
 import RocketAnimation from "@/components/about/about-rocket";
@@ -272,8 +273,8 @@ export default function Home() {
         <div id="smooth-content">
           <main className="bg-white">
 
-            
-                    <ServicesSection data={data} />
+            <ServicescardSection />
+                    {/* <ServicesSection data={data} /> */}
                             {/* <NewCardStack /> */}
                        
                                   
