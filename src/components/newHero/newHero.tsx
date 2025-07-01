@@ -147,7 +147,7 @@ export default function BannerSection({ data }: any) {
           position: absolute;
           z-index: 10;
           top: 50%;
-          left: 0%;
+          left: 0    %;
           transform: translateY(-50%);
           opacity: 0;
           color: white;

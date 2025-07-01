@@ -62,7 +62,7 @@ const CtaSection = () => {
   }, []);
 
   return (
-    <div className="cta-wrapper" style={{ position: 'relative', padding: '60px 0' }}>
+    <div className="cta-wrapper" style={{ position: 'relative', padding: '40px 0 80px 0' }}>
       <style>{`
         #starfield {
           position: fixed;
@@ -108,7 +108,7 @@ const CtaSection = () => {
         }
         .book-call-btn {
           position: absolute;
-          left: 45%;
+          left: 42%;
           top: 48%;
           width: 200px;
           height: 200px;
@@ -154,7 +154,7 @@ const CtaSection = () => {
         .person-image {
           position: absolute;
           right: -20px;
-          bottom: 0;
+          bottom: -60px;
           width: 530px;
           height: auto;
           z-index: 2;
@@ -231,7 +231,7 @@ const CtaSection = () => {
         </div>
 
         <img
-          src="/robot-signpost.png"
+          src="/chat-bot.png"
           alt="Robot signpost"
           className="person-image"
           data-aos="fade-left"

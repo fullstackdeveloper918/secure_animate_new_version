@@ -274,7 +274,7 @@ export default function Home() {
           <main className="bg-white">
 
             <ServicescardSection />
-                    {/* <ServicesSection data={data} /> */}
+                    <ServicesSection data={data} />
                             {/* <NewCardStack /> */}
                        
                                   
