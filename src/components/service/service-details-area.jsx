@@ -67,7 +67,7 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
       };
 
   return (
-    <div className="service-details__area service-details__space bann-p-block relative"  >
+    <div className="service-details__area service-details__space bann-p-block relative">
       {/* <div className="serv-detail-ban app-dev">
         <div className="container z-10">
           <div className="row">
@@ -173,11 +173,11 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
                     {serviceBannerData?.banner?.button1}
                   </a> */}
 
-                   <div className="cta-project-btn">
-                            <button className="relative z-[99] bannerbtn flex items-center">
+                   <div className="cta-project-btn service-all-btn">
+                            <button className="relative z-[99] bannerbtn flex items-center justify-content-center justify-content-lg-start w-full">
                               <Link className="header-button ajax-link" href="/contact-us">
-                                <div className="button-icon-link right allProjectbtn">
-                                  <div className="icon-wrap-scale">
+                                <div className="button-icon-link right">
+                                  <div className="icon-wrap-scale d-none d-sm-block">
                                     <div className="icon-wrap parallax-wrap">
                                       <div className="button-icon parallax-element">
                                         {/* <i className="fa-solid fa-arrow-right"></i> */}

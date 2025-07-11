@@ -127,11 +127,11 @@ export default function WorkShowcase() {
           </Link>
         </div> */}
 
-        <div className="cta-project-btn" data-aos="fade-up" >
+        <div className="cta-project-btn service-all-btn" data-aos="fade-up" >
                     <button className="relative z-[99] bannerbtn mt-14 mx-auto flex items-center justify-center">
                       <Link className="header-button ajax-link" href="/case-studies">
-                        <div className="button-icon-link right allProjectbtn">
-                          <div className="icon-wrap-scale">
+                        <div className="button-icon-link right">
+                          <div className="icon-wrap-scale d-none d-sm-block">
                             <div className="icon-wrap parallax-wrap">
                               <div className="button-icon parallax-element">
                                 {/* <i className="fa-solid fa-arrow-right"></i> */}

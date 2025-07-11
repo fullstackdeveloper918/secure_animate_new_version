@@ -5811,7 +5811,7 @@ a.serv-in-ban-btn:hover {
 /* use case section css start here */
 
 .use-case-section {
-  padding: 100px 0;
+  padding: 80px 0;
   background: #fafeff !important;
   position: relative;
   /* margin-top: 80px; */
@@ -5949,8 +5949,8 @@ section.pricing-serv-tier
   fill: #04afee !important;
 }
 .price-top-head {
-  padding: 60px 0 10px;
-  font-size: 36px;
+    font-size: 40px;
+    margin-bottom: 50px;
 }
 
 /* Service tier pricing css start here end */
@@ -6341,6 +6341,22 @@ section.cyber-serv-sec .cb-btn-prc {
 .bottomContent .paragrpahContent>div {
     font-weight: 200;
 }
+
+.pricing-card-sec{
+  padding: 80px 0 60px;
+}
+
+.book-call-paraTxt{
+    max-width: 32%;
+    font-size: 20px;
+    line-height: 32px;
+}
+
+
+
+
+
+
 @media (min-width:2800px){
 .bottomContent h2 {
     font-size: 4rem;
@@ -6435,6 +6451,9 @@ section.cyber-serv-sec .cb-btn-prc {
     margin-bottom: 80px;
     padding-top: 100px;
   }
+  .book-call-paraTxt {
+    max-width: 40%;
+  }
 }
 @media screen and (max-width: 1480px) {
   .fogContainerBox {
@@ -6459,9 +6478,17 @@ section.cyber-serv-sec .cb-btn-prc {
     font-size: 48px !important;
   }
 }
+@media screen and (max-width: 1300px) {
+.book-call-paraTxt {
+    max-width: 46%;
+}
+}
 @media screen and (min-width: 992px) and (max-width: 1100px) {
   .service-details__title-box.mb-10 h2.sv-hero-title.tp-char-animation {
     max-width: 70%;
+  }
+  .book-call-paraTxt {
+    max-width: 55%;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -6474,6 +6501,16 @@ section.cyber-serv-sec .cb-btn-prc {
   }
 }
 @media screen and (max-width: 991px) {
+  .our-work-serv-sec {
+    padding: 60px 0 !important;
+  }
+  .benefit-main-head {
+    font-size: 36px;
+    line-height: normal;
+  }
+  .benefitPara {
+    max-width: 100% !important;
+  }
   .reach-cont .contactHeading {
     text-align: center;
   }
@@ -6679,10 +6716,12 @@ section.cyber-serv-sec .cb-btn-prc {
   }
   .use-case-section {
     padding: 60px 0;
-    margin-top: 60px;
   }
+  .use-head {
+    margin-bottom: 60px;
+    font-size: 32px !important;
+}
   .price-top-head {
-    padding: 60px 0 10px;
     font-size: 32px;
   }
   .tp-service-4-area.pt-30.pb-10.fix {
@@ -6692,9 +6731,10 @@ section.cyber-serv-sec .cb-btn-prc {
     padding: 60px 20px 60px;
   }
   div#real-estate-section p {
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 18px;
+    line-height: 28px;
     margin-top: 10px !important;
+    max-width: 60%;
   }
   div#real-estate-section .newBtnOne {
     border: 1px solid #fff;
@@ -6720,7 +6760,7 @@ section.cyber-serv-sec .cb-btn-prc {
     text-align: center;
   }
   .five-step-sec {
-    padding: 60px 0 0;
+    padding: 60px 0 60px;
   }
   div#header-container a.ajax-link {
     font-size: 24px !important;
@@ -6729,12 +6769,32 @@ section.cyber-serv-sec .cb-btn-prc {
     font-size: 20px !important;
     line-height: 2.5rem;
   }
+  .highRoi-Card-inner{
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .highRoi-Card-inner .use-card-inner{
+    flex: 0 0 47%;
+  }
 }
 @media screen and (max-width: 767px) {
+  div#real-estate-section p {
+    font-size: 16px;
+    line-height: 26px;
+    margin-top: 10px !important;
+  }
+  div#real-estate-section .cta-project-btn button {
+    margin-top: 25px;
+  }
+  .highRoi-Card-inner .use-card-inner{
+    flex: 0 0 100%;
+  }
   .ready-head-txt{
-    font-size: 30px;
-    line-height: 38px;
+    font-size: 32px;
+    line-height: 40px;
     margin-bottom: 5px;
+    max-width: 90%;
   }
   .our-service-outer-box {
     padding-bottom: 60px;
@@ -7109,9 +7169,83 @@ section.cyber-serv-sec .cb-btn-prc {
     display: flex;
     align-items: end;
   }
+  .benefit-card-inner::before {
+    position: absolute;
+    content: '';
+    background: #00000052;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 16px;
+  }
+  .ben-card-wrap-box{
+    position: relative;
+    z-index: 999;
+  }
+  .pricing-card-sec {
+    padding-bottom: 40px !important;
+  }
+  .pricing-card-sec {
+    padding: 60px 0 60px;
+  }
 }
 
 @media screen and (max-width: 575px) {
+  div#real-estate-section p {
+    max-width: 90%;
+  }
+  .service-all-btn .bannerbtn .button-icon-link.right{
+    height: 50px;
+  }
+  .service-all-btn .bannerbtn .button-icon-link.right span {
+    font-size: 16px;
+  }
+  .service-all-btn .bannerbtn .button-icon-link.right .button-text.sticky.right {
+    height: 50px;
+}
+  .use-head {
+    margin-bottom: 55px;
+    font-size: 28px !important;
+  }
+  .use-card-inner h3 {
+    font-size: 20px;
+  }
+  .benefit-main-head {
+    font-size: 32px;
+    line-height: 42px !important;
+    margin-bottom: 45px;
+    top: 0;
+    position: relative;
+  }
+  .benefit-card-contBox h4{
+    font-size: 28px;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .benefit-card-inner {
+    padding: 30px 25px;
+    border-radius: 16px;
+  }
+  .benifitsec .mainCard>div>div::after {
+    font-size: 15vw;
+    right: 0%;
+    top: 5%;
+  }
+  .benefit-card-contBox ul{
+    margin-left: 0px;
+    margin-top: 35px;
+}
+  .benefit-card-contBox ul li {
+    margin-bottom: 20px !important;
+    margin-top: 14px;
+    font-size: 18px;
+  }
+    .benefit-card-contBox p{
+        max-width: 100%;
+        font-size: 16px;
+    }
 .reach-cont .contactHeading h2 {
     margin-bottom: 12px;
     font-size: 32px;

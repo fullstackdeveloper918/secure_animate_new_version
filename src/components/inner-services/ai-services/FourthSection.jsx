@@ -63,18 +63,18 @@ export const FourthSection = () => {
 
         <motion.p
           data-aos="fade-up"
-          className="text-gray-50 text-sm 2xl:text-lg mt-4 max-w-5xl text-center"
+          className="text-gray-50 mt-3 text-center book-call-paraTxt"
         >
           Book a discovery call today and learn how our integrated services can
           drive growth for your business.
         </motion.p>
       </div>
 
-          <div className="cta-project-btn">
+          <div className="cta-project-btn service-all-btn">
                             <button className="relative z-[99] bannerbtn mt-14 mx-auto flex items-center justify-center">
                               <Link className="header-button ajax-link" href="/contact-us">
-                                <div className="button-icon-link right allProjectbtn">
-                                  <div className="icon-wrap-scale">
+                                <div className="button-icon-link right">
+                                  <div className="icon-wrap-scale d-none d-sm-block">
                                     <div className="icon-wrap parallax-wrap">
                                       <div className="button-icon parallax-element">
                                         {/* <i className="fa-solid fa-arrow-right"></i> */}

@@ -77,7 +77,7 @@ export default function HighROIUseCases() {
         >
           High-ROI AI Use Cases
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 highRoi-Card-inner">
           {useCases.map((useCase, index) => (
             <UseCaseCard key={index} {...useCase} index={index} />
           ))}
