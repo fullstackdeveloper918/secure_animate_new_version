@@ -42,7 +42,7 @@ export default function BeforeAfterResults() {
   }, []);
 
   return (
-    <section className="py-20 relative bg-white" ref={sectionRef}>
+    <section className="relative bg-white before-after-sec" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bf-result-head">
           Before vs. After Results

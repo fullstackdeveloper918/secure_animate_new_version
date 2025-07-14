@@ -79,7 +79,7 @@ export default function FiveStepBuildSprint() {
   return (
     <section className="py-20 bg-slate-50 five-step-sec" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 step-headTxt">
           Our 5-Step Build Sprint
         </h2>
         <div className="relative">

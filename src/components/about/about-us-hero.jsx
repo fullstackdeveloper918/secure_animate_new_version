@@ -70,11 +70,11 @@ export default function AboutUsHero({bannerResponse}) {
               <p>
               {bannerResponse?.pages?.banner_data?.banner_heading_all_in}
               </p>
-               <div className="cta-project-btn">
-                            <button className="relative z-[99] bannerbtn mt-14 flex items-center">
+               <div className="cta-project-btn service-all-btn">
+                            <button className="relative z-[99] bannerbtn flex items-center justify-content-center justify-content-lg-start w-full">
                               <Link className="header-button ajax-link" href="/contact-us">
-                                <div className="button-icon-link right allProjectbtn">
-                                  <div className="icon-wrap-scale">
+                                <div className="button-icon-link right">
+                                  <div className="icon-wrap-scale d-none d-sm-block">
                                     <div className="icon-wrap parallax-wrap">
                                       <div className="button-icon parallax-element">
                                         {/* <i className="fa-solid fa-arrow-right"></i> */}

@@ -10,7 +10,7 @@ export function ServiceItems({serviceData}) {
       {/* <div className="col-xxl-3"></div> */}
       {serviceData && serviceData?.data?.service_why_choose_proactive_data?.map((item,index) => (
         <div key={index} className="col-xxl-12 col-xl-12 col-lg-12 col-md-12">
-          <div className="tp-service-5-item tp_fade_bottom space-1">
+          <div className="tp-service-5-item tp_fade_bottom space-1 service-main-trust">
             {/* <div className="tp-service-4-icon">
              <Image src={item.service_proactive_loop_image} alt="icon" width={60} height={60}/> 
             </div> */}

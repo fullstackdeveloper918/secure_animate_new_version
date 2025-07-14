@@ -31,26 +31,26 @@ const SecurityStakeholders = () => {
 
   return (
     <section
-      className="py-20 relative bg-white stakeholder-sec"
+      className="relative bg-white stakeholder-sec"
       ref={sectionRef}
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        <h2 className="font-bold text-center mb-12 sec-stake-head">
           Security for Every Stakeholder
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 stake-card-box">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 stake-card-box">
           {["For IT Managers", "For CFOs"].map((title, index) => (
             <div
               key={title}
               ref={(el) => (cardRefs.current[index] = el)}
               className="bg-white rounded-lg shadow-lg overflow-hidden stake-inn-card"
             >
-              <div className="bg-slate-800 p-4 text-white">
+              <div className="bg-slate-800 p-3 p-md-4 text-white">
                 <h3 className="font-bold text-xl text-white mb-0">{title}</h3>
               </div>
               <div className="p-6">
-                <div className="space-y-4">
+                <div className="space-y-4 stake-list-box">
                   {[
                     index === 0
                       ? [
@@ -88,7 +88,7 @@ const SecurityStakeholders = () => {
                             {i === 0 ? "✗" : "✓"}
                           </span>
                         </div>
-                        <p className="text-slate-600">{text}</p>
+                        <p className="text-slate-600 list-stake-txt">{text}</p>
                       </div>
                     ))
                   )}

@@ -63,11 +63,11 @@ export default function BrandFive({}) {
               {/* <Link href="/contact-us" className="tp-btn-white-sm border-style rounded-pill get-oc-btn">
                 Get started
               </Link> */}
-               <div className="cta-project-btn">
-                                          <button className="relative z-[99] bannerbtn flex items-center">
+               <div className="cta-project-btn service-all-btn">
+                                          <button className="relative z-[99] bannerbtn flex items-center justify-content-center justify-content-lg-start w-full">
                                             <Link className="header-button ajax-link" href="/contact-us">
-                                              <div className="button-icon-link right allProjectbtn">
-                                                <div className="icon-wrap-scale">
+                                              <div className="button-icon-link right">
+                                                <div className="icon-wrap-scale d-none d-sm-block">
                                                   <div className="icon-wrap parallax-wrap">
                                                     <div className="button-icon parallax-element">
                                                       {/* <i className="fa-solid fa-arrow-right"></i> */}

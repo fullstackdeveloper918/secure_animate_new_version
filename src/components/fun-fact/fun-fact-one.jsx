@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import CounterItem from "../counter/counter-item";
 import { Leaf } from "../svg";
+import { Rocket } from "lucide-react";
 
 const counter_data = [
   {
@@ -64,7 +65,8 @@ export default function FunFactOne({aboutResponse}) {
         </span>
       </Link>
     {/* </button> */}
-  </div>
+              </div>
+  
           </div>
           <div className="ab-counter flex">
           {counter_data.map((item) => (

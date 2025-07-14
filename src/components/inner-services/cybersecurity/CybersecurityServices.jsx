@@ -93,13 +93,13 @@ export default function CybersecurityServices() {
   }, []);
 
   return (
-    <section className="cyber-serv-sec relative bg-white py-20" ref={sectionRef}>
+    <section className="cyber-serv-sec relative bg-white" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+        <h2 className="font-bold text-center mb-12 cyber-sec-head-txt">
           Cybersecurity Services
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 cybersec-serv-outer">
           {services.map((service, index) => (
             <div
               key={index}
@@ -114,13 +114,13 @@ export default function CybersecurityServices() {
                 >
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-1">{service.title}</h3>
-                <p className="text-slate-600 mb-4">{service.desc}</p>
-                <ul className="space-y-2">
+                <h3 className="text-xl font-bold mb-2 serv-title">{service.title}</h3>
+                <p className="text-slate-600 mb-4 serv-txtPara">{service.desc}</p>
+                <ul className="space-y-2 ms-0 ms-lg-3">
                   {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-start">
+                    <li key={i} className="flex items-start mb-3">
                       <span className="text-emerald-500 mr-2">✓</span>
-                      <span>{feature}</span>
+                      <span className="fs-6">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -130,7 +130,7 @@ export default function CybersecurityServices() {
                 <div className="text-2xl font-bold cb-price-txt">
                   {service.price}
                 </div>
-                <p className="text-sm text-slate-500">{service.priceNote}</p>
+                <p className="text-sm text-slate-500 mb-0">{service.priceNote}</p>
                 <button
                   className={`mt-4 w-full px-4 py-2 rounded-md text-white font-semibold cb-btn-prc ${
                     service.buttonStyle || "bg-slate-800 hover:bg-slate-900"

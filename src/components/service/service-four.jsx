@@ -54,7 +54,7 @@ export default function ServiceFour({whyChooseData}) {
               <div className="col-xl-3 col-lg-3">
                 <div className="tp-service-3-title-box">
                   <h3 className="tp-service-3-title">
-                    <Link href="/service">{item?.why_choose_core_strength_heading}</Link>
+                    <Link href="/service" className="text-black font-semibold">{item?.why_choose_core_strength_heading}</Link>
                   </h3>
                 </div>
               </div>
