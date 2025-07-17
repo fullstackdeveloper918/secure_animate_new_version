@@ -6080,6 +6080,10 @@ h2.our-story-head {
 }
 .core-card-outer .core-value-cards li img {
   border-radius: 8px 8px 0 0;
+    height: 225px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
 }
 .core-card-outer .core-value-cards li .core-content-box h3 {
   font-size: 20px;
@@ -6088,7 +6092,7 @@ h2.our-story-head {
 }
 .core-val-head {
   font-size: 40px !important;
-  color: #000 !important;
+  /* color: #000 !important; */
   padding-right: 0px !important;
   margin-bottom: 20px;
 }
@@ -6115,6 +6119,17 @@ h2.our-story-head {
 }
 .our-client-sec {
   padding: 100px 0 !important;
+      background-size: cover;
+    background-repeat: no-repeat;
+}
+.our-client-sec::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000cc;
 }
 
 /* our client section css start here end*/
@@ -6138,6 +6153,24 @@ h2.our-story-head {
 
 .our-serv-main-sec {
   padding: 100px 0 !important;
+    /* background-image: url(../../public/galaxy_planets_on-galaxy.jpg); */
+    background-image: url(../../public/galaxy-glowing-earth.jpg);
+    /* background-image: url(../../public/Earth-galaxy.jpg); */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.our-serv-main-sec::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000090;
+}
+
+.our-serv-cont-area {
+    margin-left: 60px;
 }
 
 /* our service section css start here end*/
@@ -6448,6 +6481,9 @@ section.cyber-serv-sec .cb-btn-prc {
 }
 
 @media screen and (max-width: 1536px) {
+  .our-serv-cont-area {
+    margin-left: 40px;
+  }
   #header-container {
     padding: 20px 40px !important;
   }
@@ -6497,6 +6533,9 @@ section.cyber-serv-sec .cb-btn-prc {
   }
 }
 @media screen and (max-width: 1480px) {
+  .our-serv-cont-area {
+    margin-left: 30px;
+  }
   .fogContainerBox {
     position: absolute;
     bottom: 0;
@@ -6531,6 +6570,9 @@ section.cyber-serv-sec .cb-btn-prc {
   .book-call-paraTxt {
     max-width: 55%;
   }
+  .our-serv-cont-area {
+    margin-left: 0px;
+  }
 }
 @media screen and (max-width: 1024px) {
   .tp-service-5-area.sv-service-style
@@ -6556,6 +6598,9 @@ section.cyber-serv-sec .cb-btn-prc {
 }
 }
 @media screen and (max-width: 991px) {
+  .our-serv-cont-area {
+    margin-left: 0px;
+  }
   .cyber-sec-head-txt {
     font-size: 32px;
     line-height: normal;
@@ -6844,6 +6889,13 @@ section.cyber-serv-sec .cb-btn-prc {
   }
 }
 @media screen and (max-width: 767px) {
+  .our-serv-main-sec span.text-white{
+    font-size: 30px !important;
+  }
+  .our-serv-headBox{
+    margin-bottom: 40px;
+    text-align: center;
+  }
   .step-headTxt{
     margin-bottom: 30px !important;
   }
@@ -7979,6 +8031,7 @@ section#hero::before {
     top: 0px;
     left: 0px;
     border-radius: 30px;
+    border: 1px solid #01aaeb;
 }
 .bannerbtn .button-icon-link.right {
     height: 60px;
@@ -8039,3 +8092,6 @@ section#hero::before {
 
 /* cta button css  end*/
 
+.hov-card-serv{
+    border: 1px solid #5e5e5e54;
+}

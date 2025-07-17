@@ -35,7 +35,7 @@ export default function FunFactOne({aboutResponse}) {
     <div className="ab-funfact-area pb-40">
       <div className="container container-1480">
         <div className="row">
-          <div className="ab-fun-title d-flex align-items-center justify-between mb-10 agt-top-head">
+          <div className="ab-fun-title d-flex align-items-center justify-between mb-10 agt-top-head d-none">
             <div className="wrap-ab-txt-box">
           {/* <span className="ab-inner-subtitle mb-25">
                 <Leaf />

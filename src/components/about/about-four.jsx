@@ -5,16 +5,16 @@ import { Rocket } from "lucide-react";
 
 export default function AboutFour({ aboutResponse }) {
   return (
-    <section className="tp-about-5-area bg-black text-white our-serv-main-sec">
-      <div className="container container-1560 mx-auto px-4">
+    <section className="tp-about-5-area bg-black text-white our-serv-main-sec relative">
+      <div className="container container-1560 mx-auto px-4 relative">
         {/* Heading Section */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
+        <div className="max-w-4xl mb-16 our-serv-headBox">
           <h2 className="text-3xl md:text-5xl font-bold leading-tight relative">
             <span className="block text-[#009dd6] text-xl mb-4">
               {aboutResponse?.data?.about_our_servics_heading}
             </span>
-            <span className="text-white">
-              {aboutResponse?.data?.about_we_offer_heading_first}
+            <span className="text-white head-servTxt">
+              {aboutResponse?.data?.about_we_offer_heading_first} 
               {aboutResponse?.data?.about_we_offer_heading_second}
               <span className="inline-block mx-2 align-middle">
                 <BallRound />
@@ -29,7 +29,7 @@ export default function AboutFour({ aboutResponse }) {
         </div>
 
         {/* Cybersecurity Items + Description */}
-        <div className="grid md:grid-cols-2 gap-10 items-start">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left List */}
           <div className="space-y-4">
             {aboutResponse?.data?.about_our_service_cybersecurity_data?.map((item, index) => (

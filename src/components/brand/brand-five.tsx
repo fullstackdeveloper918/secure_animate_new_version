@@ -19,13 +19,15 @@ const brand_images = [b_1, b_2, b_3, b_4, b_5, b_6];
 export default function BrandFive({}) {
   return (
     <div
-      className="ab-brand-area black-bg-2 our-client-sec"
+      className="ab-brand-area black-bg-2 relative our-client-sec"
       style={{
+        // backgroundImage:
+        //   "url(/assets/img/inner-about/brand/brand-bg-shape.png)",
         backgroundImage:
-          "url(/assets/img/inner-about/brand/brand-bg-shape.png)",
+          "url(/galaxy_planets_on-galaxy1.png)",
       }}
     >
-      <div className="container">
+      <div className="container relative">
         <div className="row">
           <div className="col-xl-12">
             <div className="ab-brand-title-box mb-100">
