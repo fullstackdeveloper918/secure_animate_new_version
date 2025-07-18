@@ -28,8 +28,8 @@ const service_data = [
 export default function ServiceFour({whyChooseData}) {
   
   return (
-    <div className="tp-service-3-area tm-herointro core-strenght-sec">
-      <div className="container">
+    <div className="tp-service-3-area tm-herointro relative core-strenght-sec">
+      <div className="container relative">
         <div className="row">
           <div className="col-xl-9">
             <div className="tp-service-3-title-box mb-10 p-relative">
@@ -54,13 +54,13 @@ export default function ServiceFour({whyChooseData}) {
               <div className="col-xl-3 col-lg-3">
                 <div className="tp-service-3-title-box">
                   <h3 className="tp-service-3-title">
-                    <Link href="/service" className="text-black font-semibold">{item?.why_choose_core_strength_heading}</Link>
+                    <Link href="/service" className="text-white font-semibold">{item?.why_choose_core_strength_heading}</Link>
                   </h3>
                 </div>
               </div>
               <div className="col-xl-7 col-lg-7">
                 <div className="tp-service-3-content">
-                  <p>{item?.why_choose_core_strength_paragraph}</p>
+                  <p className="text-white">{item?.why_choose_core_strength_paragraph}</p>
                   {/* <div className="tp-service-3-category">
                     {item.category.map((c, i) => (
                       <span key={i}>{c}</span>
@@ -69,12 +69,12 @@ export default function ServiceFour({whyChooseData}) {
                 </div>
               </div>
               <div className="col-xl-2 col-lg-2">
-                <div className="tp-service-3-btn-box text-start text-lg-end">
+                <div className="tp-service-3-btn-box text-start">
                   <Link
                     className="tp-btn-zikzak-sm p-relative ocs-btn"
                     href="/service"
                   >
-                    <span className="zikzak-content">
+                    <span className="zikzak-content text-white">
                       See Details
                       <RightArrow clr="currentColor" />
                     </span>

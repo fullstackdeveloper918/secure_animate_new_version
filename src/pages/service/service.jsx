@@ -19,6 +19,7 @@ import AnimationHeader from "@/components/animation_header";
 import { charAnimation, fadeAnimation } from "@/utils/title-animation";
 import { servicePanel } from "@/utils/panel-animation";
 import FooterFour from "@/layouts/footers/footer-four";
+import BrandLogos from "@/components/service/service-logo"
 
 const ServiceMain = ({ serviceData, serviceBannerData }) => {
   useScrollSmooth();
@@ -42,14 +43,15 @@ const ServiceMain = ({ serviceData, serviceBannerData }) => {
         <div id="smooth-content">
           <main>
             <ServiceHero serviceBannerData={serviceBannerData} />
+                <BrandLogos />
 
-            <div className="tp-service-5-area sv-service-style pb-100">
-              <div className="container container-1530">
+            <div className="tp-service-5-area sv-service-style pb-100 relative serv-main-num-sec">
+              <div className="container container-1530 relative">
                 <div className="row">
                   <div className="col-xl-12">
                     <div className="tp-service-5-title-box mb-10">
-                      <span className="ab-inner-subtitle mb-8">
-                        <Leaf />
+                      <span className="ab-inner-subtitle mb-8 text-white">
+                        {/* <Leaf /> */}
                         {
                           serviceData?.data?.service_why_choose_section_heading
                         }{" "}
@@ -60,7 +62,7 @@ const ServiceMain = ({ serviceData, serviceBannerData }) => {
                           }
                         </span>
                       </span>
-                      <h2 className="tp-service-5-title">
+                      <h2 className="tp-service-5-title text-white">
                         {/* With us, you’re not just getting IT services; <br /> */}
                         {/* you’re gaining a trusted partner. */}
                         {
@@ -76,16 +78,17 @@ const ServiceMain = ({ serviceData, serviceBannerData }) => {
                 </div>
               </div>
             </div>
+            
 
             <ServiceSix serviceData={serviceData} />
 
-            <div className="tp-brand-4-area">
+            {/* <div className="tp-brand-4-area">
               <div className="container">
                 <div className="row gx-0">
                   <BrandItems serviceData={serviceData} />
                 </div>
               </div>
-            </div>
+            </div> */}
           </main>
           <FooterFour />
         </div>

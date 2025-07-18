@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import useScrollSmooth from "@/hooks/use-scroll-smooth";
 import { ScrollSmoother, ScrollTrigger, SplitText } from "@/plugins";
+import { Rocket } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
 // internal imports
@@ -25,7 +26,7 @@ import ServiceFour from "@/components/service/service-four";
 import FooterFour from "@/layouts/footers/footer-four";
 
 const FaqMain = ({ whyChooseData }) => {
- 
+
   useScrollSmooth();
 
   useGSAP(() => {
@@ -57,7 +58,7 @@ const FaqMain = ({ whyChooseData }) => {
                       <div className="tm-hero-content">
                         {/* <span className="tm-hero-subtitle">Secure 365</span> */}
                         <h2 className="tm-hero-title sv-hero-title tp-char-animation text-white why-choose-head text-uppercase fw-bold">
-                         {whyChooseData?.title}{" "}
+                          {whyChooseData?.title}{" "}
                           <span className="blueColor">{whyChooseData?.why_choose_right_partner_heading_secure}?</span>
                         </h2>
                       </div>
@@ -73,19 +74,20 @@ const FaqMain = ({ whyChooseData }) => {
                   </div>
                 </div>
               </div>
-
+              <div className="why-choose-secondSec-wrap bg-black">
+                <div className="container">
               <div className="heroIntro why-lft-rht-sec why-lft-rht-sec1">
                 <div className="container">
                   <div className="row align-center justify-between flex-col-reverse md:gap-0 gap-8">
                     <div className="col-xl-6 col-md-6 col-sm-12  max-w-full md:max-w-2xl">
                       <div className="tm-hero-content">
-                        <h2 className="tm-herointro-title tp-char-animation">
+                        <h2 className="tm-herointro-title tp-char-animation text-white">
                           {whyChooseData?.why_choose_right_partner_heading} <span className="blueColor">{whyChooseData?.why_choose_right_partner_heading_secure}</span> {whyChooseData?.why_choose_right_partner_business}
-                        
+
                         </h2>
                       </div>
                       <div className="instropara tp_title_anim">
-                        <p>
+                        <p className="text-white">
                           When it comes to choosing an IT partner, you need more
                           than just someone to set up your systems or install a
                           firewall—you need a trusted advisor who understands
@@ -100,24 +102,42 @@ const FaqMain = ({ whyChooseData }) => {
 
 
                       <div className="btn_sec flex gap-3 flex-wrap">
-                  <Link href="/contact-us" className="BtnTwo btnWrapper eq-btn rounded-pill">
-                  Request a Consultation
-                    <span>
-                      <svg
-                        width="12"
-                        height="14"
-                        viewBox="0 0 9 10"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M8.35008 3.5972C8.46253 3.25663 8.2776 2.8894 7.93704 2.77695L2.38722 0.944577C2.04665 0.832133 1.67942 1.01706 1.56697 1.35763C1.45453 1.69819 1.63946 2.06543 1.98002 2.17787L6.91319 3.80665L5.28441 8.73982C5.17197 9.08039 5.3569 9.44762 5.69746 9.56006C6.03803 9.67251 6.40526 9.48758 6.51771 9.14702L8.35008 3.5972ZM1.06551 7.47844L8.02551 3.9736L7.44137 2.8136L0.481368 6.31844L1.06551 7.47844Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </span>
-                    </Link>
-                </div>
+                        {/* <Link href="/contact-us" className="BtnTwo btnWrapper eq-btn rounded-pill">
+                          Request a Consultation
+                          <span>
+                            <svg
+                              width="12"
+                              height="14"
+                              viewBox="0 0 9 10"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M8.35008 3.5972C8.46253 3.25663 8.2776 2.8894 7.93704 2.77695L2.38722 0.944577C2.04665 0.832133 1.67942 1.01706 1.56697 1.35763C1.45453 1.69819 1.63946 2.06543 1.98002 2.17787L6.91319 3.80665L5.28441 8.73982C5.17197 9.08039 5.3569 9.44762 5.69746 9.56006C6.03803 9.67251 6.40526 9.48758 6.51771 9.14702L8.35008 3.5972ZM1.06551 7.47844L8.02551 3.9736L7.44137 2.8136L0.481368 6.31844L1.06551 7.47844Z"
+                                fill="white"
+                              />
+                            </svg>
+                          </span>
+                        </Link> */}
+                        <div className="cta-project-btn service-all-btn">
+                            <button className="relative z-[99] bannerbtn flex items-center justify-content-center justify-content-lg-start w-full">
+                              <Link className="header-button ajax-link" href="/contact-us">
+                                <div className="button-icon-link right">
+                                  <div className="icon-wrap-scale d-none d-sm-block">
+                                    <div className="icon-wrap parallax-wrap">
+                                      <div className="button-icon parallax-element">
+                                        <Rocket className="ml-2 h-5 w-5" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="button-text sticky right">
+                                    <span className="m-0" data-hover="">Request a Consultation</span>
+                                  </div>
+                                </div>
+                              </Link>
+                            </button>
+                        </div>
+                      </div>
 
                     </div>
 
@@ -147,46 +167,66 @@ const FaqMain = ({ whyChooseData }) => {
                     </div>
                     <div className="col-xl-6 col-md-6 col-sm-12  max-w-full md:max-w-2xl">
                       <div className="tm-hero-content">
-                        <h2 className="tm-herointro-title tp-char-animation">
+                        <h2 className="tm-herointro-title tp-char-animation text-white">
                           {whyChooseData?.our_commitment_section_heading}
                         </h2>
                       </div>
                       <div className="instropara tp_title_anim">
-                        <p>
-                         {whyChooseData?.our_commitment_section_paragraph}
+                        <p className="text-white">
+                          {whyChooseData?.our_commitment_section_paragraph}
                         </p>
                         <br />
-                        <p>
-                         {whyChooseData?.our_commitment_section_paragraph_second}
+                        <p className="text-white">
+                          {whyChooseData?.our_commitment_section_paragraph_second}
                         </p>
                       </div>
                       <div className="btn_sec flex gap-3 flex-wrap">
-                      <Link href="/contact-us" className="BtnTwo btnWrapper eq-btn rounded-pill">
-                      Start With Us
-                    <span>
-                      <svg
-                        width="12"
-                        height="14"
-                        viewBox="0 0 9 10"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M8.35008 3.5972C8.46253 3.25663 8.2776 2.8894 7.93704 2.77695L2.38722 0.944577C2.04665 0.832133 1.67942 1.01706 1.56697 1.35763C1.45453 1.69819 1.63946 2.06543 1.98002 2.17787L6.91319 3.80665L5.28441 8.73982C5.17197 9.08039 5.3569 9.44762 5.69746 9.56006C6.03803 9.67251 6.40526 9.48758 6.51771 9.14702L8.35008 3.5972ZM1.06551 7.47844L8.02551 3.9736L7.44137 2.8136L0.481368 6.31844L1.06551 7.47844Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </span>
-                    </Link>
-                    </div>
+                        {/* <Link href="/contact-us" className="BtnTwo btnWrapper eq-btn rounded-pill">
+                          Start With Us
+                          <span>
+                            <svg
+                              width="12"
+                              height="14"
+                              viewBox="0 0 9 10"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M8.35008 3.5972C8.46253 3.25663 8.2776 2.8894 7.93704 2.77695L2.38722 0.944577C2.04665 0.832133 1.67942 1.01706 1.56697 1.35763C1.45453 1.69819 1.63946 2.06543 1.98002 2.17787L6.91319 3.80665L5.28441 8.73982C5.17197 9.08039 5.3569 9.44762 5.69746 9.56006C6.03803 9.67251 6.40526 9.48758 6.51771 9.14702L8.35008 3.5972ZM1.06551 7.47844L8.02551 3.9736L7.44137 2.8136L0.481368 6.31844L1.06551 7.47844Z"
+                                fill="white"
+                              />
+                            </svg>
+                          </span>
+                        </Link> */}
+                        <div className="cta-project-btn service-all-btn">
+                            <button className="relative z-[99] bannerbtn flex items-center justify-content-center justify-content-lg-start w-full">
+                              <Link className="header-button ajax-link" href="/contact-us">
+                                <div className="button-icon-link right">
+                                  <div className="icon-wrap-scale d-none d-sm-block">
+                                    <div className="icon-wrap parallax-wrap">
+                                      <div className="button-icon parallax-element">
+                                        <Rocket className="ml-2 h-5 w-5" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="button-text sticky right">
+                                    <span className="m-0" data-hover="">Start With Us</span>
+                                  </div>
+                                </div>
+                              </Link>
+                            </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              </div>
+              </div>
 
-              <ServiceFour whyChooseData={whyChooseData}/>
-              <FaqArea whyChooseData={whyChooseData}/>
-              <ContactForm whyChooseData={whyChooseData}/>
+              <ServiceFour whyChooseData={whyChooseData} />
+              <FaqArea whyChooseData={whyChooseData} />
+              <ContactForm whyChooseData={whyChooseData} />
 
               {/* <BigText whyChooseData={whyChooseData} /> */}
             </main>

@@ -5436,19 +5436,42 @@ section#real-estate-section
   margin-left: auto;
 }
 .service-main-trust .tp-service-4-content h2 a{
-  color: #000;
+  color: #fff;
 }
 .service-main-trust .tp-service-4-content p{
-  color: #000 !important;
+  color: #fff !important;
 }
+
+.serv-logo-outerBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  padding: 80px 0 0;
+  background: black;
+}
+
+.serv-img-box {
+  flex: 0 1 auto;
+  max-width: 120px;
+}
+
+.serv-img-box img {
+  width: 100%;
+  height: auto;
+  filter: brightness(0) invert(1); /* makes logo white */
+  object-fit: contain;
+}
+
 .tp-service-5-area
   .tp-service-5-wrap.set-inner-serv
   .row
   .col-xxl-12.col-xl-12.col-lg-12.col-md-12 {
   position: relative;
-  border-top: 2px solid #000;
+  border-top: 2px solid #4a4a4a;
   padding: 35px 0;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #4a4a4a;
 }
 .tp-service-5-area
   .tp-service-5-wrap.set-inner-serv
@@ -5458,7 +5481,7 @@ section#real-estate-section
   content: "1.";
   left: 0;
   top: 0;
-  color: black;
+  color: #01aaeb;
   font-size: 100px;
   font-weight: 800;
 }
@@ -5471,7 +5494,7 @@ section#real-estate-section
   content: "2.";
   left: 0;
   top: 0;
-  color: black;
+  color: #01aaeb;
   font-size: 100px;
   font-weight: 800;
 }
@@ -5483,15 +5506,15 @@ section#real-estate-section
   content: "3.";
   left: 0;
   top: 0;
-  color: black;
+  color: #01aaeb;
   font-size: 100px;
   font-weight: 800;
 }
 .tp-service-5-area .tp-service-5-wrap.set-inner-serv {
   max-width: 80%;
   margin: auto !important;
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
+  border-top: 2px solid #4a4a4a;
+  border-bottom: 2px solid #4a4a4a;
 }
 .tp-service-5-area .tp-service-5-item .tp-service-4-content p {
   margin-bottom: 5px;
@@ -6219,7 +6242,7 @@ div#why-choose-bg::before {
   padding: 14px 28px;
 }
 .why-lft-rht-sec {
-  padding: 100px 0 !important;
+  padding: 80px 0 !important;
 }
 .why-lft-rht-sec2 {
   padding-top: 0px !important;
@@ -6234,20 +6257,53 @@ div#why-choose-bg::before {
   line-height: normal;
   position: relative;
   margin-bottom: 30px !important;
+  color: #01aaeb
 }
 .what-set-head::before {
   position: absolute;
   content: "";
   width: 150px;
   height: 3px;
-  background: #01abec;
+  background: #fff;
   left: 50%;
   bottom: -15px;
   transform: translate(-50%, -50%);
   border-radius: 20px;
 }
 .fq-faq-area div#accordionExample {
-  padding-bottom: 100px !important;
+  padding-top: 40px !important;
+  padding-bottom: 70px !important;
+  max-width: 80% !important;
+}
+.tp-service-2-accordion-box .accordion-header .accordion-buttons .accordion-icon::before {
+    background-color: #ffffff;
+}
+.tp-service-2-accordion-box .accordion-header .accordion-buttons.collapsed .accordion-icon::after {
+    background-color: #ffffff !important;
+}
+.fq-faq-area .tp-service-2-accordion-box .accordion-items {
+    border-bottom: 1px solid rgba(25, 25, 26, 0.1);
+    position: relative;
+    background: #01aaeb1a !important;
+    margin: 0 0 10px 0;
+    padding: 0px 10px 0 30px;
+    border: 1px solid #01aaeb21 !important;
+    backdrop-filter: blur(95px);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    box-shadow: 0 8px 32px rgb(0 0 0 / 10%), inset 0 1px 0 rgb(0 0 0 / 50%), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 20px 10px rgb(26 26 26);
+    position: relative;
+    overflow: hidden;
+}
+.fq-faq-area .tp-service-2-accordion-box .accordion-body p {
+    color: #fff;
+}
+.fq-faq-area .tp-service-2-accordion-box .accordion-header .accordion-buttons .accordion-icon {
+    top: 45px;
+    margin-right: 40px;
 }
 
 /* what sets page banner section css start here end*/
@@ -6256,7 +6312,20 @@ div#why-choose-bg::before {
 
 .core-strenght-sec {
   padding: 100px 0 60px !important;
-  background: #000;
+  /* background: #000; */
+  background-image: url(/galaxy_planets_on-galaxy.jpg);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.core-strenght-sec::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000080;
 }
 .ocs-head {
   font-size: 40px;
@@ -6264,10 +6333,33 @@ div#why-choose-bg::before {
 .ocs-head span {
   color: #00aced;
 }
-.ocs-card-box {
+/* .ocs-card-box {
   border-radius: 6px;
   background: #fff;
   padding: 40px !important;
+} */
+.ocs-card-box {
+    background: #111111;
+    padding: 40px !important;
+    border: 1px solid #303030 !important;
+    backdrop-filter: blur(95px);
+    background: rgb(202 202 202 / 6%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 16px;
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    box-shadow: 0 8px 32px rgb(0 0 0 / 10%), inset 0 1px 0 rgb(52 52 52), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 20px 10px rgb(26 26 26);
+    position: relative;
+    overflow: hidden;
+}
+a.ocs-btn {
+    border: 1px solid #fff;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+a.ocs-btn:hover span{
+  color: #fff !important;
 }
 .ocs-btn span.arrow-t {
   display: none;
@@ -6280,9 +6372,9 @@ div#why-choose-bg::before {
   align-items: center;
   gap: 6px;
 }
-.ocs-btn:hover .zikzak-content {
+/* .ocs-btn:hover .zikzak-content {
   color: #000 !important;
-}
+} */
 
 .ocs-btn:hover .zikzak-content svg {
   transform: translateX(10px);
@@ -6295,7 +6387,17 @@ div#why-choose-bg::before {
   padding: 100px 0;
 }
 .fq-faq-area {
-  padding-top: 100px;
+  padding-top: 80px;
+  background: #000;
+}
+.fq-faq-wrapper .accordion-buttons{
+    font-weight: 500 !important;
+    font-size: 20px !important;
+}
+.fq-faq-wrapper .accordion-buttons.collapsed{
+    color: #fff !important;
+    font-weight: 500 !important;
+    font-size:20px !important;
 }
 .contact .contact-col h2 {
   font-size: 40px;
@@ -8094,4 +8196,19 @@ section#hero::before {
 
 .hov-card-serv{
     border: 1px solid #5e5e5e54;
+}
+.serv-main-num-sec{
+    background: url(/space-galaxy-big.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+.serv-main-num-sec::before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000080;
 }
