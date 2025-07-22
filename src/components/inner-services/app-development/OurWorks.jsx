@@ -99,7 +99,7 @@ export default function WorkShowcase() {
     <section className="relative bg-white our-work-serv-sec">
       <div className="container mx-auto px-4">
         <h2
-          className="text-3xl md:text-4xl font-bold text-center mb-12"
+          className="text-white font-bold text-center relative our-work-head-txt"
           data-aos="fade-up"
         >
           Our Work

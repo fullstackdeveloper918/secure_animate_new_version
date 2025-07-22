@@ -88,7 +88,7 @@ export default function ServiceThree({serviceBannerData}) {
   console.log("serviceBannerData",serviceBannerData)
   return (
     <div
-      className="tp-service-4-area pt-30 md:pt-[120px] pd-[40px] md:pb-[120px] fix our-service-outer-box"
+      className="tp-service-4-area fix our-service-outer-box"
       data-background="assets/img/home-04/brand/overly.png"
       style={{ backgroundImage: "url(/assets/img/home-04/brand/overly.png)" }}
     >
@@ -97,7 +97,7 @@ export default function ServiceThree({serviceBannerData}) {
           <div className="row align-items-end">
             <div className="col-12">
               <div className="tp-service-4-title-box tp_fade_bottom">
-                <h2 className="tp-service-4-title text-white text-center">
+                <h2 className="tp-service-4-title text-white text-center mb-2">
                 Our Services Include
                 </h2>
               </div>

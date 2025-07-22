@@ -64,11 +64,11 @@ export default function WebVitalsBenchmarks() {
 
   return (
     <section
-      className="py-20 relative bg-white core-web-vit-sec pt-5"
+      className="relative core-web-vit-sec"
       ref={sectionRef}
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 core-web-head">
+        <h2 className="font-bold text-center core-web-head">
           Core Web Vitals Benchmarks
         </h2>
 

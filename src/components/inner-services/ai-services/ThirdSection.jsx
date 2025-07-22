@@ -14,14 +14,14 @@ const PricingCards = () => {
   }, []);
 
   return (
-    <div className="bg-white relative pricing-card-sec">
+    <div className="relative pricing-card-sec">
       <h2
-        className="price-top-head text-center text-uppercase fw-bold"
+        className="price-top-head text-white text-center text-uppercase fw-bold"
         data-aos="fade-up"
       >
         Pricing tiers
       </h2>
-      <section className="container mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-8 pricing-serv-tier">
+      <section className="container relative mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-8 pricing-serv-tier">
         {[
           {
             price: "0",

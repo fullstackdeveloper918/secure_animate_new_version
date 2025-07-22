@@ -165,10 +165,10 @@ export default function CardStackingSection() {
           <div className="w-full">
             <h2
               ref={headerRef}
-              className="text-center text-[48px] font-semibold text-white mb-[120px] sticky top-5 benefit-main-head"
+              className="text-center text-[44px] font-semibold text-white mb-[120px] sticky top-5 benefit-main-head"
             >
               Benefits of Choosing <span className="text-[#009dd6]">Secure365</span>
-              <p className="benefitPara text-[#f9f9f9d6] text-lg w-full mt-3 mb-12 mx-auto">
+              <p className="benefitPara text-[#f9f9f9d6] text-lg w-full mt-2 mb-12 mx-auto">
                 Secure365 offers robust, 24/7 protection with advanced threat
                 detection to keep your data safe. Enjoy peace of mind with
                 reliable security solutions tailored for businesses of all sizes.

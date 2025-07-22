@@ -10,19 +10,20 @@ import timing from "../../../public/images/timing.svg";
 export default function ContactTwo() {
   return (
     <div className="cn-contactform-style relative pt-35 lg:pb-35 pb-35 bg-white reach-cont">
-      <div className="ab-2-hero-social-wrap d-none d-xxl-block">
+      {/* <div className="ab-2-hero-social-wrap d-none d-xxl-block">
         <div className="ab-2-hero-social">
           <Social />
         </div>
         <div className="ab-2-hero-social-text">
           <span>Follow us</span>
         </div>
-      </div>
-      <div className="container contact-container">
-        <div className="row gap-10  xl:flex-nowrap flex-wrap">
+      </div> */}
+      <div className="container contact-container relative">
+        <img src="/space-bg-Contact.png" alt="" className="absolute bg-space-contact" />
+        <div className="row xl:flex-nowrap flex-wrap reach-inner-box">
           <div className="conatct-col ab-about-category-title-box p-relative col-xl-5 ">
             <div className="contactHeading">
-              <h2>How to Reach Us</h2>
+              <h2>How to <span>Reach Us</span></h2>
               <p>
                 We make it easy for you to get in touch, whether you prefer a
                 quick phone call, a detailed email, or scheduling a consultation

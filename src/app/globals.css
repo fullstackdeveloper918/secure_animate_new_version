@@ -5841,7 +5841,8 @@ a.serv-in-ban-btn:hover {
 
 .use-case-section {
   padding: 80px 0;
-  background: #fafeff !important;
+  /* background: #fafeff !important; */
+  background: linear-gradient(360deg, #171a1f, #000000) !important;
   position: relative;
   /* margin-top: 80px; */
 }
@@ -5863,6 +5864,8 @@ a.serv-in-ban-btn:hover {
 .use-head {
   position: relative;
   margin-bottom: 70px;
+  font-size: 40px;
+  line-height: normal;
 }
 .use-head::before {
   position: absolute;
@@ -5870,7 +5873,7 @@ a.serv-in-ban-btn:hover {
   height: 3px;
   width: 120px;
   border-radius: 20px;
-  background: #00afee;
+  background: #ffffff;
   bottom: -15px;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -5979,7 +5982,7 @@ section.pricing-serv-tier
 }
 .price-top-head {
     font-size: 40px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 /* Service tier pricing css start here end */
@@ -6495,7 +6498,19 @@ section.cyber-serv-sec .cb-btn-prc {
 }
 
 .pricing-card-sec{
-  padding: 80px 0 60px;
+  padding: 80px 0 20px;
+  background-image: url('/Radial-Price-Bg.png');
+  background-size: cover;
+  background-position: center;
+}
+.pricing-card-sec::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000085;
 }
 
 .book-call-paraTxt{
@@ -6506,6 +6521,23 @@ section.cyber-serv-sec .cb-btn-prc {
 
 .before-after-sec{
   padding: 80px 0;
+  background: linear-gradient(180deg, #000000, #171a1f);
+}
+.bf-result-head{
+  font-size: 40px;
+  line-height: normal;
+  margin-bottom: 70px;
+}
+.bf-result-head::before{
+  position: absolute;
+  content: '';
+    left: 50%;
+    bottom: -15px;
+    width: 120px;
+    height: 2px;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+  background: #01aaeb;
 }
 
   .stakeholder-sec {
@@ -6528,9 +6560,123 @@ section.cyber-serv-sec .cb-btn-prc {
     left: 2px;
 }
 
+ div#singleSerivce .reach-inner-box{
+    background: #ffffff14;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #2f2f2fb5;
+    backdrop-filter: blur(10px);
+  }
+div#singleSerivce .reach-cont .contactHeading h2{
+    color: #fff !important;
+    font-size: 40px;
+    line-height: normal;
+    margin-bottom: 8px;
+}
+div#singleSerivce .reach-cont .contactHeading h2 span{
+  color: #01aaeb;
+}
+div#singleSerivce .reach-inner-box .contactHeading p{
+  color: #fff !important;
+  line-height: 25px;
+  margin-bottom: 0px;
+}
+div#singleSerivce .reach-inner-box .innerDivConatct h2.h5-title{
+  color: #fff !important;
+}
+div#singleSerivce .reach-inner-box .innerDivConatct p{
+  color: #fff !important;
+}
+div#singleSerivce .reach-cont{
+  /* background-image: url('/space-bg-Contact.png');
+  background-size: contain;
+  background-position: center; */
+  background: #090910 !important;
+  padding: 80px 0;
+}
+div#singleSerivce .reach-cont img.bg-space-contact{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 96%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+}
+div#singleSerivce .conatct-col {
+    padding-inline: 0px;
+    padding: 40px 20px;
+}
+div#singleSerivce .contactForm .cn-contactform-wrap {
+    padding-inline: unset !important;
+    margin-left: 60px;
+}
+div#singleSerivce .cn-contactform-btn button:hover{
+    background: transparent !important;
+    color: #01aaeb !important;
+    border: 1px solid #01aaeb !important;
+}
+div#singleSerivce .innerDivConatct {
+  gap: 20px;
+  border-bottom: 1px Dashed #ffffff30;
+}
+div#singleSerivce .contactHeading {
+    border-bottom: unset;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+div#singleSerivce .contactDiv {
+    gap: 30px;
+}
+div#singleSerivce .innerDivConatct p{
+  margin-bottom: 0px;
+}
+div#singleSerivce .cn-contactform-input input{
+    background: #ffffff12 !important;
+    border: 1px solid #ffffff4d !important;
+    color: #fff !important;
+    padding: 10px 25px !important;
+}
+div#singleSerivce .cn-contactform-input textarea {
+    background: #ffffff12 !important;
+    border: 1px solid #ffffff4d !important;
+    color: #fff !important;
+    padding: 10px 25px !important;
+}
 
+.our-service-outer-box{
+  padding: 80px 0 !important;
+}
 
-
+.our-work-serv-sec{
+  background: linear-gradient(180deg, #000000, #171a1f);
+}
+.our-work-head-txt{
+  font-size: 40px;
+  line-height: normal;
+  margin-bottom: 70px;
+}
+.our-work-head-txt::before{
+    position: absolute;
+  content: '';
+    left: 50%;
+    bottom: -12px;
+    width: 100px;
+    height: 2px;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+  background: #01aaeb;
+}
+.core-web-vit-sec{
+  padding: 80px 0;
+   background: linear-gradient(180deg, #000000, #171a1f);
+}
+.core-web-head{
+  font-size: 40px;
+  line-height: normal;
+  margin-bottom: 50px;
+  color: #01aaeb;
+}
 
 
 @media (min-width:2800px){
@@ -6726,7 +6872,7 @@ section.cyber-serv-sec .cb-btn-prc {
   }
   .reach-cont .contactHeading h2 {
     margin-bottom: 15px;
-}
+  }
   section.cyber-serv-sec {
     padding: 60px 0;
   }
@@ -7057,8 +7203,8 @@ section.cyber-serv-sec .cb-btn-prc {
     font-weight: 600;
     max-width: 160px;
     border-radius: 30px;
-    border: 1px solid #04adec;
-    background: #04adec;
+    border: 1px solid #01aaeb;
+    background: #01aaeb;
     font-size: 16px;
     text-transform: uppercase;
   }
@@ -7868,7 +8014,7 @@ h1.main-serv-head {
 
 
 .benefitPara {
-  max-width: 60%;
+  max-width: 55%;
   margin: 0 auto;
 }
 

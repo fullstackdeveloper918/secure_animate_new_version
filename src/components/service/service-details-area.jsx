@@ -309,9 +309,9 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
       {serviceBannerData?.slug === "site-design" && (
         <>
           <BeforeAfterResults />
+          <OurWorks />
           <CardStackingSection />
           {/* <ServiceTiers /> */}
-          <OurWorks />
           <WebVitalsBenchmarks />
         </>
       )}
