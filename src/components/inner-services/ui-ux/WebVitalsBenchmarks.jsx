@@ -68,8 +68,8 @@ export default function WebVitalsBenchmarks() {
       ref={sectionRef}
     >
       <div className="container mx-auto px-4">
-        <h2 className="font-bold text-center core-web-head">
-          Core Web Vitals Benchmarks
+        <h2 className="font-bold text-center core-web-head relative">
+          Core Web Vitals
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -77,14 +77,16 @@ export default function WebVitalsBenchmarks() {
             <div
               key={index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="bg-white p-6 rounded-lg shadow-md text-center"
+              className="bg-white p-6 rounded-lg shadow-md text-center vital-card-box"
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-100 mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-100 mb-4 vital-icon-box">
                 {stat.icon}
               </div>
-              <h3 className="text-xl font-bold mb-2">{stat.title}</h3>
+              <div>
+              <h3 className="text-xl font-bold mb-2 inline-block">{stat.title}</h3>
+                </div>
               <p className="text-slate-600 mb-4">Our sites average:</p>
-              <div className="text-3xl font-bold text-emerald-600">
+              <div className="text-3xl font-bold text-[#01aaeb]">
                 {stat.value}
               </div>
               <p className="text-sm text-slate-500 mt-2">{stat.note}</p>
@@ -93,7 +95,7 @@ export default function WebVitalsBenchmarks() {
         </div>
 
         <div className="mt-12 text-center" ref={noteRef}>
-          <div className="inline-block bg-white px-6 py-3 rounded-lg shadow-md">
+          <div className="inline-block bg-white px-6 py-3 rounded-lg shadow-md vital-highlight">
             <div className="flex items-center justify-center">
               <Search className="h-5 w-5 text-emerald-600 mr-2" />
               <p className="font-medium mb-0">

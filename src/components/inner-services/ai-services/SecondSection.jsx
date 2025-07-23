@@ -39,15 +39,15 @@ const UseCaseCard = ({ icon, title, pain, gain, roi, index }) => (
       {icon}
     </div>
     <h3 className="text-lg font-semibold mb-4">{title}</h3>
-    <div className="space-y-3">
-      <div className="flex items-start">
-        <div className="bg-red-100 text-red-700 rounded-full p-1 mr-2 mt-1">
+    <div className="list-content-use">
+      <div className="flex items-start mb-3">
+        <div className="bg-red-100 text-red-700 rounded-full p-1 mr-2 mt-0">
           <span className="block w-4 h-4 text-center text-xs font-bold">✗</span>
         </div>
         <p className="text-slate-600">{pain}</p>
       </div>
       <div className="flex items-start">
-        <div className="bg-[#009DD6]/20 text-[#009DD6] rounded-full p-1 mr-2 mt-1">
+        <div className="bg-[#009DD6]/20 text-[#009DD6] rounded-full p-1 mr-2 mt-0">
           <span className="block w-4 h-4 text-center text-xs font-bold">✓</span>
         </div>
         <p className="text-slate-600">{gain}</p>
