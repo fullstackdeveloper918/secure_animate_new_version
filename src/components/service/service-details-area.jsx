@@ -328,8 +328,11 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
         <>
           <CybersecurityServices />
           <CardStackingSection />
+          <div className="bg-black relative security-bg-wrapper">
+            {/* <img src="/Security-Stake.png" alt="" className="absolute security-pos-bg" /> */}
           <SecurityStakeholders />
           <ThreatIntelligence />
+          </div>
           {/* <ComplianceExpertise /> */}
         </>
       )}

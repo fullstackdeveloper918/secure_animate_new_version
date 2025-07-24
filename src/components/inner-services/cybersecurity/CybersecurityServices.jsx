@@ -30,7 +30,7 @@ const services = [
     price: "$1,999",
     priceNote: "Monthly subscription",
     buttonText: "Get Started",
-    buttonStyle: "bg-emerald-500 hover:bg-emerald-600",
+    buttonStyle: "bg-[#01aaeb] hover:bg-[#01aaebcf]",
     features: [
       "All Lite Scan features",
       "24/7 security monitoring",
@@ -115,12 +115,12 @@ export default function CybersecurityServices() {
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold mb-2 serv-title">{service.title}</h3>
-                <p className="text-slate-600 mb-4 serv-txtPara">{service.desc}</p>
-                <ul className="space-y-2 ms-0 ms-lg-3">
+                <p className="text-white mb-4 serv-txtPara">{service.desc}</p>
+                <ul className="space-y-2 ms-0 ms-lg-3 cybersecurity-servList">
                   {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-start mb-3">
-                      <span className="text-emerald-500 mr-2">✓</span>
-                      <span className="fs-6">{feature}</span>
+                    <li key={i} className="flex items-start mb-3 gap-1">
+                      <span className="text-[#01aaeb] mr-2">✓</span>
+                      <span className="fs-6 cs-list-item">{feature}</span>
                     </li>
                   ))}
                 </ul>

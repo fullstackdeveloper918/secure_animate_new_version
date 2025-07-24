@@ -36,7 +36,7 @@ export default function ThreatIntelligence() {
 
   return (
     <section
-      className="py-20 bg-slate-900 relative text-white overflow-hidden threat-sec"
+      className="py-20 relative text-white overflow-hidden threat-sec"
       ref={sectionRef}
     >
       <div className="container mx-auto px-4 mb-6">
@@ -57,7 +57,7 @@ export default function ThreatIntelligence() {
               className="mx-2 px-4 py-2 bg-red-900/30 rounded-lg flex items-center min-w-max"
             >
               <Clock className="h-4 w-4 mr-2 text-red-400" />
-              <span>{threat}</span>
+              <span className="font-medium threat-boxTxt">{threat}</span>
             </div>
           ))}
         </div>

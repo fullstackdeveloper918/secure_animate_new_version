@@ -6479,7 +6479,7 @@ section.cyber-serv-sec {
   color: #01aaeb;
 }
 section.cyber-serv-sec .cb-card-box .cb-price-txt {
-  color: #000;
+  color: #ffffff;
 }
 section.cyber-serv-sec .cb-btn-prc {
   padding: 16px 28px !important;
@@ -6487,14 +6487,24 @@ section.cyber-serv-sec .cb-btn-prc {
   font-size: 16px;
 }
 .threat-head {
-  font-size: 26px;
+    font-size: 30px;
+    font-weight: 600;
 }
 .ce-head {
   font-size: 32px;
 }
+.cb-card-box {
+    background: #8d8d8d33 !important;
+    border: 1px solid #a3a3a330 !important;
+}
 .cybersec-serv-outer .serv-title{
   line-height: 32px;
   font-size: 24px;
+  color: #01aaeb;
+}
+.cybersecurity-servList .cs-list-item{
+  color: #ffffffc4;
+  font-weight: 500;
 }
 .cybersec-serv-outer .serv-txtPara{
   line-height: 24px;
@@ -6580,15 +6590,47 @@ section.cyber-serv-sec .cb-btn-prc {
   font-size: 24px;
   line-height: normal;
 }
-
+.security-bg-wrapper{
+    background-image: url(/Security-Stake.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+.security-bg-wrapper::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000b0;
+}
+.security-pos-bg {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+.stake-inner-contBox{
+  background: #00000020;
+}
+.stake-inner-contBox {
+    background: #00000000;
+    backdrop-filter: blur(12px);
+    border: 1px solid #1e293b;
+    border-radius: 0 0 8px 8px;
+}
+.cross-rht-ic{
+  font-size: 16px;
+}
   .stakeholder-sec {
     padding: 80px 0 40px;
-    background: linear-gradient(180deg, #171a1f, #0f172a);
+    /* background: linear-gradient(180deg, #171a1f, #0f172a); */
   }
   .sec-stake-head{
     font-size: 40px;
     line-height: normal;
-    color: #ffffff;
+    color: #01aaeb;
     position: relative;
   }
     /* .sec-stake-head::before{
@@ -6602,8 +6644,22 @@ section.cyber-serv-sec .cb-btn-prc {
     transform: translate(-50%, -50%);
     background: #ffffff;
     } */
+     .sec-stake-para{
+      max-width: 50%;
+      margin: 12px auto 50px;
+      font-size: 18px;
+     }
+     .threat-boxTxt{
+      font-size: 16px;
+     }
   .stake-list-box .list-stake-txt{
-    line-height: 24px ;
+    line-height: 24px;
+    color: #ffffffe8 !important;
+  }
+  .stake-card-title{
+    font-size: 24px;
+    color: #01aaeb;
+    line-height: normal;
   }
   .white-hovBtn{
     border: 2px solid #01aaeb !important;

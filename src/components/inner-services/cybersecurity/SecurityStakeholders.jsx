@@ -31,26 +31,27 @@ const SecurityStakeholders = () => {
 
   return (
     <section
-      className="relative bg-white stakeholder-sec"
+      className="relative stakeholder-sec"
       ref={sectionRef}
     >
       <div className="container mx-auto px-4">
-        <h2 className="font-bold text-center mb-12 sec-stake-head">
+        <h2 className="font-bold text-center sec-stake-head text-[#01aaeb]">
           Security for Every Stakeholder
         </h2>
+        <p className="text-white sec-stake-para text-center">Our multi-layered security approach ensures that stakeholders including administrators, developers, clients, and end-users are protected at every touchpoint.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 stake-card-box">
           {["For IT Managers", "For CFOs"].map((title, index) => (
             <div
               key={title}
               ref={(el) => (cardRefs.current[index] = el)}
-              className="bg-white rounded-lg shadow-lg overflow-hidden stake-inn-card"
+              className="rounded-lg shadow-lg overflow-hidden stake-inn-card"
             >
               <div className="bg-slate-800 p-3 p-md-4 text-white">
-                <h3 className="font-bold text-xl text-white mb-0">{title}</h3>
+                <h3 className="font-bold mb-0 stake-card-title">{title}</h3>
               </div>
-              <div className="p-6">
-                <div className="space-y-4 stake-list-box">
+              <div className="p-6 stake-inner-contBox">
+                <div className="flex flex-col gap-4 stake-list-box">
                   {[
                     index === 0
                       ? [
@@ -82,13 +83,13 @@ const SecurityStakeholders = () => {
                             i === 0
                               ? "bg-red-100 text-red-700"
                               : "bg-emerald-100 text-emerald-700"
-                          } rounded-full p-1 mr-3 mt-1`}
+                          } rounded-full p-0 mr-2 mt-0`}
                         >
-                          <span className="block w-4 h-4 text-center text-xs font-bold text-black">
+                          <span className="block w-5 h-45text-center text-md font-bold text-[#01aaeb] cross-rht-ic">
                             {i === 0 ? "✗" : "✓"}
                           </span>
                         </div>
-                        <p className="text-slate-600 list-stake-txt">{text}</p>
+                        <p className="list-stake-txt font-medium mb-0">{text}</p>
                       </div>
                     ))
                   )}
