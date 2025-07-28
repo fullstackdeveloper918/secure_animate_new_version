@@ -318,8 +318,8 @@ export default function ServiceDetailsArea({ serviceBannerData }) {
 
       {serviceBannerData?.slug === "marketing" && (
         <>
-          <CardStackingSection />
           <FiveStepBuildSprint />
+          <CardStackingSection />
           {/* <ThreeStepBuildSprint /> */}
         </>
       )}
