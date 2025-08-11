@@ -1,4 +1,6 @@
 "use client";
+
+// @ts-ignore
 import { gsap } from "gsap";
 import React from "react";
 import Image from "next/image";
