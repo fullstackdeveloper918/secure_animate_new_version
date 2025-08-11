@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -260,7 +261,7 @@ const TechableProject = () => {
 
       <div className="text-white pt-8 pb-12 w-full bg-[#3eaced] textAnimation">
         <p className="mt-20 text-5xl text-white font-bold text-center px-20 max-w-[50rem]:">
-         SELL YOUR MAC EASILY
+          SELL YOUR MAC EASILY
           WITH SELLMAC FOR THE MOST CASH
         </p>
         <div className="overflow-hidden relative h-[800px] mt-12 flex justify-center items-center rounded-2xl">
@@ -294,7 +295,7 @@ const TechableProject = () => {
           </div>
         </section>
       </div> */}
-{/* <TextScrollAnimation /> */}
+      {/* <TextScrollAnimation /> */}
     </>
   );
 };

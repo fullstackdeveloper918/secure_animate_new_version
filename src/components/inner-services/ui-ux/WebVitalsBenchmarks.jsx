@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef } from "react";
 import { Zap, LineChart, Smartphone, Search } from "lucide-react";
 import gsap from "gsap";
@@ -83,8 +84,8 @@ export default function WebVitalsBenchmarks() {
                 {stat.icon}
               </div>
               <div>
-              <h3 className="text-xl font-bold mb-2 inline-block">{stat.title}</h3>
-                </div>
+                <h3 className="text-xl font-bold mb-2 inline-block">{stat.title}</h3>
+              </div>
               <p className="text-slate-600 mb-4">Our sites average:</p>
               <div className="text-3xl font-bold text-[#01aaeb]">
                 {stat.value}

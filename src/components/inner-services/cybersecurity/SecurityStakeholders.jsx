@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -55,26 +56,26 @@ const SecurityStakeholders = () => {
                   {[
                     index === 0
                       ? [
-                          "Overwhelmed by constant security alerts and false positives",
-                          "Lack of specialized security expertise on your team",
-                          "Difficulty keeping up with evolving threats and vulnerabilities",
-                        ]
+                        "Overwhelmed by constant security alerts and false positives",
+                        "Lack of specialized security expertise on your team",
+                        "Difficulty keeping up with evolving threats and vulnerabilities",
+                      ]
                       : [
-                          "Unpredictable costs of security incidents and breaches",
-                          "High cost of building an in-house security team",
-                          "Difficulty quantifying security ROI and risk exposure",
-                        ],
+                        "Unpredictable costs of security incidents and breaches",
+                        "High cost of building an in-house security team",
+                        "Difficulty quantifying security ROI and risk exposure",
+                      ],
                     index === 0
                       ? [
-                          "24/7 monitoring with expert triage and response",
-                          "Access to a team of certified security professionals",
-                          "Proactive threat hunting and vulnerability management",
-                        ]
+                        "24/7 monitoring with expert triage and response",
+                        "Access to a team of certified security professionals",
+                        "Proactive threat hunting and vulnerability management",
+                      ]
                       : [
-                          "Predictable monthly security costs with no surprises",
-                          "Fraction of the cost of an in-house security team",
-                          "Clear reporting on risk reduction and security posture",
-                        ],
+                        "Predictable monthly security costs with no surprises",
+                        "Fraction of the cost of an in-house security team",
+                        "Clear reporting on risk reduction and security posture",
+                      ],
                   ].flatMap((textArr, i) =>
                     textArr.map((text, j) => (
                       <div className="flex items-start" key={`${i}-${j}`}>

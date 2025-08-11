@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -175,7 +176,7 @@ const RocketAnimation = () => {
   return (
     <div
       ref={sectionRef} id="RokcetSecond"
-      className="min-h-[100vh] bg-black relative overflow-hidden bottomContent" 
+      className="min-h-[100vh] bg-black relative overflow-hidden bottomContent"
     >
       <div className="bannerBottom" id="RokcetSecond">
         <video

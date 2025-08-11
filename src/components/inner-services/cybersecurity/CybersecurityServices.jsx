@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef } from "react";
 import { Shield, Lock, FileCheck } from "lucide-react";
 import gsap from "gsap";
@@ -104,9 +105,8 @@ export default function CybersecurityServices() {
             <div
               key={index}
               ref={(el) => setCardRef(el, index)}
-              className={`bg-white rounded-lg shadow-md border p-6 flex flex-col justify-between cb-card-box ${
-                service.cardStyle || ""
-              }`}
+              className={`bg-white rounded-lg shadow-md border p-6 flex flex-col justify-between cb-card-box ${service.cardStyle || ""
+                }`}
             >
               <div>
                 <div
@@ -132,9 +132,8 @@ export default function CybersecurityServices() {
                 </div>
                 <p className="text-sm text-slate-500 mb-0">{service.priceNote}</p>
                 <button
-                  className={`mt-4 w-full px-4 py-2 rounded-md text-white font-semibold cb-btn-prc ${
-                    service.buttonStyle || "bg-slate-800 hover:bg-slate-900"
-                  }`}
+                  className={`mt-4 w-full px-4 py-2 rounded-md text-white font-semibold cb-btn-prc ${service.buttonStyle || "bg-slate-800 hover:bg-slate-900"
+                    }`}
                 >
                   {service.buttonText}
                 </button>

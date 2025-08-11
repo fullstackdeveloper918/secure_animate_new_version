@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef } from "react";
 import { AlertTriangle, Clock } from "lucide-react";
 import gsap from "gsap";

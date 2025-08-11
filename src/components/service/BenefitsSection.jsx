@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -107,10 +108,10 @@ export default function CardGallery() {
                 card.bgColor === "bg-white"
                   ? "text-black border"
                   : card.bgColor === "bg-black"
-                  ? "text-white"
-                  : card.bgColor === "bg-gray-500"
-                  ? "text-white"
-                  : "text-black"
+                    ? "text-white"
+                    : card.bgColor === "bg-gray-500"
+                      ? "text-white"
+                      : "text-black"
               )}
               style={{
                 left: 0,

@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 const ScrollBanner = () => {
@@ -107,38 +108,38 @@ const ScrollBanner = () => {
   }, []);
   // const scrollYMove = window.scrollY;
   // if(scrollYMove >= 410){
-    const handleMouseEnterFirst = () => {
-      if(isScrollPassed){
-        gsap.to(".first-image", {
-          x: "-50px",
-          width: 700,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-        gsap.to(".second-image", {
-          width: 220,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-      }
-    };
-    const handleMouseLeaveFirst = () => {
-      if(isScrollPassed){
-        gsap.to(".first-image", {
-          x: "-50px",
-          width: 220,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-        gsap.to(".second-image", {
-          width: 700,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-      }
-    };
-    const handleMouseEnterThird = () => {
-     if(isScrollPassed){
+  const handleMouseEnterFirst = () => {
+    if (isScrollPassed) {
+      gsap.to(".first-image", {
+        x: "-50px",
+        width: 700,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+      gsap.to(".second-image", {
+        width: 220,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    }
+  };
+  const handleMouseLeaveFirst = () => {
+    if (isScrollPassed) {
+      gsap.to(".first-image", {
+        x: "-50px",
+        width: 220,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+      gsap.to(".second-image", {
+        width: 700,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    }
+  };
+  const handleMouseEnterThird = () => {
+    if (isScrollPassed) {
       gsap.to(".third-image", {
         x: "0px", // Move right
         width: 700, // Increase width
@@ -150,23 +151,23 @@ const ScrollBanner = () => {
         duration: 0.5,
         ease: "power2.out",
       });
-     }
-    };
-    const handleMouseLeaveThird = () => {
-      if(isScrollPassed){
-        gsap.to(".third-image", {
-          x: "0px", // Reset position
-          width: 220, // Reset width
-          duration: 0.5,
-          ease: "power2.out",
-        });
-        gsap.to(".second-image", {
-          width: 700, // Reset width
-          duration: 0.5,
-          ease: "power2.out",
-        });
-      }
-    };
+    }
+  };
+  const handleMouseLeaveThird = () => {
+    if (isScrollPassed) {
+      gsap.to(".third-image", {
+        x: "0px", // Reset position
+        width: 220, // Reset width
+        duration: 0.5,
+        ease: "power2.out",
+      });
+      gsap.to(".second-image", {
+        width: 700, // Reset width
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    }
+  };
   // }
   useEffect(() => {
     // Apply GSAP animations for smooth adjustments with easing
