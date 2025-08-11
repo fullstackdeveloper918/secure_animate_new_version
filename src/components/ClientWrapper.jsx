@@ -22,18 +22,18 @@ export default function ClientWrapper({ children }) {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-    setIsLoggedIn(true);
-    fetch(`${config.APP_URL}/secure-plugin/v1/home`, { cache: 'no-store' })
-      .then((res) => {
-        if (!res.ok) throw new Error(`Status ${res.status}`);
-        return res.json();
-      })
-      .then((result) => {
-        setData(result);
-      })
-      .catch((err) => {
-        console.error('Error fetching home data:', err);
-      });
+      setIsLoggedIn(true);
+      fetch(`${config.APP_URL}/secure-plugin/v1/home`, { cache: 'no-store' })
+        .then((res) => {
+          if (!res.ok) throw new Error(`Status ${res.status}`);
+          return res.json();
+        })
+        .then((result) => {
+          setData(result);
+        })
+        .catch((err) => {
+          console.error('Error fetching home data:', err);
+        });
     }
   }, []);
   const handleLoginSuccess = () => {
@@ -51,12 +51,12 @@ export default function ClientWrapper({ children }) {
   console.log(isLoggedIn, 'children');
   return (
     <>
-    
-        
+
+
       {isLoggedIn && <AnimationHeader />}
       {typeof children === 'function' ? children(data) : children}
 
-    
+
     </>
   );
 }
