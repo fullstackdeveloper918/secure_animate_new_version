@@ -83,11 +83,11 @@ export default function HomePage() {
                       initial={{ y: 100, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ duration: 1, ease: "easeOut" }}
-                      className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight"
+                      className="main-banner-heading text-white font-semibold mb-0"
                     >
                       Mission<br />
                       Control For Your<br />
-                      <span className="text-[#00AEEF]">Digital Galaxy</span>
+                      <span className="">Digital Galaxy</span>
                     </motion.h1>
                   )}
                 </AnimatePresence>

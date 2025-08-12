@@ -114,9 +114,9 @@ const AnimationHeader = () => {
 
   // Define the menu items
   const menuItems = [
-    "Home",
+    // "Home",
     "About Us",
-    "Service",
+    "Our Services",
     "Why Choose Us",
     "Contact Us",
   ];
@@ -162,7 +162,8 @@ const AnimationHeader = () => {
               />
             </Link>
           </div>
-          <nav
+          <div className="menu-link-call-action">
+            <nav
             className={
               active ? "clapat-nav-wrapper-show" : "clapat-nav-wrapper"
             }
@@ -224,7 +225,12 @@ const AnimationHeader = () => {
               ))}
             </ul>
           </nav>
-          <Link className="header-button ajax-link" href="/contact-us">
+            <div className="lets-talk-btn-inner">
+            <a href="/contact-us" className="let-talk-btn"><img src="/Call-btn.svg" alt="call-icon" /><span>Let's Talk</span></a>
+          </div>
+          </div>
+
+          {/* <Link className="header-button ajax-link" href="/contact-us">
             <div className="button-icon-link right">
               <div className="icon-wrap-scale">
                 <div className="icon-wrap parallax-wrap">
@@ -278,7 +284,7 @@ const AnimationHeader = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </header>
     </>

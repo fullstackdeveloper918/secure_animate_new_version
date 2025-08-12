@@ -168,7 +168,7 @@ export default function HomePage() {
     return (
         <div className="min-h-screen bg-black text-white overflow-x-hidden" style={{ fontFamily: "Arial, sans-serif" }}>
             {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center overflow-hidden">
+            <section className="relative min-h-screen flex items-center main-secure-banner">
                 <div className="absolute inset-[-82px]">
                     {/* Background video */}
                     <video
@@ -186,20 +186,20 @@ export default function HomePage() {
 
                 <div className="relative z-10 w-full">
                     <div className="container mx-auto px-6">
-                        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
-                            <div>
+                        <div className="grid lg:grid-cols-2 gap-12 items-end min-h-screen">
+                            <div className="main-head-banner-box">
                                 <AnimatePresence>
                                     {heroAnimationComplete && (
-                                        <motion.h1
-                                            initial={{ y: 100, opacity: 0 }}
-                                            animate={{ y: 0, opacity: 1 }}
-                                            transition={{ duration: 0.5, ease: "easeOut" }}
-                                            className="text-4xl lg:text-6xl xl:text-7xl text-white font-bold leading-tight"
-                                        >
-                                            Mission<br />
-                                            Control For Your<br />
-                                            <span className="text-[#00AEEF]">Digital Galaxy</span>
-                                        </motion.h1>
+                                         <motion.h1
+                                                              initial={{ y: 100, opacity: 0 }}
+                                                              animate={{ y: 0, opacity: 1 }}
+                                                              transition={{ duration: 1, ease: "easeOut" }}
+                                                              className="main-banner-heading text-white font-semibold mb-0"
+                                                            >
+                                                              Mission<br />
+                                                              Control For Your<br />
+                                                              <span className="">Digital Galaxy</span>
+                                                            </motion.h1>
                                     )}
                                 </AnimatePresence>
                             </div>
@@ -211,14 +211,12 @@ export default function HomePage() {
                                             initial={{ y: 300, opacity: 0 }}
                                             animate={{ y: 200, opacity: 1 }}
                                             transition={{ duration: 0.5, ease: "easeOut" }}
-                                            className="space-y-6"
+                                            className="space-y-6 main-banner-para-box"
                                         >
-                                            <p className="text-lg lg:text-xl text-gray-300 leading-relaxed">
-                                                Navigate the vast expanse of cyberspace with confidence. Our advanced security solutions
-                                                provide mission-critical protection for your digital assets, ensuring safe passage through
-                                                the most challenging cyber environments.
+                                            <p className="main-banner-paraTxt text-white mb-0">
+                                                AI innovation, full-stack development, SEO propulsion, cyber-defense shields, and friction-free payment protection—seamlessly orbiting under one command center: Secure365
                                             </p>
-                                            <Button className="bg-[#00AEEF] hover:bg-[#0099d4] text-white px-10 py-4 text-lg font-semibold">
+                                            <Button className="bg-[#00AEEF] hover:bg-[#0099d4] text-white start-mission-btn">
                                                 Start Your Mission
                                             </Button>
                                         </motion.div>
@@ -226,18 +224,18 @@ export default function HomePage() {
                                 </AnimatePresence>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div className="absolute bottom-8 left-40 transform -translate-x-1/2 z-10">
+                        <div className="absolute z-10 scroll-down-button">
                     <motion.div
                         animate={{ y: [0, 10, 0] }}
                         transition={{ duration: 2, repeat: Infinity }}
-                        className="flex flex-col items-center text-white/70"
+                        className="flex items-center text-white/70"
                     >
-                        <Mouse className="w-6 h-6 mb-2" />
-                        <div className="text-sm">Scroll</div>
+                        {/* <Mouse className="w-6 h-6 mb-2" /> */}
+                        <img src="/Scroll-down-icon.svg" alt="scroll-down-icon" className="me-2" />
+                        <div className="text-sm text-white font-normal">Scroll Down</div>
                     </motion.div>
+                </div>
+                    </div>
                 </div>
             </section>
 
