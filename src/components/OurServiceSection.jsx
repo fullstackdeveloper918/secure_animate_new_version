@@ -83,7 +83,7 @@ export default function AchievementsSection({ achievementCards }) {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
                         <motion.h2
-                            className="text-5xl lg:text-6xl text-white font-bold mb-12"
+                            className="our-service-heading text-white font-semibold"
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -91,7 +91,7 @@ export default function AchievementsSection({ achievementCards }) {
                         >
                             Our
                             <br />
-                            Achievements
+                            Services
                         </motion.h2>
 
                         <div className="relative overflow-hidden">

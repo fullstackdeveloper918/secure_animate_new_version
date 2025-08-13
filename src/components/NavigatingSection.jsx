@@ -94,7 +94,7 @@ const NavigatingSection = () => {
 
                         {/* Text paragraph below */}
                         <div className="space-y-8 relative">
-                            <p className="text-lg lg:text-xl text-gray-300 leading-relaxed mb-0">
+                            <p className="text-lg lg:text-xl text-gray-300 leading-relaxed mb-0" id='content-responsive'>
                                Think of Secure365 as your interstellar co-pilot, guiding you safely through the ever-expanding cosmos of modern technology. We blend visionary web development with rock-solid IT services, cloud solutions, and cybersecurity—ensuring that no matter which galaxy (or market) you're aiming for, you'll arrive unscathed. <br /> <br />Our mission? Simple: to help your brand thrive and remain secure, from initial launch to the far reaches of tomorrow.
                             </p>
                             <Button className="bg-[#00AEEF] hover:bg-[#0099d4] text-white navigate-contact-btn">

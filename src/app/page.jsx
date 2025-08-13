@@ -291,7 +291,7 @@ export default function HomePage() {
             </section> */}
 
             {/* But Why Secure365 Section */}
-            <section className="relative py-32 overflow-hidden" ref={containerRef}>
+            <section className="relative overflow-hidden rotation-timeline-sec" ref={containerRef}>
                 <div className="absolute inset-0">
                     <div
                         className="w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
@@ -305,12 +305,12 @@ export default function HomePage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className="text-center mb-20"
+                        className="text-center"
                     >
-                        <h2 className="text-5xl lg:text-8xl text-white font-bold">But, Why Secure365?</h2>
+                        <h2 className="text-5xl lg:text-8xl text-white font-bold" id="but-why-responsive">But, Why Secure365?</h2>
                     </motion.div>
 
-                    <div className="relative min-h-[1300px]">
+                    <div className="relative min-h-[1300px] timeline-inner-box">
                         <svg
                             className="absolute inset-0 w-full h-full pointer-events-none"
                             viewBox="0 0 1200 1300"
@@ -364,20 +364,21 @@ export default function HomePage() {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8, delay: 0.1 }}
                             viewport={{ once: true }}
-                            className="absolute flex gap-20 top-10 right-20 max-w-full"
+                            className="absolute flex top-0 max-w-full first-project-del-box"
                         >
-                            <div className="relative">
+                            <div className="relative h-100">
                                 <div className="absolute -top-4 -right-8 text-[#00AEEF] text-2xl">✦</div>
                                 <div className="absolute -bottom-4 -left-4 text-[#00AEEF] text-lg">✦</div>
-                                <div className="text-6xl lg:text-8xl font-bold text-[#00AEEF] mb-4">3200+</div>
-                                <div className="text-2xl lg:text-3xl text-white mb-6">Projects Delivered</div>
+                                <div className="num-rotate-head font-semibold text-[#00AEEF]">3200+</div>
+                                <div className="num-rotate-para text-white mb-0">Projects Delivered</div>
                             </div>
-                            <div>
-                                <p className="text-gray-400 leading-relaxed text-lg mb-6 max-w-md">
-                                    Successfully completed over 3200 cybersecurity projects across various industries,
-                                    establishing ourselves as a trusted partner in digital protection and innovation.
+                            <div className="project-del-contBox">
+                                <p className="text-white">
+                                    At Secure 365, we understand that navigating the digital world can be overwhelming. That's why we've designed our services to be a one-stop solution, covering everything from cloud management and IT support to marketing and cybersecurity.
+<br /><br />
+Our approach combines expertise, proactive management, and industry-leading technology to deliver seamless experiences, minimize risk, and maximize efficiency.
                                 </p>
-                                <Button className="bg-[#00AEEF] hover:bg-[#0099d4] text-white px-8 py-3">Get Started</Button>
+                                <Button className="bg-[#00AEEF] hover:bg-[#0099d4] text-white primary-btn-style">Discuss Your Requirement</Button>
                             </div>
                         </motion.div>
 
@@ -391,8 +392,8 @@ export default function HomePage() {
                             <div className="relative text-left">
                                 <div className="absolute -top-6 -left-8 text-[#00AEEF] text-xl">✦</div>
                                 <div className="absolute -bottom-2 right-4 text-[#00AEEF] text-lg">✦</div>
-                                <div className="text-6xl lg:text-8xl font-bold text-[#00AEEF] mb-4">100+</div>
-                                <div className="text-xl lg:text-2xl text-white">Experts</div>
+                                <div className="num-rotate-head font-semibold text-[#00AEEF]">100+</div>
+                                <div className="num-rotate-para text-white mb-0">Experts</div>
                             </div>
                         </motion.div>
 
@@ -406,8 +407,8 @@ export default function HomePage() {
                             <div className="relative text-left">
                                 <div className="absolute -top-4 -right-12 text-[#00AEEF] text-2xl">✦</div>
                                 <div className="absolute -bottom-6 -left-8 text-[#00AEEF] text-lg">✦</div>
-                                <div className="text-6xl lg:text-8xl font-bold text-[#00AEEF] mb-4">13+</div>
-                                <div className="text-xl lg:text-2xl text-white">Years & Counting</div>
+                                <div className="num-rotate-head font-semibold text-[#00AEEF]">13+</div>
+                                <div className="num-rotate-para text-white mb-0">Years & Counting</div>
                             </div>
                         </motion.div>
 
@@ -421,8 +422,8 @@ export default function HomePage() {
                             <div className="relative text-left">
                                 <div className="absolute -top-2 right-8 text-[#00AEEF] text-xl">✦</div>
                                 <div className="absolute -bottom-4 -right-4 text-[#00AEEF] text-lg">✦</div>
-                                <div className="text-6xl lg:text-8xl font-bold text-[#00AEEF] mb-4">32+</div>
-                                <div className="text-xl lg:text-2xl text-white">Countries Served</div>
+                                <div className="num-rotate-head font-semibold text-[#00AEEF]">32+</div>
+                                <div className="num-rotate-para text-white mb-0">Countries Served</div>
                             </div>
                         </motion.div>
                     </div>
@@ -430,7 +431,7 @@ export default function HomePage() {
             </section>
 
             {/* What Make Us Different Section */}
-            <section className="relative py-32 overflow-hidden">
+            <section className="relative overflow-hidden what-make-different-sec">
                 <div className="absolute inset-0">
                     <div
                         className="w-full h-full bg-cover bg-center bg-no-repeat opacity-20"
@@ -446,11 +447,11 @@ export default function HomePage() {
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="text-5xl lg:text-6xl font-bold mb-8 text-white leading-tight">
+                            <h2 className="what-make-heading font-semibold text-white">
                                 What Make<br />
                                 Us Different?
                             </h2>
-                            <Button className="bg-[#00AEEF] hover:bg-[#0099d4] text-white px-8 py-3 text-base">About Us</Button>
+                            <Button className="bg-[#00AEEF] hover:bg-[#0099d4] text-white primary-btn-style">Start Your Mission</Button>
                         </motion.div>
 
                         <motion.div
@@ -460,20 +461,60 @@ export default function HomePage() {
                             viewport={{ once: true }}
                             className="space-y-6"
                         >
-                            <div className="flex items-start space-x-4 p-6 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
-                                <div className="w-12 h-12 bg-[#00AEEF]/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <Shield className="w-6 h-6 text-[#00AEEF]" />
+                            <div className="what-make-card-box flex items-start space-x-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
+                                <div className="flex items-center justify-center flex-shrink-0 what-icon-head-txt">
+                                    {/* <Shield className="w-6 h-6 text-[#00AEEF]" /> */}
+                                    <img src="/Security-icon.svg" alt="security-icon" />
+                                    <h3 className="font-semibold text-white mb-0 what-make-card-head">Information Security <br /> Solutions</h3>
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold text-white mb-2">Community Security</h3>
-                                    <p className="text-gray-400 leading-relaxed">
-                                        Building secure digital communities through collaborative threat intelligence
-                                        and shared security protocols that protect entire ecosystems.
+                                    {/* <h3 className="text-xl font-bold text-white mb-2">Community Security</h3> */}
+                                    <p className="what-make-para">
+                                        Protect your business from threats with advanced security measures, real-time monitoring, and threat intelligence.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="what-make-card-box flex items-start space-x-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
+                                <div className="flex items-center justify-center flex-shrink-0 what-icon-head-txt">
+                                    {/* <Shield className="w-6 h-6 text-[#00AEEF]" /> */}
+                                    <img src="/Security-icon.svg" alt="security-icon" />
+                                    <h3 className="font-semibold text-white mb-0 what-make-card-head">Comprehensive <br /> Solutions</h3>
+                                </div>
+                                <div>
+                                    {/* <h3 className="text-xl font-bold text-white mb-2">Community Security</h3> */}
+                                    <p className="what-make-para">
+                                        Secure365 is build on years of battling cybercrime, managing e-commerce platform, and developing technology strategies.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="what-make-card-box flex items-start space-x-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
+                                <div className="flex items-center justify-center flex-shrink-0 what-icon-head-txt">
+                                    {/* <Shield className="w-6 h-6 text-[#00AEEF]" /> */}
+                                    <img src="/Security-icon.svg" alt="security-icon" />
+                                    <h3 className="font-semibold text-white mb-0 what-make-card-head">Victim <br /> Approach</h3>
+                                </div>
+                                <div>
+                                    {/* <h3 className="text-xl font-bold text-white mb-2">Community Security</h3> */}
+                                    <p className="what-make-para">
+                                        Secure365 is built on years of battling cybercrime, managing e-commerce platforms, and developing real-world strategies.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="what-make-card-box flex items-start space-x-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
+                                <div className="flex items-center justify-center flex-shrink-0 what-icon-head-txt">
+                                    {/* <Shield className="w-6 h-6 text-[#00AEEF]" /> */}
+                                    <img src="/Security-icon.svg" alt="security-icon" />
+                                    <h3 className="font-semibold text-white mb-0 what-make-card-head">Advanced <br /> Protection</h3>
+                                </div>
+                                <div>
+                                    {/* <h3 className="text-xl font-bold text-white mb-2">Community Security</h3> */}
+                                    <p className="what-make-para">
+                                        Secure365 provides innovative approaches to combat threats, ensuring the highest security standards.
                                     </p>
                                 </div>
                             </div>
 
-                            <div className="flex items-start space-x-4 p-6 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
+                            {/* <div className="flex items-start space-x-4 p-6 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
                                 <div className="w-12 h-12 bg-[#00AEEF]/20 rounded-lg flex items-center justify-center flex-shrink-0">
                                     <Lock className="w-6 h-6 text-[#00AEEF]" />
                                 </div>
@@ -510,7 +551,7 @@ export default function HomePage() {
                                         detection and automated response systems that stay ahead of cyber threats.
                                     </p>
                                 </div>
-                            </div>
+                            </div> */}
                         </motion.div>
                     </div>
                 </div>

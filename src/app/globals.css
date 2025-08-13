@@ -9363,3 +9363,115 @@ header.clapat-header.classic-menu.invert-header.scrolled div#header-container {
 }
 
 /* End */
+
+/* Rotation circle secion css start */
+
+.first-project-del-box {
+    gap: 180px;
+    left: 30%;
+    transform: translate(0%,-5%) !important;
+}
+.project-del-contBox{
+  margin-top: 80px;
+}
+.num-rotate-head{
+  font-size: 140px;
+  line-height: normal;
+}
+.num-rotate-para{
+  font-size: 32px;
+  line-height: 150%;
+}
+.project-del-contBox p{
+  font-size: 20px;
+  line-height: 150%;
+  max-width: 594px;
+  margin-bottom: 58px;
+}
+.rotation-timeline-sec .primary-btn-style {
+    padding: 24px 32px !important;
+    font-size: 18px !important;
+    line-height: normal;
+    font-weight: normal !important;
+    display: inline-block;
+    height: auto !important;
+}
+.timeline-inner-box{
+  margin-top: 160px;
+}
+.rotation-timeline-sec{
+  padding-top: 180px;
+}
+
+
+/* End */
+
+/* WHat make diffrent section css start */
+
+.what-make-different-sec{
+  padding: 200px 20px;
+}
+.what-make-heading{
+  font-size: 86px;
+  line-height: 120%;
+  margin-bottom: 60px;
+}
+.what-make-different-sec .primary-btn-style {
+    padding: 24px 32px !important;
+    font-size: 18px !important;
+    line-height: normal;
+    font-weight: normal !important;
+    display: inline-block;
+    height: auto !important;
+}
+.what-icon-head-txt{
+  gap: 48px;
+}
+.what-make-card-head{
+  font-size: 24px;
+  line-height: normal;
+}
+.what-make-card-box{
+  gap: 50px;
+  padding: 40px;
+  position: relative;
+  background: linear-gradient(180deg, #FFFFFF10, #FFFFFF10);
+  backdrop-filter: blur(50px);
+}
+.what-make-card-box:before {
+    border: 1px solid;
+    border-image: linear-gradient(
+    270deg,        /* horizontal gradient */
+    #FFFFFF 92%,
+    #4A5765 100% 25%,
+    #D3D9DF 100% 75%,
+    #FFFFFF 100%
+  ) 1;
+    border-radius: 8px;
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* padding: 4px; */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+.what-make-para{
+  font-size: 18px;
+  line-height: 150%;
+  color: #A1A1A1;
+}
+
+/* End */
+
+/* our service section css start */
+
+.our-service-heading{
+  font-size: 86px;
+  line-height: 120%;
+  margin-bottom: 80px;
+}
+
+/* End */
