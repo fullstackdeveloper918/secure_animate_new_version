@@ -91,7 +91,7 @@ Flex Nav
 .flexnav .touch-button:hover,.menu-button{
 	cursor:pointer
 }
-.flexnav{
+/* .flexnav{
 	-webkit-transition:none;
 	-moz-transition:none;
 	-ms-transition:none;
@@ -99,7 +99,7 @@ Flex Nav
 	-webkit-transform-style:preserve-3d;
 	overflow:hidden;
 	max-height:0
-}
+} */
 .flexnav.opacity{
 	opacity:0
 }
@@ -121,14 +121,14 @@ Flex Nav
 	position:relative;
 	overflow:hidden
 }
-.flexnav li a{
+/* .flexnav li a{
 	background:#fff;
 	border-bottom:1px solid rgba(0,0,0,.05);
 	color:#222;
 	display:block;
 	padding:20px 0;
 	z-index:2
-}
+} */
 .oldie .flexnav li ul.open ul.open,.oldie .flexnav ul li:hover ul{
 	margin-left:100%;
 	top:0
@@ -224,16 +224,16 @@ Flex Nav
 		right:auto;
 		max-width:1080px
 	}
-	.flexnav li{
+	/* .flexnav li{
 		position:relative;
 		list-style:none;
 		float:left;
 		display:block;
 		background-color:#a6a6a2
-	}
-	.flexnav li a{
+	} */
+	/* .flexnav li a{
 		border-left:1px solid #acaca1
-	}
+	} */
 	.flexnav li>ul{
 		position:absolute;
 		top:auto;

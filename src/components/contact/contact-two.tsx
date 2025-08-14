@@ -19,7 +19,7 @@ export default function ContactTwo() {
         </div>
       </div> */}
       <div className="container contact-container relative">
-        <img src="/space-bg-Contact.png" alt="" className="absolute bg-space-contact" />
+        {/* <img src="/space-bg-Contact.png" alt="" className="absolute bg-space-contact" /> */}
         <div className="row xl:flex-nowrap flex-wrap reach-inner-box">
           <div className="conatct-col ab-about-category-title-box p-relative col-xl-5 ">
             <div className="contactHeading">

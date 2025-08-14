@@ -20,15 +20,17 @@ if (typeof window !== "undefined") {
 }
 
 export default ScrollTrigger;
-
 !(function (e, t) {
-  "object" == typeof exports && "undefined" != typeof module
-    ? t(exports)
-    : "function" == typeof define && define.amd
-    ? define(["exports"], t)
-    : t(((e = e || self).window = e.window || {}));
+  if (typeof window !== "undefined") {  // Ensure it's running in the browser
+    e = window;  // Use `window` object in the browser context
+    // No need to set `e.window`, we can just use the `window` object directly
+    t(e);  // Pass the `e` (which is now the `window` object) to the module code
+  } else {
+    // Optionally handle non-browser environments if needed
+    console.warn("This script must be run in a browser environment.");
+  }
 })(this, function (e) {
-  "use strict";
+  
   function _defineProperties(e, t) {
     for (var r = 0; r < t.length; r++) {
       var n = t[r];
