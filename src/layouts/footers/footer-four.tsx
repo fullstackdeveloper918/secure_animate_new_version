@@ -6,93 +6,61 @@ import Link from 'next/link';
 
 export default function FooterFour() {
   return (
-    <footer>
-      <div className="tp-footer-3-area dark-bg md:pt-120 pt-50">
-        <div className="container">
-          <div className="row">
-            {/* fsdfsdf */}
-            <div className="col-xl-4 col-lg-6 col-md-6 mb-8">
-              <div className="tp-footer-3-widget-wrapper footer-col-3-1">
-                <div className="tp-footer-3-widget">
-                  <h2 className="tp-footer-3-title">Website map</h2>
-                  <div className="tp-footer-3-menu">
-                    <ul>
-                      <li><Link href="#">Home</Link></li>
-                      <li><Link href="/about-us">About</Link></li>
-                      <li><Link href="/service">Service</Link></li>
-                      <li><Link href="/Why-Choose-Us">Why Choose Us</Link></li>
-                      <li><Link href="#">Blog</Link></li>
-                      <li><Link href="/contact">Contact</Link></li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="tp-footer-3-widget">
-                  <h2 className="tp-footer-3-title">Newsletter</h2>
-                  <div className="tp-footer-3-input-box d-flex align-items-center">
-                    <input type="text" placeholder="Enter Address..." />
-                    <button className="tp-footer-3-btn p-relative">
-                      <span className="icon-1">
-                        <RightArrow clr='#19191A' />
-                      </span>
-                      <span className="icon-2">
-                        <SvgBgSm/>
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-6 col-md-6 mb-8">
-              <div className="tp-footer-3-widget text-md-center footer-col-3-2">
-                <div className="tp-footer-3-logo-box">
-                  <p className="md:mb-100 mb-50 md:mt-0 pt-10">
-                    Drop us a line sed id semper <br />
-                    risus in hend rerit.
-                  </p>
-                  <Link className="tp-footer-3-logo p-relative" href="/">
-                    <Image src={logo} alt="logo" />
-                  </Link>
-                  {/* <p className="tp-footer-3-copyright">
-                    {new Date().getFullYear()} Secure 365 <br /> © All rights reserved
-                  </p> */}
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-4 col-lg-6 col-md-6 mb-8">
-              <div className="tp-footer-3-widget-wrapper footer-col-3-3">
-                <div className="tp-footer-3-widget mb-30">
-                  <h2 className="tp-footer-3-title">Contact</h2>
-                  <div className="tp-footer-2-contact-item">
-                    <span>
-                      <Link href="https://www.google.com/maps/@23.8223596,90.3656686,15z?entry=ttu"
-                      target="_blank">740 NEW SOUTH HEAD RD, TRIPLE BAY SWFW 3108, NEW YORK</Link>
-                      </span>
-                  </div>
-                  <div className="tp-footer-2-contact-item">
-                    <span>P: <Link href="tel:+725214456">+6 314 678 886</Link></span>
-                    <span>E: <Link href="mailto:contact@liko.com">secure@gmail.com</Link></span>
-                  </div>
-                </div>
-                <div className="tp-footer-3-widget">
-                  <h2 className="tp-footer-3-title">Follow</h2>
-                  <div className="tp-footer-3-social">
-                    <Link href="#"><i className="fa-brands fa-twitter"></i></Link>
-                    <Link href="#"><i className="fa-brands fa-facebook-f"></i></Link>
-                    <Link href="#"><i className="fa-brands fa-instagram"></i></Link>
-                    <Link href="#"><i className="fa-brands fa-linkedin-in"></i></Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <footer className='text-white inline-block w-full footer'>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-3 footer-logo-box">
+            <Link className="d-inline-block mb-3" href="/">
+              <Image src={logo} alt="logo" />
+            </Link>
+            <p className="text-white mb-0">Secure 365 © All rights reserved</p>
           </div>
-          <div className="tp-footer-3-copyright text-center borderTop pt-3 pl-8">
-            <p className="tp-footer-4-copyright text-white">
-              {new Date().getFullYear()} Secure 365 © All rights reserved
-            </p>
+          <div className="col-lg-6">
+            <div className="foot-deatil-box flex justify-center">
+            <div className="Contact-foot-data">
+            <h2 className="text-white font-normal">Contact Us</h2>
+            <p className="text-white">740 New South Head RD, Triple <br /> Bay SWFW 3180, New York</p>
+            <p className="text-white mb-0 mt-4">P: <Link href="tel:+6314678886" className="text-white">+6 314 678 886</Link></p>
+            <p className="text-white mb-0">E: <Link href="mailto:secure@gmail.com" className="text-white">secure@gmail.com</Link></p>
+            </div>
+            <div className="quick-foot-data">
+            <h2 className="text-white font-normal">Quick Links</h2>
+            <ul className="list-unstyled m-0 quick-link-list">
+              <li><Link href="#">Home</Link></li>
+              <li><Link href="/about-us">About Us</Link></li>
+              <li><Link href="/service">Service</Link></li>
+              <li><Link href="/Why-Choose-Us">Why Choose Us</Link></li>
+              <li><Link href="#">News</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
+            </ul>
+            </div>
+             </div>
+          </div>
+
+          <div className="col-lg-3">
+            <div className="newsletter-foot-box">
+            <h2 className="text-white font-normal">Newsletter</h2>
+            <div className="d-flex align-items-center">
+              <input type="text" className="form-control me-2 news-foot-input" placeholder="Enter your email" />
+              <button className="btn btn-outline-primary submit-news-btn">
+                <RightArrow clr='#19191A' />
+              </button>
+            </div>
+            <div className="social-icons">
+              <Link href="#"><i className="fa-brands fa-twitter"></i></Link>
+              <Link href="#"><i className="fa-brands fa-facebook-f"></i></Link>
+              <Link href="#"><i className="fa-brands fa-instagram"></i></Link>
+              <Link href="#"><i className="fa-brands fa-linkedin-in"></i></Link>
+            </div>
+            </div>
           </div>
         </div>
+        {/* <div className="text-center">
+          <p className="mb-0">
+            Secure 365 © All rights reserved
+          </p>
+        </div> */}
       </div>
-
     </footer>
   )
 }

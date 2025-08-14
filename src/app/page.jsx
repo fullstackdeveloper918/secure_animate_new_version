@@ -440,8 +440,9 @@ Our approach combines expertise, proactive management, and industry-leading tech
                 </div>
 
                 <div className="relative z-10 container mx-auto px-6">
-                    <div className="grid lg:grid-cols-2 gap-16 items-start">
+                    <div className="flex gap-5 items-start justify-between what-make-outer-box">
                         <motion.div
+                            className="what-make-heading-left-box"
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
@@ -455,60 +456,61 @@ Our approach combines expertise, proactive management, and industry-leading tech
                         </motion.div>
 
                         <motion.div
+                        
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
-                            className="space-y-6"
+                            className="space-y-6 what-make-card-box-inner"
                         >
                             <div className="what-make-card-box flex items-start space-x-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
-                                <div className="flex items-center justify-center flex-shrink-0 what-icon-head-txt">
+                                <div className="flex items-center flex-shrink-0 what-icon-head-txt">
                                     {/* <Shield className="w-6 h-6 text-[#00AEEF]" /> */}
                                     <img src="/Security-icon.svg" alt="security-icon" />
-                                    <h3 className="font-semibold text-white mb-0 what-make-card-head">Information Security <br /> Solutions</h3>
+                                    <h3 className="text-white mb-0 what-make-card-head font-anta">Information Security <br /> Solutions</h3>
                                 </div>
                                 <div>
                                     {/* <h3 className="text-xl font-bold text-white mb-2">Community Security</h3> */}
-                                    <p className="what-make-para">
+                                    <p className="what-make-para m-0">
                                         Protect your business from threats with advanced security measures, real-time monitoring, and threat intelligence.
                                     </p>
                                 </div>
                             </div>
                             <div className="what-make-card-box flex items-start space-x-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
-                                <div className="flex items-center justify-center flex-shrink-0 what-icon-head-txt">
+                                <div className="flex items-center flex-shrink-0 what-icon-head-txt">
                                     {/* <Shield className="w-6 h-6 text-[#00AEEF]" /> */}
-                                    <img src="/Security-icon.svg" alt="security-icon" />
-                                    <h3 className="font-semibold text-white mb-0 what-make-card-head">Comprehensive <br /> Solutions</h3>
+                                    <img src="/Solution-icon.svg" alt="security-icon" />
+                                    <h3 className="text-white mb-0 what-make-card-head font-anta">Comprehensive <br /> Solutions</h3>
                                 </div>
                                 <div>
                                     {/* <h3 className="text-xl font-bold text-white mb-2">Community Security</h3> */}
-                                    <p className="what-make-para">
+                                    <p className="what-make-para m-0">
                                         Secure365 is build on years of battling cybercrime, managing e-commerce platform, and developing technology strategies.
                                     </p>
                                 </div>
                             </div>
                             <div className="what-make-card-box flex items-start space-x-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
-                                <div className="flex items-center justify-center flex-shrink-0 what-icon-head-txt">
+                                <div className="flex items-center flex-shrink-0 what-icon-head-txt">
                                     {/* <Shield className="w-6 h-6 text-[#00AEEF]" /> */}
-                                    <img src="/Security-icon.svg" alt="security-icon" />
-                                    <h3 className="font-semibold text-white mb-0 what-make-card-head">Victim <br /> Approach</h3>
+                                    <img src="/Victim-icon.svg" alt="security-icon" />
+                                    <h3 className="text-white mb-0 what-make-card-head font-anta">Victim <br /> Approach</h3>
                                 </div>
                                 <div>
                                     {/* <h3 className="text-xl font-bold text-white mb-2">Community Security</h3> */}
-                                    <p className="what-make-para">
+                                    <p className="what-make-para m-0">
                                         Secure365 is built on years of battling cybercrime, managing e-commerce platforms, and developing real-world strategies.
                                     </p>
                                 </div>
                             </div>
                             <div className="what-make-card-box flex items-start space-x-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
-                                <div className="flex items-center justify-center flex-shrink-0 what-icon-head-txt">
+                                <div className="flex items-center flex-shrink-0 what-icon-head-txt">
                                     {/* <Shield className="w-6 h-6 text-[#00AEEF]" /> */}
-                                    <img src="/Security-icon.svg" alt="security-icon" />
-                                    <h3 className="font-semibold text-white mb-0 what-make-card-head">Advanced <br /> Protection</h3>
+                                    <img src="/Protection-icon.svg" alt="security-icon" />
+                                    <h3 className="text-white mb-0 what-make-card-head font-anta">Advanced <br /> Protection</h3>
                                 </div>
                                 <div>
                                     {/* <h3 className="text-xl font-bold text-white mb-2">Community Security</h3> */}
-                                    <p className="what-make-para">
+                                    <p className="what-make-para m-0">
                                         Secure365 provides innovative approaches to combat threats, ensuring the highest security standards.
                                     </p>
                                 </div>

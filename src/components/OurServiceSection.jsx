@@ -74,7 +74,7 @@ export default function AchievementsSection({ achievementCards }) {
             {/* Sections container */}
             <div ref={sectionsRef} className="relative z-10">
                 {/* Achievements Section */}
-                <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+                <section className="min-h-screen flex items-center justify-center relative overflow-hidden our-services-sec">
                     <motion.div
                         className="container mx-auto px-6 py-20"
                         initial={{ y: 120, opacity: 0 }}
@@ -102,7 +102,7 @@ export default function AchievementsSection({ achievementCards }) {
                             >
                                 {achievementCards.map((card, idx) => (
                                     <div key={idx} className="w-1/4 flex-shrink-0 p-3">
-                                        <div className="h-full bg-transparent backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-[#00AEEF] transition-all duration-300">
+                                        <div className="h-full bg-transparent backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-[#00AEEF] transition-all duration-300 our-serv-card-box">
                                             <div className="w-12 h-12 bg-[#00AEEF]/20 rounded-lg flex items-center justify-center mb-4">
                                                 {card.icon}
                                             </div>
