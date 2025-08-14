@@ -91,6 +91,7 @@ const NavigatingSection = ({ serviceList }) => {
             {/* Content */}
             <div className="relative z-10 container mx-auto px-6">
                 <div className="grid lg:grid-cols-2 gap-12 items-end relative">
+                <div className="grid lg:grid-cols-2 gap-12 items-end relative">
                     <div>
                         <h2 className="text-white font-semibold navigate-heading">
                             {/* Navigating
@@ -115,6 +116,7 @@ const NavigatingSection = ({ serviceList }) => {
                                 alt="Rocket"
                                 width={700}
                                 height={700}
+                                height={700}
                                 className="absolute top-20 -translate-y-1/2"
                                 style={{ right: 0 }}
                             />
@@ -137,6 +139,8 @@ const NavigatingSection = ({ serviceList }) => {
                                 Our mission? Simple: to help your brand thrive and remain
                                 secure, from initial launch to the far reaches of tomorrow. */}
                             </p>
+                            <Button className="bg-[#00AEEF] hover:bg-[#0099d4] text-white navigate-contact-btn">
+                                Contact Us
                             <Button className="bg-[#00AEEF] hover:bg-[#0099d4] text-white navigate-contact-btn">
                                 Contact Us
                             </Button>

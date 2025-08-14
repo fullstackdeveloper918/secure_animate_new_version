@@ -115,7 +115,9 @@ const AnimationHeader = () => {
   // Define the menu items
   const menuItems = [
     // "Home",
+    // "Home",
     "About Us",
+    "Our Services",
     "Our Services",
     "Why Choose Us",
     "Contact Us",
@@ -162,6 +164,8 @@ const AnimationHeader = () => {
               />
             </Link>
           </div>
+          <div className="menu-link-call-action">
+            <nav
           <div className="menu-link-call-action">
             <nav
             className={
@@ -287,6 +291,7 @@ const AnimationHeader = () => {
                 </div>
               </div>
             </div>
+          </div> */}
           </div> */}
         </div>
       </header>

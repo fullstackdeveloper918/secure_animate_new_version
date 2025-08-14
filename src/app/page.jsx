@@ -155,6 +155,7 @@ export default function HomePage() {
             <ToastContainer />
             {/* Hero Section */}
             <section className="relative min-h-screen flex items-center main-secure-banner">
+            <section className="relative min-h-screen flex items-center main-secure-banner">
                 <div className="absolute inset-[-82px]">
                     <video
                         className="w-full h-full object-cover"
@@ -169,6 +170,8 @@ export default function HomePage() {
 
                 <div className="relative z-10 w-full">
                     <div className="container mx-auto px-6">
+                        <div className="grid lg:grid-cols-2 gap-12 items-end min-h-screen">
+                            <div className="main-head-banner-box">
                         <div className="grid lg:grid-cols-2 gap-12 items-end min-h-screen">
                             <div className="main-head-banner-box">
                                 <AnimatePresence>
@@ -194,6 +197,7 @@ export default function HomePage() {
                                             initial={{ y: 300, opacity: 0 }}
                                             animate={{ y: 200, opacity: 1 }}
                                             transition={{ duration: 0.5, ease: "easeOut" }}
+                                            className="space-y-6 main-banner-para-box"
                                             className="space-y-6 main-banner-para-box"
                                         >
                                             <p className="main-banner-paraTxt text-white mb-0">
@@ -226,6 +230,7 @@ export default function HomePage() {
 
             {/* What Make Us Different Section */}
             <section className="relative overflow-hidden what-make-different-sec">
+            <section className="relative overflow-hidden what-make-different-sec">
                 <div className="absolute inset-0">
                     <div
                         className="w-full h-full bg-cover bg-center bg-no-repeat opacity-20"
@@ -235,13 +240,16 @@ export default function HomePage() {
 
                 <div className="relative z-10 container mx-auto px-6">
                     <div className="flex gap-5 items-start justify-between what-make-outer-box">
+                    <div className="flex gap-5 items-start justify-between what-make-outer-box">
                         <motion.div
+                            className="what-make-heading-left-box"
                             className="what-make-heading-left-box"
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
                         >
+                            <h2 className="what-make-heading font-semibold text-white">
                             <h2 className="what-make-heading font-semibold text-white">
                                 What Make<br />
                                 Us Different?
@@ -250,10 +258,12 @@ export default function HomePage() {
                         </motion.div>
 
                         <motion.div
+                        
                             initial={{ opacity: 0, x: 50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
                             viewport={{ once: true }}
+                            className="space-y-6 what-make-card-box-inner"
                             className="space-y-6 what-make-card-box-inner"
                         >
                             <div className="what-make-card-box flex items-start space-x-4 bg-gray-900/30 rounded-lg border border-gray-800 hover:border-[#00AEEF] transition-colors">
@@ -299,7 +309,7 @@ export default function HomePage() {
                                         Secure365 provides innovative approaches to combat threats, ensuring the highest security standards.
                                     </p>
                                 </div>
-                            </div>
+                            </div> */}
                         </motion.div>
                     </div>
                 </div>

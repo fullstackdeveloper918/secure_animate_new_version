@@ -101,6 +101,7 @@ export default function AchievementsSection({ achievementCards }) {
             <div ref={sectionsRef} className="relative z-10">
                 {/* Achievements Section */}
                 <section className="min-h-screen flex items-center justify-center relative overflow-hidden our-services-sec">
+                <section className="min-h-screen flex items-center justify-center relative overflow-hidden our-services-sec">
                     <motion.div
                         className="container mx-auto px-6 py-20"
                         initial={{ y: 120, opacity: 0 }}
@@ -110,6 +111,7 @@ export default function AchievementsSection({ achievementCards }) {
                     >
                         <motion.h2
                             className="our-service-heading text-white font-semibold"
+                            className="our-service-heading text-white font-semibold"
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -117,6 +119,7 @@ export default function AchievementsSection({ achievementCards }) {
                         >
                             Our
                             <br />
+                            Services
                             Services
                         </motion.h2>
 
