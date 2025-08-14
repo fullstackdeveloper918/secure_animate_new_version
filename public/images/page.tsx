@@ -163,7 +163,6 @@ export default function HomePage() {
                       animate={{ y: 0, opacity: 1 }}
                       transition={{ duration: 1, ease: "easeOut" }}
                       className="main-banner-heading text-white font-semibold mb-0"
-                      className="main-banner-heading text-white font-semibold mb-0"
                     >
                       Mission
                       <br />

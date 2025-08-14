@@ -101,7 +101,6 @@ export default function AchievementsSection({ achievementCards }) {
             <div ref={sectionsRef} className="relative z-10">
                 {/* Achievements Section */}
                 <section className="min-h-screen flex items-center justify-center relative overflow-hidden our-services-sec">
-                <section className="min-h-screen flex items-center justify-center relative overflow-hidden our-services-sec">
                     <motion.div
                         className="container mx-auto px-6 py-20"
                         initial={{ y: 120, opacity: 0 }}
@@ -111,7 +110,6 @@ export default function AchievementsSection({ achievementCards }) {
                     >
                         <motion.h2
                             className="our-service-heading text-white font-semibold"
-                            className="our-service-heading text-white font-semibold"
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -119,7 +117,6 @@ export default function AchievementsSection({ achievementCards }) {
                         >
                             Our
                             <br />
-                            Services
                             Services
                         </motion.h2>
 
@@ -131,38 +128,9 @@ export default function AchievementsSection({ achievementCards }) {
                             >
                                 {achievementCards.map((card, idx) => (
                                     <div key={idx} className="w-1/4 flex-shrink-0 p-3">
-                                        <div className="h-full flex flex-col bg-transparent backdrop-blur-sm border border-gray-700 rounded-lg p-6 py-8 hover:border-[#00AEEF] transition-all duration-300">
-                                            {/* Gradient Background */}
-                                            <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A] via-[#3A4A65] to-[#B2B2B2] opacity-60 rounded-lg"></div>
-
-                                            {/* Image */}
-                                            <div className="flex justify-left mb-4 relative z-10">
-                                                <Image
-                                                    src={card.icon}
-                                                    alt="service"
-                                                    width={60}
-                                                    height={60}
-                                                    className="rounded-lg"
-                                                />
-                                            </div>
-
-                                            {/* Title and Subtitle */}
-                                            <div className="text-left mb-2 relative z-10">
-                                                <span className="text-lg font-semibold text-white">{card.title}</span><br />
-                                                <span className="text-lg font-semibold text-white">{card.subtitle}</span>
-                                            </div>
-
-                                            {/* Description */}
-                                            <p className="text-gray-400 text-sm mb-4 relative z-10">{card.desc}</p>
-
-                                            {/* Button */}
-                                            <div className="flex justify-left relative z-10">
-                                                <button
-                                                    className="w-10 h-10 rounded-2 bg-white/10 border border-white/20 text-white hover:bg-white/20 disabled:opacity-40 transition-all duration-300"
-                                                    aria-label="Next achievements slide"
-                                                >
-                                                    <ArrowUpRight className="w-5 h-5 mx-auto" />
-                                                </button>
+                                        <div className="h-full bg-transparent backdrop-blur-sm border border-gray-700 rounded-lg p-6 hover:border-[#00AEEF] transition-all duration-300">
+                                            <div className="w-12 h-12 bg-[#00AEEF]/20 rounded-lg flex items-center justify-center mb-4">
+                                                {card.icon}
                                             </div>
                                         </div>
                                     </div>
